@@ -1,5 +1,5 @@
 from sqlalchemy.sql.expression import desc
-from app import app, db, bcrypt
+from app import app, db
 from flask import Flask, render_template, flash, redirect, url_for, request
 #from app.forms import Form
 #from app.models import User
@@ -19,4 +19,4 @@ def hello_world():
     
 @app.route('/home')
 def home():
-    return render_template("templates/home.html")
+    return render_template("home.html")
