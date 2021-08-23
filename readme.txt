@@ -1,4 +1,4 @@
-How to run (windows)
+How to run
 Activate the virtual enviroment:    venv\Scripts\activate (windows)
 Activate the virtual enviroment:    . venv/bin/activate (mac)
 install packages:                   pip install flask           pip install flask_sqlalchemy
