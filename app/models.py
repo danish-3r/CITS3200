@@ -4,14 +4,13 @@ from datetime import datetime
 # Cluster Fee model
 class ClusterFee(db.Model):
 
-    # cluster id
-    id = db.Column(db.Integer, primary_key=True)
+    __tablename__ = 'cluster_fee'
 
     # Year
-    year = db.Column(db.String(64), index=True)
+    year = db.Column(db.String(64), primary_key=True)
 
     # Cluster
-    cluster = db.Column(db.Integer, index=True)
+    cluster = db.Column(db.Integer, primary_key = True)
 
     # Fee
     fee = db.Column(db.Integer, index=True)
@@ -41,14 +40,14 @@ class Unit(db.Model):
     # FOE
     foe = db.Column(db.Integer)
 
-    # # Domestic Cluster
-    # dom_cl = db.Column(db.Integer, db.ForeignKey('clusterfee.id'))
+    # Domestic Cluster
+    dom_cl = db.Column(db.Integer, db.ForeignKey('cluster_fee.cluster'))
 
-    # # Non Award Cluster
-    # no_award_cl = db.Column(db.Integer,db.ForeignKey('clusterfee.id'))
+    # Non Award Cluster
+    no_award_cl = db.Column(db.Integer,db.ForeignKey('cluster_fee.cluster'))
 
-    # # Inter On Shore Cluster
-    # inter_cl = db.Column(db.Integer,db.ForeignKey('clusterfee.id'))
+    # Inter On Shore Cluster
+    inter_cl = db.Column(db.Integer,db.ForeignKey('cluster_fee.cluster'))
 
     # New census date
     census_date = db.Column(db.Date)
