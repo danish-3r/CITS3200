@@ -8,7 +8,7 @@
     pointer-events:auto;
   }
   .Page-outer{
-    pointer-events:none;
+    /*pointer-events:none;*/
     z-index:1;
   }
   .Frame{

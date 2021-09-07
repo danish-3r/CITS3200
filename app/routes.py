@@ -12,11 +12,12 @@ from sqlalchemy import func
 from app import app
 from flask import Flask, render_template, url_for
 
-@app.route('/')
-def hello_world():
-    return 'Hello world!'
 
-    
-@app.route('/home')
+@app.route('/')
 def home():
     return render_template("home.html")
+
+
+@app.route('/faq')
+def faq():
+    return render_template("faq.html")
