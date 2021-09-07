@@ -1,5 +1,5 @@
 from app import app, db
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 @app.errorhandler(404)
 def error_404(error):
