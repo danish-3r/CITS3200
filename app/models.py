@@ -13,8 +13,8 @@ class UnitFee(db.Model):
 
     unit_fee = db.Column(db.Integer, index=True)
 
-    def __repr__(self):
-        return '<unit code: {}>'.format(self.unit_code)
+    # def __repr__(self):
+    #     return '<unit code: {}>'.format(self.unit_code)
 
 # Course name model stored the course code and associated coursename
 class Course(db.Model):
