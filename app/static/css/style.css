@@ -86,7 +86,7 @@
   }
   .uwacrest-white-1{
     position:relative;
-    z-index:185;
+    z-index:1;
     pointer-events:none;
     margin-left:193px;
     width:117px;
@@ -4153,7 +4153,6 @@
   }
   .Download{
     position:relative;
-    z-index:12;
     pointer-events:none;
     margin-left:15px;
     width:74px;
@@ -4171,6 +4170,10 @@
     font-weight:600;
     font-size:14px;
     line-height:17px;
+  }
+  .DL_BUTTON
+  {
+    z-index:9999;
   }
   .Download-outer{
     pointer-events:none;
