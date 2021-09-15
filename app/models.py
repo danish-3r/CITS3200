@@ -4,22 +4,32 @@ from datetime import datetime
 
 ### NEW SCHEMA
 
+unit_course = db.Table('unit_course',
+    db.Column('unit_code', db.Integer, db.Foreignkey('unit.unit_code')),
+    db.Column('course_code', db.Integer, db.Foreignkey('course.course_code'))
+    )
+
 # Unit fee model for domestic student
-class UnitFee(db.Model):
-    __tablename__ = "unit_fee"
+class Unit(db.Model):
+    __tablename__ = "unit"
 
     # Unit code is PK
     unit_code = db.Column(db.String(64), primary_key=True)
 
+    unit_name = db.Column(db.String(64))
+
     unit_fee = db.Column(db.Integer, index=True)
 
-    # def __repr__(self):
-    #     return '<unit code: {}>'.format(self.unit_code)
+    def __repr__(self):
+        return '<unit code: {}>'.format(self.unit_code)
 
 # Course name model stored the course code and associated coursename
 class Course(db.Model):
-    __tablename__ = "course_name"
+    __tablename__ = "course"
 
+    # combination id - PK
+    id = db.Column(db.Integer, primary_key=True)
+    
     # Course code is PK
     course_code = db.Column(db.String(64), primary_key=True)
 
@@ -29,8 +39,22 @@ class Course(db.Model):
     # Course fee
     course_fee = db.Column(db.Integer, index=True)
 
+    # Level of study - UG, PG, HDR
+    level = db.Column(db.String(64))
+
+    # location - domestic or international
+    location = db.Column(db.String(64))
+
+    # Start year of study
+    year = db.Column(db.Integer, index=True)
+
     def __repr__(self):
         return '<course code: {}>'.format(self.course_code)
+
+    def list_course(self, level, location):
+        return Course.query.filter(level=level).filter(location=location)
+
+
 
 # # Course fee used for both domestic and internation
 # class CourseFee(db.Model):
@@ -44,35 +68,37 @@ class Course(db.Model):
 #     def __repr__(self):
 #         return '<course code: {}>'.format(self.course_code)
 
-class StudentType(db.Model):
-    __tablename__ = "student_type"
+# class StudentType(db.Model):
+#     __tablename__ = "student_type"
     
-    # Level of study - UG, PG, HDR
-    level = db.Column(db.String(64), primary_key=True)
+#     # Level of study - UG, PG, HDR
+#     level = db.Column(db.String(64), primary_key=True)
 
-    # location - domestic or international
-    location = db.Column(db.String(64), primary_key=True)
+#     # location - domestic or international
+#     location = db.Column(db.String(64), primary_key=True)
 
-    def __repr__(self):
-        return '<student type: {} - {}>'.format(self.level, self.location)
+#     def __repr__(self):
+#         return '<student type: {} - {}>'.format(self.level, self.location)
 
-class Dropdowns(db.Model):
-    __tablename__ = "dropdowns"
+# class Dropdowns(db.Model):
+#     __tablename__ = "dropdowns"
 
-    # combination id - PK
-    id = db.Column(db.Integer, primary_key=True)
+#     # combination id - PK
+#     id = db.Column(db.Integer, primary_key=True)
     
-    level = db.Column(db.String(64), db.ForeignKey('student_type.level'))
+#     level = db.Column(db.String(64), db.ForeignKey('student_type.level'))
 
-    location =  db.Column(db.String(64), db.ForeignKey('student_type.location'))
+#     location =  db.Column(db.String(64), db.ForeignKey('student_type.location'))
 
-    course_code =  db.Column(db.String(64), db.ForeignKey('course_name.course_code'))
+#     course_name =  db.Column(db.String(64), db.ForeignKey('course.course_name'))
 
-    # Year of study
-    years = db.Column(db.Integer, index=True)
+#     # Year of study
+#     years = db.Column(db.Integer, index=True)
 
-    def __repr__(self):
-        return '<id: {} - level: {} - location: {} - course_code: {} - years: {}>'.format(self.id, self.level, self.location, self.course_code, self.years)
+#     def __repr__(self):
+#         return '<id: {} - level: {} - location: {} - course_code: {} - years: {}>'.format(self.id, self.level, self.location, self.course_code, self.years)
+
+    # Return course name based on level and location
 
 
 
