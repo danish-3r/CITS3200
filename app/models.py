@@ -5,8 +5,8 @@ from datetime import datetime
 ### NEW SCHEMA
 
 unit_course = db.Table('unit_course',
-    db.Column('unit_code', db.Integer, db.Foreignkey('unit.unit_code')),
-    db.Column('course_code', db.Integer, db.Foreignkey('course.course_code'))
+    db.Column('unit_code', db.Integer, db.ForeignKey('unit.unit_code')),
+    db.Column('course_code', db.Integer, db.ForeignKey('course.course_code'))
     )
 
 # Unit fee model for domestic student
