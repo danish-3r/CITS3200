@@ -1,0 +1,16 @@
+*.db
+*.sql
+*.out
+.DS_Store
+migrations/*
+virtual-environment/*
+pair-up-venv/*
+.vscode/*
+app/__pycache__/*
+__/__pycache__/*
+__pycache__/*
+__pycache__/
+venv/*
+venv/
+certs/*
+.env
