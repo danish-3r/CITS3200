@@ -1,0 +1,47 @@
+body {
+    background-color: white;
+    font: 16px "TT Norms";
+    color: black;
+}
+
+.div_dark_blue { /* For the heading of the whole webpage */
+    background-color: "#003087";
+    font: 16px "TT Norms";
+    color: white; /* Colour of the text */
+    width: 100%;
+    padding: 20%;
+}
+.div_tan { /*  For the lighter subheading of the whole webpage */
+    background-color: "#A39382";
+    font: bold 24px "TT Norms";
+    color: "#003087";
+    padding: 20%;
+}
+
+.div_faded_blue { /* For the drop down boxes */
+    background-color: "#003087";
+    opacity: 0.5;
+    color: black;
+    border-radius: 30px / 30px; /*  Rounded borders */
+    padding: 20%;
+}
+
+.dropbtn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: black;
+    cursor: pointer;
+    font: 16px "TT Norms";
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+
+}
