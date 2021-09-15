@@ -1,18 +1,98 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset="UTF-8"> 
-        <title>Fee Calculator: FAQs</title>
-        <link href="stylesheet.css">
-    </head>
-    <body>
-        <div class="div_dark_blue">
-            <img src= https://cdn.freebiesupply.com/logos/large/2x/uwa-university-perth-logo-png-transparent.png, alt="UWA logo">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1024, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/faq.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styleguide.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/globals.css')}}" />
+    <meta name="author" content="AnimaApp.com - Design to code, Automated." />
+  </head>
+  <body style="margin: 0; background: #ffffff">
+    <input type="hidden" id="anPageName" name="page" value="faq" />
+    <div class="container-center-horizontal">
+      <div class="faq screen">
+        <div class="page-header">
+          <div class="rectangle-3"></div>
+          <div class="overlap-group8">
+            <a style="color: inherit;" href="http://127.0.0.1:5000"><img class="uwacrest-white-1" src="{{url_for('static', filename='img/uwacrest-white-2@2x.png')}}"  /></a>
+            <div class="search-button">
+              <img class="search" src="{{url_for('static',filename='img/search@2x.svg')}}" />
+              <div class="search-1">SEARCH</div>
+            </div>
+            <div class="menu-button">
+              <img class="menu" src="{{url_for('static',filename='img/menu@2x.svg')}}" />
+              <div class="menu-1">MENU</div>
+            </div>
+          </div>
         </div>
-        <div class="div_tan">Fee Calculator: FAQs</div>
-        <p>Have any questions about how to use our fee calculator? Many of the questions you have may be answered below</p>
-        
-        <div class="dropdown">What is a Commonwealth Supported Place?</div>
-
-    </body>
+        <div class="title">
+          <div class="overlap-group7">
+            <div class="text-8 valign-text-middle montserrat-semi-bold-bunker-20px">
+              <br />If you&#39;re interested in finding out more about cost of studying at UWA, many of the questions
+              you have may be answered below.
+            </div>
+            <h1 class="text-9 valign-text-middle">Frequently Asked Questions</h1>
+          </div>
+        </div>
+        <div class="overlap-group9">
+          <div class="overlap-group1">
+            <div class="rectangle-47 border-1px-shark"></div>
+            <div class="rectangle-48 border-1px-shark"></div>
+            <img class="arrow-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
+            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">
+              What happens if I pay passed the due date?
+            </div>
+          </div>
+          <div class="overlap-group2">
+            <div class="rectangle-47 border-1px-shark"></div>
+            <div class="rectangle-48 border-1px-shark"></div>
+            <img class="arrow-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
+            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">
+              Can I allocate a partial payment?
+            </div>
+          </div>
+          <div class="overlap-group3">
+            <div class="rectangle-47 border-1px-shark"></div>
+            <div class="rectangle-48 border-1px-shark"></div>
+            <img class="arrow-1-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
+            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;" >Where can I see my invoice?</div>
+          </div>
+          <div class="overlap-group4">
+            <div class="rectangle-47-1 border-1px-shark"></div>
+            <div class="rectangle-48-1 border-1px-shark"></div>
+            <img class="arrow-1-2" src="{{url_for('static',filename='img/arrow-1-3@2x.svg')}}" />
+            <p class="text-4 valign-text-middle" style="margin-top: 10px; " >
+              A revised Statement of Account will be issued to you via studentConnect if you change your enrolment after
+              the date of issue of the initial statement and it results in a new fee liability. If there is no change to
+              your fee liability, a new electronic Statement of Account (eSOA) will not be issued.
+            </p>
+            <div class="text-5 valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;" >
+              What happens if I change my enrolment
+            </div>
+          </div>
+          <div class="overlap-group5">
+            <div class="rectangle-47 border-1px-shark"></div>
+            <div class="rectangle-48 border-1px-shark"></div>
+            <img class="arrow-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
+            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">What are my payment options?</div>
+          </div>
+          <div class="overlap-group6">
+            <div class="rectangle-47 border-1px-shark"></div>
+            <div class="rectangle-48 border-1px-shark"></div>
+            <img class="arrow-1-3" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
+            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;" >When do I have to pay my fees?</div>
+          </div>
+        </div>
+        <img class="page-pre-footer" src="{{url_for('static',filename='img/page-pre-footer@1x.png')}}" />
+        <div class="page-footer">
+          <div class="overlap-group"><img class="uwacrest-white-2" src="{{url_for('static',filename='img/uwacrest-white-2@2x.png')}}" /></div>
+          <div class="rectangle-7"></div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
