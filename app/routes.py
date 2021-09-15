@@ -15,7 +15,7 @@ from flask import Flask, render_template, url_for
 
 @app.route('/')
 def home():
-    return render_template("home-page.html")
+    return render_template("prototype-with-course-planner.html")
 
 
 @app.route('/faq')

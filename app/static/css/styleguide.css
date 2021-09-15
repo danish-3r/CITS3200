@@ -1,7 +1,7 @@
 :root { 
   --alto: #dadada;
   --black: #000000;
-  --blue-ribbon: #0038ff;
+  --cape-cod: #424242;
   --governor-bay: #303ba0;
   --gray-nurse: #e8e8e8;
   --white: #ffffff;
@@ -26,28 +26,28 @@
   font-weight: 500;
 }
 
-.montserrat-semi-bold-governor-bay-18px {
+.montserrat-medium-governor-bay-14px {
   color: var(--governor-bay);
-  font-family: var(--font-family-montserrat);
-  font-size: var(--font-size-l);
-  font-style: normal;
-  font-weight: 600;
-}
-
-.montserrat-medium-blue-ribbon-14px {
-  color: var(--blue-ribbon);
   font-family: var(--font-family-montserrat);
   font-size: var(--font-size-m);
   font-style: normal;
   font-weight: 500;
 }
 
-.montserrat-medium-black-18px {
-  color: var(--black);
+.montserrat-medium-cape-cod-14px {
+  color: var(--cape-cod);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.montserrat-semi-bold-governor-bay-18px {
+  color: var(--governor-bay);
   font-family: var(--font-family-montserrat);
   font-size: var(--font-size-l);
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .montserrat-medium-governor-bay-18px {
@@ -58,10 +58,26 @@
   font-weight: 500;
 }
 
-.montserrat-medium-governor-bay-14px {
+.montserrat-medium-governor-bay-24px {
   color: var(--governor-bay);
   font-family: var(--font-family-montserrat);
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.montserrat-semi-bold-governor-bay-24px {
+  color: var(--governor-bay);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.montserrat-medium-black-18px {
+  color: var(--black);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-l);
   font-style: normal;
   font-weight: 500;
 }
@@ -72,6 +88,14 @@
   font-size: var(--font-size-m);
   font-style: normal;
   font-weight: 600;
+}
+
+.montserrat-medium-white-24px {
+  color: var(--white);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 500;
 }
 
 .heebo-bold-white-19px {

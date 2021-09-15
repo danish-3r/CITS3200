@@ -20,6 +20,22 @@
   pointer-events: auto;
 }
 
+.listeners-active,
+.listeners-active * {
+  pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
 }
