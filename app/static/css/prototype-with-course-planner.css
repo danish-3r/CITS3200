@@ -250,6 +250,7 @@
   margin-bottom: 1.0px;
   min-height: 17px;
   min-width: 46px;
+
 }
 
 .arrowgroup {
@@ -325,6 +326,7 @@
   display: flex;
   height: 40px;
   left: 401px;
+  right: 475px;
   min-width: 317px;
   position: absolute;
   top: 0;
