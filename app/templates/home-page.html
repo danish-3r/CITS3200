@@ -38,63 +38,87 @@
           <div class="overlap-group9"><h1 class="title">Fee Calculator</h1></div>
         </div>
         <p class="text-8 montserrat-medium-black-14px">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-          est laborum.
+          The UWA fee Calculator will let you find an price estimate on the units you would like to take. Please follow the prompts to find the right fees and units for you.
         </p>
         <div class="fee-range-head">
           <div class="text-7 montserrat-semi-bold-governor-bay-24px" style="font-family: montserrat;">Calculate your typical fee</div>
           <img class="line-1" src="{{url_for('static', filename='img/line-1@1x.svg')}}" />
         </div>
+
+
         <div class="fee-range-questionaire">
           <div class="overlap-group6-1">
             <div class="flex-row">
               <div class="text-5-1 montserrat-medium-governor-bay-18px">Where are you located?</div>
-              <a href="domestic-international.html#domestic-international">
+              
+                <label for="question_1"></label>
                 <div class="dropdown-menu-1">
                   <div class="overlap-group border-1px-alto">
-                    <div class="select montserrat-medium-governor-bay-14px">Select</div>
+                    <div class="select montserrat-medium-governor-bay-14px" id="select_1">
+                      <select name="question_1" id="question_1">
+                      <option value="International">International</option>
+                      <option value="Domestic">Domestic</option>
+                      </select>
+                    </div>
                     <div class="arrowgroup">
+                      
                       <div class="overlap-group-1"><img class="vector" src="{{url_for('static', filename='img/vector@2x.png')}}" /></div>
                       <div class="overlap-group1"><img class="vector" src="{{url_for('static', filename='img/vector@2x.png')}}" /></div>
                     </div>
-                  </div></div
-              ></a>
+                  </div>
+                </div>
+                
+                
+          
             </div>
             <div class="flex-row-1">
               <div class="type-of-study montserrat-medium-governor-bay-18px">Type of study?</div>
-              <a href="domestic-international.html#domestic-international">
                 <div class="dropdown-menu-2">
                   <div class="overlap-group border-1px-alto">
-                    <div class="select montserrat-medium-governor-bay-14px">Select</div>
+                    <div class="select montserrat-medium-governor-bay-14px">
+                      <select name="question_2" id="question_2">
+                        <option value="Prostgraduate">Prostgraduate</option>
+                        <option value="Undergradutate">Undergradutate</option>
+                      </select>
+
+                    </div>
                     <div class="arrowgroup">
                       <div class="overlap-group-1"><img class="vector" src="{{url_for('static', filename='img/vector@2x.png')}}" /></div>
                       <div class="overlap-group1"><img class="vector" src="{{url_for('static', filename='img/vector@2x.png')}}" /></div>
                     </div>
-                  </div></div
-              ></a>
+                  </div>
+                </div>
             </div>
             <div class="overlap-group-2">
               <div class="text-6-1 montserrat-medium-governor-bay-18px">When are you planning to start?</div>
-              <a href="domestic-international.html#domestic-international">
+              
                 <div class="dropdown-menu">
                   <div class="overlap-group border-1px-alto">
-                    <div class="select montserrat-medium-governor-bay-14px">Select</div>
+                    <div class="select montserrat-medium-governor-bay-14px">
+                      <select name="question_3" id="question_3">
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                    </select>
+                  </div>
                     <div class="arrowgroup">
                       <div class="overlap-group-1"><img class="vector" src="{{url_for('static', filename='img/vector@2x.png')}}" /></div>
                       <div class="overlap-group1"><img class="vector" src="{{url_for('static', filename='img/vector@2x.png')}}" /></div>
                     </div>
-                  </div></div
-              ></a>
+                  </div>
+                </div>
             </div>
             <div class="overlap-group-2">
               <div class="text-4-1 montserrat-medium-governor-bay-18px">Which bachelor do you want to complete?</div>
               <a href="domestic-international.html#domestic-international">
                 <div class="dropdown-menu">
                   <div class="overlap-group border-1px-alto">
-                    <div class="select montserrat-medium-governor-bay-14px">Select</div>
+                    <div class="select montserrat-medium-governor-bay-14px">
+                      <select name="question_3" id="question_3">
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Data Science">Data Science</option>
+                      </select>
+
+                    </div>
                     <div class="arrowgroup">
                       <div class="overlap-group-1"><img class="vector" src="{{url_for('static', filename='img/vector@2x.png')}}" /></div>
                       <div class="overlap-group1"><img class="vector" src="{{url_for('static', filename='img/vector@2x.png')}}" /></div>
@@ -106,7 +130,7 @@
         </div>
         <div class="fee-range-result">
           <div class="text-2-1 montserrat-semi-bold-governor-bay-18px">
-            Typical fee range for _________ study starting in _________
+            Typical fee range for computer science study starting in 2022
           </div>
           <div class="overlap-group2 montserrat-semi-bold-governor-bay-18px">
             <div class="course-credit-point">Course credit <br />point</div>
