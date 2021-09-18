@@ -1,0 +1,74 @@
+{% from 'extra_links.html' import extra_links %}
+{% from 'contact_us.html' import contact_us %}
+{% from 'dropdown.html' import dropdown %}
+{% from 'footer.html' import footer %}
+
+<!-- import the html code from html files -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/dropdown.css') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+
+    <script id="uwacore-rebrand-script" type="text/javascript"
+        src="//static.weboffice.uwa.edu.au/visualid/core-rebrand/js/uwacore.js?refresh=46_260"></script>
+    <link id="uwacore-rebrand-style" rel="stylesheet" type="text/css"
+        href="//static.weboffice.uwa.edu.au/visualid/core-rebrand/css/uwacore.css?refresh=46_260" />
+    <link rel="stylesheet" type="text/css"
+        href="//static.weboffice.uwa.edu.au/visualid/lib/font-awesome/font-awesome.4.latest.css?r4" />
+    <link rel="stylesheet" type="text/css"
+        href="//static.weboffice.uwa.edu.au/visualid/core-rebrand/css/megamenu.css?r5" />
+    <script async type="text/javascript"
+        src="//static.weboffice.uwa.edu.au/visualid/core-rebrand/js/megamenu.js?r5"></script>
+
+
+    <title>Base</title>
+</head>
+
+<!-- body tag classes are from style sheets and javascript files from UWA ^ -->
+
+<body class=" core-corp core-corp site-handbooks style-version-two landing-page year2021 ">
+
+
+
+
+    {{ dropdown() }}
+
+    <div id="centrecontainer" role="main">
+        <div class="contentwrapper">
+            <div class="content">
+                <!-- ########## START MAIN CONTENT ########## -->
+
+                {{ extra_links() }}
+
+                {{ contact_us() }}
+
+                {{ footer() }}
+
+                <!-- ########## END MAIN CONTENT ########## -->
+            </div>
+            <!--end .content-->
+        </div>
+        <!--end .contentwrapper-->
+    </div>
+    <!--end #centrecontainer-->
+
+
+
+
+
+
+</body>
+
+<script src="{{ url_for('static', filename='javascripts/dropdown.js') }}"></script>
+
+
+
+</html>
