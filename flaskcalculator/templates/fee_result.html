@@ -1,0 +1,31 @@
+<!-- html code encapsulated into a function using Jinja -->
+{% macro fee_result() %}
+
+<div class="fee-result">
+    <div id="result-title">
+        <h4>Typical fee range for  _________  study starting in __________ .</h3>
+    </div>
+
+    <table class="result-table table table-bordered">
+        <thead class= "thead-dark" id="result-header">
+            <tr>
+                <th>Course credit points</th>
+                <th>Annual credit points</th>
+                <th>Average annual fee</th>
+                <th>Typical fee range</th>
+            </tr>
+        </thead>
+        <tbody id="result-body">
+            <tr>
+                <td class="result-item">144</td>
+                <td class="result-item">48</td>
+                <td class="result-item">$8,747</td>
+                <td class="result-item">$3,950-$$14,500</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+{% endmacro %}
+<!-- DO NOT CHANGE element id, element name, element value -->
