@@ -23,4 +23,4 @@ def dropdown():
     
 @app.route('/faq')
 def faqs():
-    return render_template('faq.html')
+    return render_template('faq_base.html')
