@@ -4,6 +4,7 @@
 {% from 'extra_links.html' import extra_links %}
 {% from 'contact_us.html' import contact_us %}
 {% from 'footer.html' import footer %}
+{% from 'faq.html' import faq %}
 
 <!-- import the html code from html files -->
 
@@ -59,6 +60,16 @@
                 {{ fee_result() }}
 
                 {{ course_planner() }}
+
+                <br><br>
+
+                <a href="/faq">
+                    <div class="dropDown">
+                        <div class="questionaire container">
+                            <b style="margin-left: 400px;">FAQs</b>
+                        </div>
+                    </div>
+                </a>
 
                 {{ extra_links() }}
 
