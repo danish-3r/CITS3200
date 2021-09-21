@@ -1,47 +1,48 @@
 <!-- html code encapsulated into a function using Jinja -->
 {% macro dropdown() %}
 
-<div class= "dropDown">
-<h3>Calculate Your Typical Fee</h3>
-<div class= "questionaire">
-    <div>
-        <label for="locations">Where are you located?</label>
-        <select name="locations" id="locations" onchange="dropDownChange()">
-            <option disabled selected hidden>Select</option>
-            <option value="Domestic">Domestic</option>
-            <option value="International">International</option>
-        </select>
+<div class="dropDown">
+    <h3>Calculate Your Typical Fee</h3>
+    <div class="questionaire container">
+        <div class="row">
+            <div class="col">
+                <label class="question-label" for="locations">Where are you located?</label>
+                <label class="question-label" for="levels">What type of course would you like to complete?</label>
+                <label class="question-label" for="years">Which year would you like to start?</label>
+                <label class="question-label" for="courses">Which course would you like to complete?</label>
+            </div>
+            <div class="col-md-auto"></div>
+            <div class="col col-lg-5">
+                <div class="question-dropdown float-right">
+                    <select name="locations" id="locations" onchange="dropDownChange()">
+                        <option disabled selected hidden>Select</option>
+                        <option value="Domestic">Domestic</option>
+                        <option value="International">International</option>
+                    </select>
+                </div>
+                <div class="question-dropdown float-right">
+                    <select name="levels" id="levels" onchange="dropDownChange()">
+                        <option disabled selected hidden>Select</option>
+                        <option value="Undergraduate">Undergraduate</option>
+                        <option value="Postgraduate">Postgraduate</option>
+                        <option value="Higher Degree by Research">Higher Degree by Research</option>
+                    </select>
+                </div>
+                <div class="question-dropdown float-right">
+                    <select name="years" id="years">
+                        <option disabled selected hidden>Select</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+                <div class="question-dropdown float-right">
+                    <select name="courses" id="courses">
+                        <option disabled selected hidden>Select</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
-    
-    <div>
-        <label for="levels">What type of course would you like to complete?</label>
-        <select name="levels" id="levels" onchange="dropDownChange()">
-            <option disabled selected hidden>Select</option>
-            <option value="Undergraduate">Undergraduate</option>
-            <option value="Postgraduate">Postgraduate</option>
-            <option value="Higher Degree by Research">Higher Degree by Research</option>
-        </select>
-    </div>
-    <br>
-    
-    <div>
-        <label for="years">Which year would you like to start?</label>
-        <select name="years" id="years">
-            <option disabled selected hidden>Select</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-        </select>
-    </div>
-    <br>
-
-    <div>
-        <label for="courses">Which course would you like to complete?</label>
-        <select name="courses" id="courses">
-            <option disabled selected hidden>Select</option>
-        </select>
-    </div>
-</div>
 </div>
 
 
