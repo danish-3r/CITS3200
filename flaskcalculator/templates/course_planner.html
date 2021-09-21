@@ -1,6 +1,6 @@
 <!-- html code encapsulated into a function using Jinja -->
 {% macro course_planner() %}
-
+<div style="margin: auto; margin-left: 100px;">  
 <div class= "course_planner">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheets/prototype-with-course-planner.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheets/styleguide.css')}}" />
@@ -10,7 +10,7 @@
 
     <div class="course-planner-intro">
         <div class="flex-col-1">
-          <div class="text-36 montserrat-semi-bold-governor-bay-24px" style="font-family: montserrat;" >Create your own course planner</div>
+          <div class="text-36" style="font-size: xx-large; " >Create your own course planner</div>
           <img class="line-2" src="{{url_for('static', filename='img/line-2@1x.svg')}}" />
         </div>
         <div class="flex-row-2">
@@ -55,8 +55,8 @@
             <div class="overlap-group-9"><div class="full-time">Full Time</div></div>
             <img class="line-11" src="{{url_for('static', filename='img/line-11@1x.svg')}}" />
           </div>
-          <div class="part-time montserrat-semi-bold-governor-bay-24px" style="font-family: montserrat;">Part Time</div>
-          <div class="custom montserrat-semi-bold-governor-bay-24px" style="font-family: montserrat;">Custom</div>
+          <div class="part-time" style="font-size: large;">Part Time</div>
+          <div class="custom" style="font-size: large;">Custom</div>
           <img class="line-12" src="{{url_for('static', filename='img/line-12@2x.svg')}}" />
         </div>
       </div>
@@ -394,7 +394,7 @@
 
 </div>
 
-
+</div>
 
 {% endmacro %}
 <!-- DO NOT CHANGE element id, element name, element value -->
