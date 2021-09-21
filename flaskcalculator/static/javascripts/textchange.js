@@ -1,6 +1,6 @@
 function textChange()
 {
     let originaltitle = document.getElementById("result-title");
-    originaltitle.replaceChild("_________", "course");
-    originaltitle.replaceChild("__________", "year");
+    originaltitle.replace("_________", "course");
+    originaltitle.replace("__________", "year");
 }
