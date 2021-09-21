@@ -18,5 +18,5 @@ def dropdown():
     coursesList = [c.course_name for c in filteredCourses] #list comprehensoin to extract course name
 
     res = make_response( jsonify({"courseList":coursesList}) ) #make a reponse and send it back to the dropdown.js
-    print(res)
+    print(coursesList, res, "---------------------")
     return res #return a json containing list of courses
