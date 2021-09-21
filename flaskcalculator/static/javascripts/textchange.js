@@ -1,5 +1,5 @@
 function textChange()
 {
-    var originaltitle = document.getElementById("Fee_Res_Header");
-    Fee_Res_Header.firstChild.textChange
+    var originaltitle = document.getElementById("result-header");
+    originaltitle.firstChild.nodeValue = "Estimated fee for course undertaken in year.";
 }
