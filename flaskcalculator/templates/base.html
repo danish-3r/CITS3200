@@ -4,6 +4,7 @@
 {% from 'extra_links.html' import extra_links %}
 {% from 'contact_us.html' import contact_us %}
 {% from 'footer.html' import footer %}
+{% from 'faq.html' import faq %}
 
 <!-- import the html code from html files -->
 
@@ -58,7 +59,15 @@
 
                 {{ fee_result() }}
 
-                {{ course_planner() }}
+                {{ course_planner() }}'
+
+                <br><br>
+                
+                <a href="/faq">
+                    <div class="questionaire">
+                        FAQs
+                    </div>
+                </a>
 
                 {{ extra_links() }}
 
