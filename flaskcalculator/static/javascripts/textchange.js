@@ -1,5 +1,6 @@
 function textChange()
 {
-    var originaltitle = document.getElementById("result-header");
-    originaltitle.firstChild.nodeValue = "Estimated fee for course undertaken in year.";
+    let originaltitle = document.getElementById("result-header");
+    originaltitle.replace("_________", "course");
+    originaltitle.replace("__________", "year");
 }
