@@ -1,18 +1,44 @@
 <!-- html code encapsulated into a function using Jinja  -->
 {% macro course_planner() %}
+
+<div class= "coursePlanner_temp">
+  <h3>Create Your Own Course Planner</h3>
+
+  <!-- <div class = "degree">
+    <div class = "col">
+      <label for="degreeType">Degree Type:</label>   
+      <label for="degreeMajor">Degree Major:</label>
+    </div>
+    
+    <div class="float-right">
+      <select name="degreeType" id="degreeType" onchange="dropDownChange()">
+        <option disabled selected hidden>Select</option>
+        <option value="Undergraduate">Undergraduate</option>
+        <option value="Postgraduate">Postgraduate</option>
+        <option value="Higher Degree by Research">Higher Degree by Research</option>
+      </select>
+    </div>
+    <div class="question-dropdown float-right">
+      <select name="degreeMajor" id="degreeMajor" onchange="dropDownChange()">
+          <option disabled selected hidden>Select</option>
+          <option value="compSci">Computer Science</option>
+          <option value="dataSci">Data Science</option>
+      </select>
+  </div>
+  </div>       -->
+</div>
+
 <div style="margin: auto; margin-left: 100px;">  
-<div class= "course_planner">
+    <div class= "course_planner">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheets/prototype-with-course-planner.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheets/styleguide.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheets/globals.css')}}" />
-    
-    
 
     <div class="course-planner-intro">
-        <div class="flex-col-1">
+        <!-- <div class="flex-col-1">
           <div class="text-36" style="font-size: xx-large; " >Create your own course planner</div>
           <img class="line-2" src="{{url_for('static', filename='img/line-2@1x.svg')}}" />
-        </div>
+        </div> -->
         <div class="flex-row-2">
           <div class="overlap-group4">
             <div class="flex-col-2 montserrat-medium-governor-bay-18px">
