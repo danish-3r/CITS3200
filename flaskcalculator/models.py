@@ -10,6 +10,11 @@ class Course(db.Model):
     select_major = db.Column(db.Boolean, nullable=False)
     course_fee = db.Column(db.Integer, nullable=False)
 
+    def serialize(self):
+        return { "id":self.id, "course_code":self.course_code, "course_name":self.course_name, 
+                 "level":self.level, "location":self.location, "credit_points":self.credit_points,
+                 "select_major":self.select_major, "course_fee":self.course_fee }
+
 class Unit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     unit_code = db.Column(db.String(20), nullable=False)

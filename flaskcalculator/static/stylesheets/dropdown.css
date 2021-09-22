@@ -29,7 +29,7 @@ background: rgba(246, 248, 252, 1);
   border-radius: 20px;
 }
 
-.question-label {
+.questionaire .question-label {
   text-align: left;
   font-size: 20px;
   clear: both;
@@ -37,14 +37,14 @@ background: rgba(246, 248, 252, 1);
   margin: 5px 20px;
 }
 
-.question-dropdown {
+.questionaire .question-dropdown {
   clear: both;
   float: left;
   margin: 5px 20px;
   width: 400px;
 }
 
-select {
+.questionaire select {
   padding: 2px 10px;
   border-radius: 5px;
   background-color: rgba(219, 219, 219, 1);
