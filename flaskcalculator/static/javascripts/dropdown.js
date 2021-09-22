@@ -1,5 +1,3 @@
-
-
 function dropDownChange()
 {
     var locatoin = document.getElementById("locations") //get value stored in option tag
@@ -30,7 +28,6 @@ function dropDownChange()
         {
             var options =  '<option disabled="" selected="" hidden="">Select</option>' //update innerhtml of coursed dropdown
             var id = 1;
-            console.log(data.courseList[0]);
             
             for(course of data.courseList )
             {
@@ -49,29 +46,25 @@ function name_change()
 {
     var courses = document.getElementById("courses")
     var course_name = document.getElementById("course_name")
-
     course_name.innerHTML = courses.value;
-
-
 }
 function year_change()
 {
     var year = document.getElementById("years")
-
     var year_result = document.getElementById("course_year")
     year_result.innerHTML = year.value;
-
-
 }
 
-function price_change(name_result)
+function price_change()
 {
-
     var CCP = document.getElementById("CCP");
     var ACP = document.getElementById("ACP");
     var ANF = document.getElementById("ANF");
     var TFR = document.getElementById("TFR");
 
+    var courses = document.getElementById("courses")
+    name_result = courses.value;
+    
     switch(name_result)
     {
         case "Master of Education - Thesis & Coursework":
