@@ -3,7 +3,7 @@
 function updateFeeResults()
 {
     var course = document.getElementById("courses");
-    
+
     var filtercourseid = //create a json data
     {
         courseid : course.value,
@@ -32,4 +32,12 @@ function updateFeeResults()
         }
         
     ))
+}
+
+function blankFeeResults()
+{
+    document.getElementById("resultCourse").textContent="______";
+    document.getElementById("resultYear").textContent="______";
+    document.getElementById("ANF").textContent="";
+    document.getElementById("TFR").textContent="";
 }

@@ -11,7 +11,7 @@
         </div>
 
         <div class="col-sm-5">
-            <select name="types" id="types" onchange="dropDownChange()">
+            <select name="types" id="types" onchange="dropDownChange(); blankFeeResults()">
                 <option disabled selected hidden>Select</option>
                 <option value="Domestic">Domestic</option>
                 <option value="International">International</option>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="col-sm-5">
-            <select name="levels" id="levels" onchange="dropDownChange()">
+            <select name="levels" id="levels" onchange="dropDownChange(); blankFeeResults()">
                 <option disabled selected hidden>Select</option>
                 <option value="Undergraduate">Undergraduate</option>
                 <option value="Postgraduate">Postgraduate</option>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="col-sm-5">
-            <select name="years" id="years" onchange="dropDownChange()">
+            <select name="years" id="years" onchange="dropDownChange(); blankFeeResults()">
                 <option disabled selected hidden>Select</option>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
