@@ -7,11 +7,11 @@
 <div class="container questionaire">
     <div class="row justify-content-center p-1 ">
         <div class="col-sm-5">
-            <label for="locations">What type of student are you?</label>
+            <label for="types">What type of student are you?</label>
         </div>
 
         <div class="col-sm-5">
-            <select name="locations" id="locations" onchange="dropDownChange()">
+            <select name="types" id="types" onchange="dropDownChange()">
                 <option disabled selected hidden>Select</option>
                 <option value="Domestic">Domestic</option>
                 <option value="International">International</option>
@@ -40,10 +40,10 @@
         </div>
 
         <div class="col-sm-5">
-            <select name="years" id="years">
+            <select name="years" id="years" onchange="dropDownChange()">
                 <option disabled selected hidden>Select</option>
-                <option value="2021">2021</option>
                 <option value="2022">2022</option>
+                <option value="2023">2023</option>
             </select>
         </div>
     </div>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="col-sm-5">
-            <select name="courses" id="courses">
+            <select name="courses" id="courses" onchange="updateFeeResults()">
                 <option disabled selected hidden>Select</option>
             </select>
         </div>
