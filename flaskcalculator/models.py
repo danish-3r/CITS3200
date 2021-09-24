@@ -31,6 +31,7 @@ class Course(db.Model):
     level = db.Column(db.String(10), nullable=False)
     type = db.Column(db.String(20), nullable=False)
     year = db.Column(db.Integer, nullable=False)
+    duration = db.Column(db.Float, nullable=False)
     credit_points = db.Column(db.Integer, nullable=False)
     course_fee = db.Column(db.Integer, nullable=False)
 
