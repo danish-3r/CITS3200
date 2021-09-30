@@ -21,7 +21,7 @@ Prerequisites: Install python3 on the machine
 ### Install sqlite
 
 + On *nix  
-    ```sudo apt-get install sqlite```
+    ```sudo apt-get install sqlite3```
 + On windows, follow the link  
     [https://www.sqlitetutorial.net/download-install-sqlite/]([https://www.sqlitetutorial.net/download-install-sqlite/)
 
