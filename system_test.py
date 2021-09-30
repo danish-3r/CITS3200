@@ -1,16 +1,16 @@
 from selenium import webdriver
 from flaskcalculator import app, db
 import unittest, os, time
+from selenium.webdriver.support.ui import Select
 
 # get the path of ChromeDriverServer
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class SystemTest(unittest.TestCase):
-    driver = None
-    
+
     def setUp(self):
-        db.init_app(app)
-        db.create_all()
+        # db.init_app(app)
+        # db.create_all()
 
         # Windows chromedriver
         chromedriver = os.path.join(basedir, 'drivers','chromedriver_win32', 'chromedriver.exe')
@@ -23,8 +23,6 @@ class SystemTest(unittest.TestCase):
         # Mac chromedriver
         # chromedriver = os.path.join(basedir, 'drivers','chromedriver_mac64', 'chromedriver.exe')
 
-        # geckodriver = os.path.join(basedir, 'drivers', 'geckodriver.exe')
-        # self.driver = webdriver.Firefox(executable_path=geckodriver)
         
         if not self.driver:
              self.skipTest('Web browser not available')
@@ -37,18 +35,32 @@ class SystemTest(unittest.TestCase):
             self.driver.close()
 
 
-
-# self.driver.get('http://localhost:5000/')
-
-# chromedriver = os.path.join(basedir, 'drivers','chromedriver_win32', 'chromedriver.exe')
-# print("chromedriver: ", chromedriver)
-# driver = webdriver.Chrome(executable_path=chromedriver)
-# driver.maximize_window()
-# driver.get('http://localhost:5000/')
-
     def test_dropdowns(self):
-        # Invalid sign up - username already exists
-        time.sleep(5)
+        
+        # Select type of student
+        types = Select(self.driver.find_element_by_id('types'))  # find the types menu 
+        types_value = types.select_by_visible_text('Domestic')
+        time.sleep(1)
+        self.driver.implicitly_wait(5)
+
+        # Select level of study
+        levels = Select(self.driver.find_element_by_id('levels'))
+        levels.select_by_visible_text('Undergraduate')
+        time.sleep(1)
+        self.driver.implicitly_wait(5)
+
+        # Select starting year
+        years = Select(self.driver.find_element_by_id('years'))
+        years.select_by_visible_text('2022')
+        time.sleep(1)
+        self.driver.implicitly_wait(5)
+
+        # Select course to complete - depending on the three above options
+        course = Select(self.driver.find_element_by_id('courses'))
+        time.sleep(1)
+        self.driver.implicitly_wait(5)
+
+
         self.assertEqual(1,1)
 
 if __name__=='__main__':
