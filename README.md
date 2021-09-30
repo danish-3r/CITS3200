@@ -12,10 +12,10 @@ Prerequisites: Install python3 on the machine
     ```python3 -m venv venv```
 2. start the virtual environment  
     + On *nix  
-        ```source venv/bin/activate```
+        ```source venv/bin/activate```  
     + On windows  
-        ```venv\Scripts\activate```
-3 install all dependecies  
+        ```venv\Scripts\activate```  
+3. install all dependecies  
     ```pip install -r requirements.txt```
 
 ### Install sqlite
@@ -54,7 +54,7 @@ System test supports running test on Chrome using chromedriver. The newest chrom
 
 To test on Mac or Linux, simply uncomment the chromedriver part in the system_test.py  
 
-To run system tests, first you need to boot up the flask app on one tab
-```flask run```
-Then you can run the system test on another tab by
-```python3 system_test.py```
+To run system tests, first you need to boot up the flask app on one tab  
+```flask run```  
+Then you can run the system test on another tab by  
+```python3 system_test.py```  
