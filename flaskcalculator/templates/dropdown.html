@@ -1,48 +1,66 @@
 <!-- html code encapsulated into a function using Jinja -->
 {% macro dropdown() %}
 
-<div class="dropDown">
-    <h3>Calculate Your Typical Fee</h3>
-    <div class="questionaire container">
-        <div class="row">
-            <div class="col">
-                <label class="question-label" for="locations">Where are you located?</label>
-                <label class="question-label" for="levels">What type of course would you like to complete?</label>
-                <label class="question-label" for="years">Which year would you like to start?</label>
-                <label class="question-label" for="courses">Which course would you like to complete?</label>
-            </div>
-            <div class="col-md-auto"></div>
-            <div class="col col-lg-5">
-                <div class="question-dropdown float-right">
-                    <select name="locations" id="locations" onchange="dropDownChange()">
-                        <option disabled selected hidden>Select</option>
-                        <option value="Domestic">Domestic</option>
-                        <option value="International">International</option>
-                    </select>
-                </div>
-                <div class="question-dropdown float-right">
-                    <select name="levels" id="levels" onchange="dropDownChange()">
-                        <option disabled selected hidden>Select</option>
-                        <option value="Undergraduate">Undergraduate</option>
-                        <option value="Postgraduate">Postgraduate</option>
-                        <option value="Higher Degree by Research">Higher Degree by Research</option>
-                    </select>
-                </div>
-                <div class="question-dropdown float-right">
-                    <select name="years" id="years" onchange="year_change()">
-                        <option disabled selected hidden>Select</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                    </select>
-                </div>
-                <div class="question-dropdown float-right">
-                    <select name="courses" id="courses" onchange="name_change()" onchange="price_change()">
-                        <option disabled selected hidden>Select</option>
-                    </select>
-                </div>
-            </div>
+
+<h3>Calculate Your Typical Fee</h3>
+
+<div class="container questionaire">
+    <div class="row justify-content-center p-1 ">
+        <div class="col-sm-5">
+            <label for="types">What type of student are you?</label>
+        </div>
+
+        <div class="col-sm-5">
+            <select name="types" id="types" onchange="dropDownChange(); blankFeeResults()">
+                <option disabled selected hidden>Select</option>
+                <option value="Domestic">Domestic</option>
+                <option value="International">International</option>
+            </select>
         </div>
     </div>
+
+    <div class="row justify-content-center p-1">
+        <div class="col-sm-5">
+            <label for="levels">What type of course would you like to complete?</label>
+        </div>
+
+        <div class="col-sm-5">
+            <select name="levels" id="levels" onchange="dropDownChange(); blankFeeResults()">
+                <option disabled selected hidden>Select</option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Postgraduate">Postgraduate</option>
+                <option value="Higher Degree by Research">Higher Degree by Research</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row justify-content-center p-1">
+        <div class="col-sm-5">
+            <label for="years">Which year would you like to start?</label>
+        </div>
+
+        <div class="col-sm-5">
+            <select name="years" id="years" onchange="dropDownChange(); blankFeeResults()">
+                <option disabled selected hidden>Select</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row justify-content-center p-1">
+        <div class="col-sm-5">
+            <label for="courses">Which course would you like to complete?</label>
+
+        </div>
+
+        <div class="col-sm-5">
+            <select name="courses" id="courses" onchange="updateFeeResults()">
+                <option disabled selected hidden>Select</option>
+            </select>
+        </div>
+    </div>
+
 </div>
 
 
