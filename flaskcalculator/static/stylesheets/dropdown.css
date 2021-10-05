@@ -1,12 +1,23 @@
+/* COLORS NEEDED 
+background: rgba(48, 59, 160, 1);
+background: rgba(219, 219, 219, 1);
+background: rgba(232, 232, 232, 1);
+background: rgba(184, 184, 184, 1);
+background: rgba(246, 248, 252, 1);
+ */
+
 /* Base Style */
+
+.headings {
+}
 
 .introduction {
   text-align: center;
 }
 
-/* Questionaire Dropdown style */
+/* Dropdown style */
 .dropDown {
-  margin: 60px 80px;
+  margin: 60px 140px;
 }
 
 .questionaire {
@@ -18,7 +29,7 @@
   border-radius: 20px;
 }
 
-.question-label {
+.questionaire .question-label {
   text-align: left;
   font-size: 20px;
   clear: both;
@@ -26,14 +37,14 @@
   margin: 5px 20px;
 }
 
-.question-dropdown {
+.questionaire .question-dropdown {
   clear: both;
   float: left;
   margin: 5px 20px;
   width: 400px;
 }
 
-select {
+.questionaire select {
   padding: 2px 10px;
   border-radius: 5px;
   background-color: rgba(219, 219, 219, 1);
@@ -78,46 +89,4 @@ select.option {
 select:-moz-focusring {
   color: transparent;
   /* text-shadow: 0 0 0 #000; */
-}
-
-.introduction {
-  text-align: center;
-}
-
-/* Fee Result style  */
-.fee-result {
-  margin: 60px 140px;
-}
-
-#result-title {
-  text-align: center;
-  color: #27348b;
-}
-#result-title h4{
-  color: #27348b;
-}
-.result-table {
-  color: #27348b;
-  background: rgba(246, 248, 252, 1);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-}
-
-#result-header {
-  border-radius: 5px;
-  padding: 80px 80px;
-  color: #27348b;
-  font-weight: lighter;
-  background-color: #e8e8e8;
-}
-
-#result-header tr th {
-  font-size: 18px;
-  text-align: center;
-}
-
-#result-body tr td {
-  font-size: 20px;
-  font-weight: lighter;
-  text-align: center;
 }

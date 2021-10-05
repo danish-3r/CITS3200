@@ -1,26 +1,32 @@
 from flaskcalculator import app
-from flaskcalculator.models import Course
-from flask import  request, jsonify, make_response
+from flaskcalculator.models import Unit, Major, Course, UnitsJoinCourses, MajorsJoinCourses, UnitsJoinMajors
+from flask import  request, make_response
 from flask import render_template
-
 
 @app.route('/')
 def hello():
+    
     return render_template('base.html')
 
 
 @app.route('/dropdown', methods=["POST"])
 def dropdown():
     req = request.get_json() #the request data(location, level) sent from user using dropdown.js
-    print(req, "AEGGgguvugiuygiygiygiuygiuyguyg")
-    filteredCourses = Course.query.filter_by(location=req["location"], level=req["level"]).all() #returns list of courses that match location and level
-    
-    coursesList = [c.course_name for c in filteredCourses] #list comprehensoin to extract course name
 
-    res = make_response( jsonify({"courseList":coursesList}) ) #make a reponse and send it back to the dropdown.js
-    print(res)
-    return res #return a json containing list of courses
+    filteredCourses = Course.query.filter_by(type=req["type"], level=req["level"], year=req["year"]).all() #returns list of courses that match location and level
+
+    coursesList = [c.as_dict() for c in filteredCourses] #list comprehensoin to extract course name
+
+    res = make_response( {"courseList":coursesList} ) #make a reponse and send it back to the dropdown.js
     
-@app.route('/faq')
-def faqs():
-    return render_template('faq_base.html')
+    return res #return a json containing list of courses
+
+@app.route('/feeresults', methods=["POST"])
+def feeresults():
+    req = request.get_json() #the request data(location, level) sent from user using dropdown.js
+    courseid = int(req["courseid"])
+    course = Course.query.get(courseid)
+    
+    res = make_response( {"course_name":course.course_name, "course_year":course.year, "duration":course.duration, "course_fee":course.course_fee} )
+    
+    return res
