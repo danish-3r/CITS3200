@@ -1,0 +1,78 @@
+{% from 'faq.html' import faq %}
+
+<!-- import the html code from html files -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='stylesheets/faq.css')}}" />
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/dropdown.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/fee_result.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+
+    <script id="uwacore-rebrand-script" type="text/javascript"
+        src="//static.weboffice.uwa.edu.au/visualid/core-rebrand/js/uwacore.js?refresh=46_260"></script>
+    <link id="uwacore-rebrand-style" rel="stylesheet" type="text/css"
+        href="//static.weboffice.uwa.edu.au/visualid/core-rebrand/css/uwacore.css?refresh=46_260" />
+    <link rel="stylesheet" type="text/css"
+        href="//static.weboffice.uwa.edu.au/visualid/lib/font-awesome/font-awesome.4.latest.css?r4" />
+    <link rel="stylesheet" type="text/css"
+        href="//static.weboffice.uwa.edu.au/visualid/core-rebrand/css/megamenu.css?r5" />
+    <script async type="text/javascript"
+        src="//static.weboffice.uwa.edu.au/visualid/core-rebrand/js/megamenu.js?r5"></script>
+
+
+    <title>Fee Calculator FAQ</title>
+</head>
+
+<!-- body tag classes are from style sheets and javascript files from UWA ^ -->
+
+<body class=" core-corp core-corp site-handbooks style-version-two landing-page year2021 ">
+
+    <!-- temporary heading , to be include in the UWA style sheet -->
+    <div class="headings">
+        <h1>Frequently asked questions</h1>
+    </div>
+    <div class="introduction">
+        <p>If you're interested in finding out more about cost of studying at UWA, many of the questions you have may be answered below.</p>
+    </div>
+
+    <div id="centrecontainer" role="main">
+        <div class="contentwrapper">
+            <div class="content">
+                <!-- ########## START MAIN CONTENT ########## -->
+
+                {{ faq() }}
+
+                <!-- ########## END MAIN CONTENT ########## -->
+            </div>
+            <!--end .content-->
+        </div>
+        <!--end .contentwrapper-->
+    </div>
+    <!--end #centrecontainer-->
+
+
+
+
+
+
+</body>
+
+<script src="{{ url_for('static', filename='javascripts/dropdown.js') }}"></script>
+
+
+
+</html>

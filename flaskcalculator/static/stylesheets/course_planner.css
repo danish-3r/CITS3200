@@ -1,0 +1,134 @@
+#course-planner {
+  margin: 60px 100px;
+}
+
+#planner-header {
+  margin: 20px 5px;
+}
+
+#course-selector {
+  padding: 20px;
+  border: 50px;
+  color: #27348b;
+  background: rgba(246, 248, 252, 1);
+  border-radius: 20px;
+  border: solid 0.1em;
+  border-color: #27348b;
+}
+
+#course-selector .question-label {
+  text-align: left;
+  font-size: 22px;
+  clear: both;
+  float: left;
+  margin: 5px 20px;
+}
+
+#course-selector .question-dropdown {
+  clear: both;
+  float: left;
+  margin: 5px;
+  width: 400px;
+}
+
+#course-selector select {
+  padding: 4px 10px;
+  border-radius: 5px;
+  background-color: rgba(219, 219, 219, 1);
+  border-color: rgb(219, 219, 219, 1);
+  color: #27348b;
+  /* display: inline-block; */
+  margin: 2px 2px;
+  width: 100%;
+  overflow: auto;
+  font-size: 18px;
+}
+
+#planner-instruction h4 {
+  margin: 5px 0px;
+}
+
+#planner-instruction li {
+  font-size: 0.8vw;
+  font-weight: 550;
+  color: #27348b;
+  margin: 0px;
+}
+
+#planner-table-header {
+  font-size: 16px;
+  background-color: #dee2e6;
+}
+
+#planner-requirement {
+  font-size: 16px;
+  color: #27348b;
+}
+
+#planner-major {
+  font-size: 18px;
+  color: #27348b;
+}
+
+.table.table.planner-table-year {
+  margin: 0px;
+}
+
+.planner-table-main tbody tr {
+  line-break:10px;
+}
+
+.planner-year-row td {
+  padding: 0px;
+}
+
+.planner-table-year {
+  margin: 0px;
+  padding: 0px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.planner-year-row .year-column {
+  background-color: #27348b;
+  text-align: center;
+  transform: rotate(-180deg);
+  border: none;
+}
+
+.year-text {
+  width: 100%;
+  color: white;
+  writing-mode: vertical-rl;
+  margin-top: 100%;
+}
+
+.planner-table-year .semester-column {
+  width: 10%;
+  text-align: center;
+  background: rgba(246, 248, 252, 1);
+}
+
+.semester-text {
+}
+
+.table.table-striped.planner-table-semester {
+  margin: 0px;
+}
+
+#balance-row {
+  font-size: 16px;
+}
+
+#total-row {
+  font-size: 16px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-color: #dee2e6;
+  background: rgba(246, 248, 252, 1);
+}
+
+.download_link {
+  text-align: center;
+  margin: auto;
+}

@@ -3,24 +3,24 @@
 
 <div class="dropDown">
     <h3>Calculate Your Typical Fee</h3>
-    <div class="questionaire container">
+    <div class="questionaire container" style="height: 210px;">
         <div class="row">
             <div class="col">
-                <label class="question-label" for="locations">Where are you located?</label>
-                <label class="question-label" for="levels">What type of course would you like to complete?</label>
-                <label class="question-label" for="years">Which year would you like to start?</label>
-                <label class="question-label" for="courses">Which course would you like to complete?</label>
+                <div class="question_txt"><label class="question-label row" for="locations">Where are you located?</label><span class="tip_txt">Please select domestic or International</span></div> 
+                <div class="question_txt" style="top: -10px;"><label class="question-label row" for="levels">What type of course would you like to complete?</label><span class="tip_txt">Please select Undergraduate, Postgraduate or Higher study</span></div>
+                <div class="question_txt"style="top: -20px;"><label class="question-label row" for="years">Which year would you like to start?</label><span class="tip_txt">This is the year you will begin your study</span></div>
+                <div class="question_txt"style="top: -30px;"><label class="question-label row" for="courses">Which course would you like to complete?</label><span class="tip_txt">Please select a course</span></div>
             </div>
             <div class="col-md-auto"></div>
             <div class="col col-lg-5">
-                <div class="question-dropdown float-right">
+                <div class="question-dropdown float-right row">
                     <select name="locations" id="locations" onchange="dropDownChange()">
                         <option disabled selected hidden>Select</option>
                         <option value="Domestic">Domestic</option>
                         <option value="International">International</option>
                     </select>
                 </div>
-                <div class="question-dropdown float-right">
+                <div class="question-dropdown float-right row">
                     <select name="levels" id="levels" onchange="dropDownChange()">
                         <option disabled selected hidden>Select</option>
                         <option value="Undergraduate">Undergraduate</option>
@@ -28,21 +28,22 @@
                         <option value="Higher Degree by Research">Higher Degree by Research</option>
                     </select>
                 </div>
-                <div class="question-dropdown float-right">
-                    <select name="years" id="years">
+                <div class="question-dropdown float-right row">
+                    <select name="years" id="years" onchange="year_change()">
                         <option disabled selected hidden>Select</option>
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>
                     </select>
                 </div>
-                <div class="question-dropdown float-right">
-                    <select name="courses" id="courses">
+                <div class="question-dropdown float-right row">
+                    <select name="courses" id="courses" onchange="name_change()">
                         <option disabled selected hidden>Select</option>
                     </select>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 
