@@ -1,0 +1,112 @@
+
+:root { 
+  --alto: #dadada;
+  --black: #000000;
+  --cape-cod: #424242;
+  --governor-bay: #303ba0;
+  --gray-nurse: #e8e8e8;
+  --white: #ffffff;
+  --white-lilac: #f6f8fc;
+ 
+  --font-size-l: 18px;
+  --font-size-m: 14px;
+  --font-size-s: 9px;
+  --font-size-xl: 19px;
+  --font-size-xxl: 24px;
+  --font-size-xxxl: 28px;
+ 
+  --font-family-heebo: "Heebo", Helvetica;
+  --font-family-montserrat: "Montserrat", Helvetica;
+  --font-family-roboto: "Roboto", Helvetica;
+}
+.course_planner .montserrat-medium-black-14px {
+  color: var(--black);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.course_planner .montserrat-medium-governor-bay-14px {
+  color: var(--governor-bay);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.course_planner .montserrat-medium-cape-cod-14px {
+  color: var(--cape-cod);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.course_planner .montserrat-semi-bold-governor-bay-18px {
+  color: var(--governor-bay);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.course_planner .montserrat-medium-governor-bay-18px {
+  color: var(--governor-bay);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.course_planner .montserrat-medium-governor-bay-24px {
+  color: var(--governor-bay);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.course_planner .montserrat-semi-bold-governor-bay-24px {
+  color: var(--governor-bay);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.course_planner .montserrat-medium-black-18px {
+  color: var(--black);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.course_planner .montserrat-semi-bold-governor-bay-14px {
+  color: var(--governor-bay);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.course_planner .montserrat-medium-white-24px {
+  color: var(--white);
+  font-family: var(--font-family-montserrat);
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.course_planner .heebo-bold-white-19px {
+  color: var(--white);
+  font-family: var(--font-family-heebo);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.course_planner .border-1px-alto {
+  border: 1px solid var(--alto);
+}
