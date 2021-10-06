@@ -41,9 +41,3 @@
   box-sizing: border-box;
 }
 
-.tableformatting {
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid black;
-  border-collapse: collapse;
-}

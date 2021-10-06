@@ -356,3 +356,9 @@
     border: 1px;
    
   }
+  .faq .tableformatting {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
