@@ -357,7 +357,10 @@
    
   }
 
-  .faq .faqdropdown {
-    position: relative;
-    display: inline-block;
+  .faq .table {
+    background-color: #e2b600;
+    width: 60%;
+    border-collapse: collapse;
+    text-align: left;
+    padding: 15px;
   }
