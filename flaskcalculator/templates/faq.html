@@ -10,7 +10,7 @@
           <div class="rectangle-47 border-1px-shark"></div>
           <div class="rectangle-48 border-1px-shark"></div>
           <img class="arrow-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
-          <button onclick="faqClick()" class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">
+          <button onclick="faqClick(this)" class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">
             What happens if I pay passed the due date?
           </button>
           <br><br><br>
@@ -108,13 +108,12 @@
   <script>
     function faqClick()
     {
-    var x = document.getElementById("answer1");
-    var y = document.getElementById("answer2")
-    if (x.style.display == "none") {
+    var y = 0;
+    if (this.style.display == "none") {
         x.style.display = "block";
       }
     else {
-        x.style.display = "none";
+        this.style.display = "none";
       }
     if (y.style.display == "none") {
         y.style.display = "block";
