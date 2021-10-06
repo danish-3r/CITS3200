@@ -26,6 +26,16 @@ function changeto_add(list_number)
     document.getElementById(unit_num).style.visibility = "visible"; 
     document.getElementById(drop_num).style.visibility = "hidden"; 
 
+    document.getElementById(unit_num).style.color = "blue"; 
+    document.getElementById(unit_num).innerHTML = "+ add a unit"; 
+
+
+    var course_types = document.getElementsByClassName("course_type");
+    course_types[list_number-1].innerHTML = "-";
+
+    var fees = document.getElementsByClassName("fee");
+    fees[list_number-1].innerHTML = "$".concat("0");
+
 }
 
 //main function that sets up the planner
