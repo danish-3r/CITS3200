@@ -11,6 +11,9 @@ function changeto_drop(list_number)
     let unit_num = "+unit".concat(list_number);
     let drop_num = "planner_drop".concat(list_number);
 
+
+    selectable_units(list_number);
+
     document.getElementById(unit_num).style.visibility = "hidden"; 
     document.getElementById(drop_num).style.visibility = "visible"; 
 
@@ -73,13 +76,13 @@ function major_change()
         document.getElementById(unit_num).style.color = 'black'; 
 
         course_types[i-1].innerHTML = "Compulsory"
-        fees[i-1].innerHTML = "$".concat("1800");
+         //There should be a funciton here that gets the unit price efstl and credit points from the db
+        fees[i-1].innerHTML = "$".concat("1800");  
 
 
     }
 
 
-    //change type to compulsory
 }
 
 
@@ -100,18 +103,18 @@ function cp_change_prices(list_number)
     document.getElementById(unit_num).style.visibility = "visible"; 
     document.getElementById(drop_num).style.visibility = "hidden"; 
 
-    var price_total = 0;
+    
+    //There should be a funciton here that gets the unit price efstl and credit points from the db
     var fees = document.getElementsByClassName("fee");
-
-
     fees[list_number-1].innerHTML = "$".concat("1800");
 
+    var price_total = 0;
     for(let i = 0; i < fees.length-1; i++)
     {
         price_total += parseInt(fees[i].innerHTML.replace('$', '').replace(',',''));
         
     }
-    alert(price_total);
+
     document.getElementById("total_price").innerHTML = "$".concat(price_total); 
 
     var course_types = document.getElementsByClassName("course_type");
@@ -120,4 +123,32 @@ function cp_change_prices(list_number)
 
 
 
+}
+
+function selectable_units(list_number)
+{
+
+
+        
+    
+    var unit_dropdwons = document.getElementsByClassName('unit_select');
+
+    //would like to link to db for a list of available units here please
+    var available_units = ['unit21', 'unit12', 'unit412', 'unit123'];
+
+    //clears dropdown list so we dont get duplicates
+    while (unit_dropdwons[list_number-1].firstChild)
+    {
+        unit_dropdwons[list_number-1].removeChild(unit_dropdwons[list_number-1].firstChild);
+    }
+    
+    for(var i = 0; i < available_units.length-1; i++)
+    {
+
+        var option = document.createElement("option");
+        option.value = available_units[i];
+        option.text = available_units[i];
+        unit_dropdwons[list_number-1].appendChild(option)
+
+    }
 }
