@@ -25,6 +25,7 @@ def dropdown():
 @app.route('/faq')
 def faqs():
     return render_template('faq_base.html')
+
 @app.route('/feeresults', methods=["POST"])
 def feeresults():
     req = request.get_json() #the request data(location, level) sent from user using dropdown.js
