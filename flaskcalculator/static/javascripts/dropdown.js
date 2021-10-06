@@ -2,7 +2,7 @@
 
 function dropDownChange()
 {
-    var type = document.getElementById("types") //get value stored in option tag
+    var type = document.getElementById("locations") //get value stored in option tag
     var level = document.getElementById("levels")
     var year = document.getElementById("years")
     

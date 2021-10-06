@@ -35,33 +35,52 @@ class SystemTest(unittest.TestCase):
             self.driver.close()
 
 
-    def test_dropdowns(self):
+    # def test_dropdowns(self):
         
-        # Select type of student
-        types = Select(self.driver.find_element_by_id('types'))  # find the types menu 
-        types_value = types.select_by_visible_text('Domestic')
-        time.sleep(1)
-        self.driver.implicitly_wait(5)
+    #     # Select type of student
+    #     locations = Select(self.driver.find_element_by_id('locations'))  # find the locations menu 
+    #     locations_value = locations.select_by_visible_text('Domestic')
+    #     time.sleep(1)
+    #     self.driver.implicitly_wait(5)
 
-        # Select level of study
-        levels = Select(self.driver.find_element_by_id('levels'))
+    #     # Select level of study
+    #     levels = Select(self.driver.find_element_by_id('levels'))
+    #     levels.select_by_visible_text('Undergraduate')
+    #     time.sleep(1)
+    #     self.driver.implicitly_wait(5)
+
+    #     # Select starting year
+    #     years = Select(self.driver.find_element_by_id('years'))
+    #     years.select_by_visible_text('2022')
+    #     time.sleep(1)
+    #     self.driver.implicitly_wait(5)
+
+    #     # Select course to complete - depending on the three above options
+    #     course = Select(self.driver.find_element_by_id('courses'))
+    #     time.sleep(1)
+    #     self.driver.implicitly_wait(5)
+
+
+    #     self.assertEqual(1,1)
+
+
+    def test_courseplanner(self):
+
+        # Choose type of degree
+        levels = Select(self.driver.find_elements_by_name('levels')[1])
+
         levels.select_by_visible_text('Undergraduate')
-        time.sleep(1)
+        time.sleep(2)
         self.driver.implicitly_wait(5)
 
-        # Select starting year
-        years = Select(self.driver.find_element_by_id('years'))
-        years.select_by_visible_text('2022')
-        time.sleep(1)
+        # Choose degree you want to study
+        major = Select(self.driver.find_elements_by_id('major_select')[0])
+        major.select_by_visible_text('Computer Science')
+        time.sleep(2)
         self.driver.implicitly_wait(5)
 
-        # Select course to complete - depending on the three above options
-        course = Select(self.driver.find_element_by_id('courses'))
-        time.sleep(1)
-        self.driver.implicitly_wait(5)
-
-
-        self.assertEqual(1,1)
 
 if __name__=='__main__':
   unittest.main(verbosity=2)
+
+
