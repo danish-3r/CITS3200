@@ -356,3 +356,8 @@
     border: 1px;
    
   }
+
+  .faq .faqdropdown {
+    position: relative;
+    display: inline-block;
+  }
