@@ -75,6 +75,16 @@ function cp_change_prices(list_number)
     document.getElementById(unit_num).style.visibility = "visible"; 
     document.getElementById(drop_num).style.visibility = "hidden"; 
 
-    
+    var price_total = 0;
+    var fees = document.getElementsByClassName("fee");
+
+
+    for(let i = 0; i < fees.length-1; i++)
+    {
+        price_total += parseInt(fees[i].innerHTML.replace('$', '').replace(',',''));
+        
+    }
+    alert(price_total);
+    document.getElementById("total_price").innerHTML = "$".concat(price_total); 
 
 }
