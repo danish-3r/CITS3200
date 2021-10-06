@@ -10,8 +10,8 @@
           <div class="rectangle-47 border-1px-shark"></div>
           <div class="rectangle-48 border-1px-shark"></div>
           <img class="arrow-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
-          <button onclick="faqClick(answer1)" class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">
-            What happens if I pay passed the due date?
+          <button onclick="faqClick()" class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">
+            When do I have to pay my fees?
           </button>
           <br><br><br>
           <div id="answer1" style="display: none;">
@@ -55,7 +55,7 @@
           <div class="rectangle-47 border-1px-shark"></div>
           <div class="rectangle-48 border-1px-shark"></div>
           <img class="arrow-1-3" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
-          <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;" >When do I have to pay my fees?</div>
+          <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;" >What happens if I pay past the due date?</div>
         </div>
       </div>
     </div>
@@ -106,14 +106,15 @@
   
 
   <script>
-    function faqClick(element)
+    function faqClick()
     {
-    var y = 0;
-    if (element.style.display == "none") {
-        element.style.display = "block";
+    var x = document.getElementById("answer1");
+    var y = document.getElementById("answer2")
+    if (x.style.display == "none") {
+        x.style.display = "block";
       }
     else {
-        element.style.display = "none";
+        x.style.display = "none";
       }
     if (y.style.display == "none") {
         y.style.display = "block";
