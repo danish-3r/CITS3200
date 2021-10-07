@@ -356,18 +356,3 @@
     border: 1px;
    
   }
-  .collapsible {
-    background-color:azure;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: 1px solid black;
-    text-align: center;
-    font-size: 15px;
-  }
-  .content {
-    display: none;
-    overflow: hidden;
-    background-color: azure;
-  }
