@@ -92,6 +92,49 @@ select:-moz-focusring {
 }
 
 
+/* Tooltip Styles [still trying...] */
+
+.mytooltip{
+position: relative;
+background: rgba(0,0,0,0.3);
+padding: 5px 12px;
+border-radius: 100%;
+font-size: 10px;
+cursor: help;
+}
+.mytooltip::before, .mytooltip::after{
+position: absolute;
+left: 50%;
+opacity: 0;
+transition: allease0.3s;
+}
+.mytooltip::before{
+content: "";
+border-width: 10px 8px 08px;
+border-style: solid;
+border-color: rgba(0,0,0,0.3) transparent transparent transparent;
+top: -20px;
+margin-left: -8px;
+}
+.mytooltip::after{
+content: attr(data-tooltip);
+background: rgba(0,0,0,0.3);
+top: -20px;
+transform: translateY(-100%);
+font-size: 14px;
+margin-left: -150px;
+width: 300px;
+border-radius: 10px;
+color: #fff;
+padding: 14px;
+}
+
+/* Hover states */
+
+.mytooltip:hover::before, .mytooltip:hover::after{
+opacity: 1;
+}
+
 /* ? tips */
 /*
 .location_q:hover + .location_tip{
