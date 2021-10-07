@@ -1,3 +1,5 @@
+
+
 function updateFeeResults()
 {
     var course = document.getElementById("courses");
