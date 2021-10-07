@@ -1,5 +1,3 @@
-
-
 function dropDownChange()
 {
     var type = document.getElementById("types") //get value stored in option tag
