@@ -1,7 +1,7 @@
 <!-- html code encapsulated into a function using Jinja -->
 {% macro fee_result() %}
 
-<div class="container">
+<div id="fee-result">
     <div class="d-flex justify-content-center">
         <h3>Typical fee range for "<span id="resultCourse">______</span>" studying in "<span id="resultYear">______</span>" . </h3>
 
@@ -17,8 +17,8 @@
             </thead>
             <tbody id="result-body">
                 <tr>
-                    <td class="result-item" ><span id="ANF" >  </span></td>
-                    <td class="result-item" ><span id="TFR" >  </span></td>
+                    <td class="result-item" >-<span id="ANF" >  </span></td>
+                    <td class="result-item" >-<span id="TFR" >  </span></td>
                 </tr>
             </tbody>
         </table>

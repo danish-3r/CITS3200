@@ -1,5 +1,5 @@
 #course-planner {
-  margin: 60px 100px;
+  padding: 40px 0px;
 }
 
 #planner-header {
@@ -75,7 +75,11 @@
 }
 
 .planner-table-main tbody tr {
-  line-break:10px;
+  line-break: 10px;
+}
+
+.planner-year-row {
+  padding: 5px;
 }
 
 .planner-year-row td {
@@ -128,7 +132,6 @@
   background: rgba(246, 248, 252, 1);
 }
 
-.download_link {
-  text-align: center;
-  margin: auto;
+.download-text{
+  margin: 15px;
 }
