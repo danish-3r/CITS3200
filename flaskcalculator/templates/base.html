@@ -1,8 +1,10 @@
 {% from 'dropdown.html' import dropdown %}
 {% from 'fee_result.html' import fee_result %}
+{% from 'course_planner.html' import course_planner %}
 {% from 'extra_links.html' import extra_links %}
 {% from 'contact_us.html' import contact_us %}
 {% from 'footer.html' import footer %}
+{% from 'faq.html' import faq %}
 
 <!-- import the html code from html files -->
 
@@ -10,13 +12,20 @@
 <html>
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/dropdown.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/fee_result.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/course_planner.css') }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
+    <script src="{{ url_for('static',filename='javascripts/download.js') }}"></script>
+    <script src="{{ url_for('static',filename='javascripts/course_planner.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 
 
     <script id="uwacore-rebrand-script" type="text/javascript"
@@ -58,6 +67,18 @@
 
                 {{ fee_result() }}
 
+                {{ course_planner() }}
+
+                <br><br>
+
+                <a href="/faq">
+                    <div class="">
+                        <div class="questionaire container" style="width: 80%;">
+                            <b style="margin-left: 400px;">FAQs</b>
+                        </div>
+                    </div>
+                </a>
+
                 {{ extra_links() }}
 
                 {{ contact_us() }}
@@ -71,12 +92,7 @@
         <!--end .contentwrapper-->
     </div>
     <!--end #centrecontainer-->
-
-
-
-
-
-
+    
 </body>
 
 <script src="{{ url_for('static', filename='javascripts/dropdown.js') }}"></script>

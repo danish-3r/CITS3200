@@ -1,0 +1,42 @@
+/*
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,600|Roboto:400|Heebo:700");
+*/
+.course_planner .screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.course_planner .container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.course_planner .container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.course_planner .listeners-active,
+.course_planner .listeners-active * {
+  pointer-events: auto;
+}
+
+.course_planner .hidden,
+.course_planner .hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.course_planner .listeners-active-click,
+.course_planner .listeners-active-click * {
+  cursor: pointer;
+}
+
+.course_planner * {
+  box-sizing: border-box;
+}
