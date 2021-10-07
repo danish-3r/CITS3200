@@ -363,11 +363,10 @@
     padding: 18px;
     width: 100%;
     border: 1px solid black;
-    text-align: left;
+    text-align: center;
     font-size: 15px;
   }
   .content {
-    padding: 0 18px;
     display: none;
     overflow: hidden;
     background-color: azure;
