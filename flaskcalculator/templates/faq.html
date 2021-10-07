@@ -1,61 +1,70 @@
-
 {% macro faq() %}
 
-  <body style="margin: 0 auto; background: #ffffff;">
-    <input type="hidden" id="anPageName" name="page" value="faq" />
-    <div class="container-center-horizontal">
-      <div class="faq screen" style="margin-left: 100px;">
-        <div class="overlap-group9">
-          <div class="overlap-group1">
-            <div class="rectangle-47 border-1px-shark"></div>
-            <div class="rectangle-48 border-1px-shark"></div>
-            <img class="arrow-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
-            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">
-              What happens if I pay passed the due date?
-            </div>
-          </div>
-          <div class="overlap-group2">
-            <div class="rectangle-47 border-1px-shark"></div>
-            <div class="rectangle-48 border-1px-shark"></div>
-            <img class="arrow-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
-            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">
-              Can I allocate a partial payment?
-            </div>
-          </div>
-          <div class="overlap-group3">
-            <div class="rectangle-47 border-1px-shark"></div>
-            <div class="rectangle-48 border-1px-shark"></div>
-            <img class="arrow-1-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
-            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;" >Where can I see my invoice?</div>
-          </div>
-          <div class="overlap-group4">
-            <div class="rectangle-47-1 border-1px-shark"></div>
-            <div class="rectangle-48-1 border-1px-shark"></div>
-            <img class="arrow-1-2" src="{{url_for('static',filename='img/arrow-1-3@2x.svg')}}" />
-            <p class="text-4 valign-text-middle" style="margin-top: 10px; " >
-              A revised Statement of Account will be issued to you via studentConnect if you change your enrolment after
-              the date of issue of the initial statement and it results in a new fee liability. If there is no change to
-              your fee liability, a new electronic Statement of Account (eSOA) will not be issued.
-            </p>
-            <div class="text-5 valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;" >
-              What happens if I change my enrolment
-            </div>
-          </div>
-          <div class="overlap-group5">
-            <div class="rectangle-47 border-1px-shark"></div>
-            <div class="rectangle-48 border-1px-shark"></div>
-            <img class="arrow-1" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
-            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;">What are my payment options?</div>
-          </div>
-          <div class="overlap-group6">
-            <div class="rectangle-47 border-1px-shark"></div>
-            <div class="rectangle-48 border-1px-shark"></div>
-            <img class="arrow-1-3" src="{{url_for('static',filename='img/arrow-1@2x.svg')}}" />
-            <div class="text valign-text-middle montserrat-semi-bold-bunker-20px" style="margin-top: 10px;" >When do I have to pay my fees?</div>
-          </div>
-        </div>
+<body style="margin: 0 auto; background: #ffffff;">
+  <input type="hidden" id="anPageName" name="page" value="faq" />
+
+<!-- New Content, discard above -->
+<div class="container">
+  <div class="faq screen" style="margin-left: 100px;">
+    <div class="btn-group-vertical" style="width: 100%;">
+      <button type="button" class="btn btn-primary collapsible" style="background-color: #303ba0; font-size: 20px"> What happens if I pay past the due date?</button>
+      <div class="content" style="display: none;">
+        <p>
+          If fees are not paid on time, the student will risk losing their place in the course of their choice.
+        </p>
+      </div>
+      <button type="button" class="btn btn-primary collapsible" style="background-color: #303ba0; font-size: 20px">What are my payment options?</button>
+      <div class="content" style="display: none;">
+        <p>
+          If you classify as a domestic student, you can apply for a loan (HECS-HELP, FEE-HELP), which can be paid back at a later date, 
+          or pay all your units upfront every semester. International students must pay for their units in advance at the onset of every semester.
+        </p>
+      </div>
+      <button type="button" class="btn btn-primary collapsible" style="background-color: #303ba0; font-size: 20px">What happens if I change my enrolment?</button>
+      <div class="content" style="display: none;">
+        <p>
+          If study type or units are altered, the total fees will have to be recalculated.
+        </p>
+      </div>
+      <button type="button" class="btn btn-primary collapsible" style="background-color: #303ba0; font-size: 20px">Where can I see my invoice?</button>
+      <div class="content" style="display: none;">
+        <p>
+          An electronic statement of account can be found on your studentConnect account, outlining how much is paid and how much is 
+          still owed.
+        </p>
+      </div>
+      <button type="button" class="btn btn-primary collapsible" style="background-color: #303ba0; font-size: 20px">Can I allocate a partial payment?</button>
+      <div class="content" style="display: none;">
+        <p>
+          Voluntary contributions can be made to HELP loans at any time. International and full fee paying students not supported by a HELP loan cannot do partial payments, and must pay for all the units in a semester ahead of time.
+        </p>
+      </div>
+      <button type="button" class="btn btn-primary collapsible" style="background-color: #303ba0; font-size: 20px">When do I have to pay my fees?</button>
+      <div class="content" style="display: none;">
+        <p>
+          Commonwealth supported students are expected to pay back their loans once they surpass a given income threshold. International 
+          and full fee paying students not supported by a HELP loan must pay for all units by the first day of tuition.
+        </p>
       </div>
     </div>
-  </body>
+  </div>
+</div>
 
+  <script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+</body>
 {% endmacro %}
