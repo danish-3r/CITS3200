@@ -1,11 +1,17 @@
-<!-- html code encapsulated into a function using Jinja -->
 {% macro fee_result() %}
 
 <div class="container">
+    
     <div class="d-flex justify-content-center">
-        <h3>Typical fee range for "<span id="resultCourse">______</span>" studying in "<span id="resultYear">______</span>" . </h3>
-
+        <h3>Typical fee range for <b><span id="resultCourse">______</span></b> studying in <b><span id="resultYear">______</span></b> . </h3>
     </div>
+
+    <p>
+        Answer the questionnaire to generate a typical fee for your course of interest. 
+        Note: These fees are an estimate and are subject to change. 
+        For more information and confirmation of any fees, please contact 
+        Student Central: https://www.uwa.edu.au/students/contact
+    </p>
 
     <div class="d-flex justify-content-center">
         <table class="result-table table table-bordered">
@@ -28,5 +34,3 @@
 
 
 {% endmacro %}
-
-<!-- DO NOT CHANGE element id, element name, element value -->
