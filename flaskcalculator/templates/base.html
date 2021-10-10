@@ -3,6 +3,7 @@
 {% from 'extra_links.html' import extra_links %}
 {% from 'contact_us.html' import contact_us %}
 {% from 'footer.html' import footer %}
+{% from 'course_planner.html' import course_planner %}
 
 <!-- import the html code from html files -->
 
@@ -58,9 +59,12 @@
 
                 {{ fee_result() }}
 
+                {{ course_planner() }}
+
                 {{ extra_links() }}
 
                 {{ contact_us() }}
+
 
                 {{ footer() }}
 
