@@ -1,5 +1,3 @@
-
-
 function updateFeeResults()
 {
     var course = document.getElementById("courses");
@@ -33,6 +31,9 @@ function updateFeeResults()
         }
         
     ))
+
+    document.getElementById('fee-result').style.display = 'block';
+    document.getElementById('fee-result').style.transition = 'block';
 }
 
 function blankFeeResults()
