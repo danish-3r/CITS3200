@@ -2,6 +2,12 @@
   padding-top: 40px;
 }
 
+#planner-intro {
+  background-color: #ececec;
+  padding: 20px;
+  margin: 20px 0px;
+}
+
 #planner-header {
   margin: 20px 5px;
 }
@@ -79,7 +85,7 @@
 }
 
 .planner-year-row {
-  padding: 5px;
+  margin: 20px;
 }
 
 .planner-year-row td {
@@ -126,13 +132,19 @@
 }
 
 #total-row {
-  font-size: 16px;
+  font-size: 17px;
   border-top: 2px solid;
   border-bottom: 2px solid;
   border-color: #dee2e6;
   background: rgba(246, 248, 252, 1);
 }
 
+.download-image {
+  content: url("../img/undraw_ideas_flow_cy7b.svg");
+  width: 50%;
+}
+
 .download-text{
-  margin: 15px;
+  margin-top:40px;
+  margin-bottom:10px;
 }
