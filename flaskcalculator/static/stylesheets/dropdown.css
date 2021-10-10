@@ -8,7 +8,8 @@ background: rgba(246, 248, 252, 1);
 
 /* Base Style */
 
-.headings {
+#fee-dropdown {
+  margin: 20px 0px;
 }
 
 .introduction {

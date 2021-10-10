@@ -1,5 +1,5 @@
 #course-planner {
-  padding: 40px 0px;
+  padding-top: 40px;
 }
 
 #planner-header {
@@ -111,6 +111,7 @@
   width: 10%;
   text-align: center;
   background: rgba(246, 248, 252, 1);
+  border: 1px solid #27348b; 
 }
 
 .semester-text {
