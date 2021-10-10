@@ -20,6 +20,10 @@ def dropdown():
     res = make_response( {"courseList":coursesList} ) #make a reponse and send it back to the dropdown.js
     
     return res #return a json containing list of courses
+    
+@app.route('/faq')
+def faqs():
+    return render_template('faq_base.html')
 
 @app.route('/feeresults', methods=["POST"])
 def feeresults():

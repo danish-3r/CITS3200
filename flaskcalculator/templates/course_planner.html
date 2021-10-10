@@ -6,7 +6,7 @@
   <div id="planner-header" class="container">
     <div class="row">
       <div id="course-selector" class="col">
-        <div class="row">
+        <div class="row" style="line-height: 3.5">
           <div class="col">
             <label class="question-label">Degree type:</label>
           </div>
@@ -19,25 +19,30 @@
             </select>
           </div>
         </div>
-        <div class="row">
+        <div class="row" style="line-height: 1.6">
           <div class="col">
             <label class="question-label">Degree name:</label>
           </div>
           <div class="col question-dropdown">
-            <select name="courses" id="courses">
+            <select name="courses" id="major_select" onchange="major_change()">
               <option disabled selected hidden>Select</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Data Science">Data Science</option>
+
+
             </select>
           </div>
         </div>
       </div>
       <div class="col-md-auto"></div>
       <div id="planner-instruction" class="col col-lg-6">
-        <h4>Instruction</h4>
+        <h4>Instructions</h4>
         <ul>
           <li>a. Choose type of degree</li>
-          <li>b. Choose degree that you want to study as your major</li>
-          <li>d. Select the ‘Add a unit’ button to choose your elective. units</li>
+          <li>b. Choose degree that you want to study as your major.</li>
+          <li>d. Select the ‘Add a unit’ button to choose your elective units.</li>
           <li>e. Select the ‘Add a year’ button if you plan to complete your course over a longer period.</li>
+          <li>f. If you wish to change a unit, select the unit and choose a new unit from the dropown menu.</li>
         </ul>
       </div>
     </div>
@@ -46,13 +51,13 @@
     <table class="table planner-table-main">
       <thead id="planner-table-header" class="table-light">
         <tr>
-          <th scope="col" style="width: 10%">Year</th>
-          <th scope="col" style="width: 10%">Sem</th>
-          <th scope="col" style="width: 40%">Unit name</th>
-          <th scope="col" style="width: 10%">Type</th>
-          <th scope="col" style="width: 10%">Credit</th>
-          <th scope="col" style="width: 10%">EFTSL</th>
-          <th scope="col" style="width: 10%">Fee</th>
+          <th scope="col" style="width: 10%; vertical-align: middle;">Year</th>
+          <th scope="col" style="width: 10%; vertical-align: middle;">Teaching Period</th>
+          <th scope="col" style="width: 40%; vertical-align: middle;">Unit name</th>
+          <th scope="col" style="width: 10%; vertical-align: middle;">Type</th>
+          <th scope="col" style="width: 10%; vertical-align: middle;">Credit</th>
+          <th scope="col" style="width: 10%; vertical-align: middle;">EFTSL</th>
+          <th scope="col" style="width: 10%; vertical-align: middle;">Fee</th>
         </tr>
       </thead>
       <tbody>
@@ -63,7 +68,7 @@
           <td>-</td>
         </tr>
         <tr id="planner-major">
-          <th colspan="7" scope="row">Major: Computer Science</th>
+          <th colspan="7" scope="row" id="major_name">Major: Computer Science</th>
         </tr>
         <tr class="planner-year-row">
           <td class="year-column">
@@ -82,32 +87,94 @@
                 <td>
                   <table class="table table-striped planner-table-semester">
                     <tr>
-                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 45%">
+
+                        <span class="+unit" id="+unit1" onclick="changeto_drop(1)" style="color:blue;">+ add a
+                          unit</span>
+
+                        <span class="planner_drop" id="planner_drop1" style="visibility: hidden;">
+                          <span onclick="changeto_add(1)" style="color:red;">X</span>
+
+                          <select name="Unit" id="unit_select1" style="margin-left: 5%;" onchange="cp_change_prices(1)">
+                            <option disabled selected hidden>Select</option>
+                            <option value="Unit1">Unit1</option>
+                            <option value="Unit2">Unit2</option>
+                            <option value="Unit3 ">Unit3</option>
+                          </select>
+                        </span>
+
+                      </td>
                       <td style="width: 20%">Compulsory</td>
                       <td style="width: 10%">6</td>
                       <td style="width: 10%">0.125</td>
                       <td style="width: 15%">$1,800</td>
                     </tr>
                     <tr>
-                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 45%">
+
+                        <span class="+unit" id="+unit2" onclick="changeto_drop(2)" style="color:blue;">+ add a
+                          unit</span>
+
+                        <span class="planner_drop" id="planner_drop2" style="visibility: hidden;">
+                          <span onclick="changeto_add(2)" style="color:red;">X</span>
+
+                          <select name="Unit" id="unit_select2" style="margin-left: 5%;" onchange="cp_change_prices(2)">
+                            <option disabled selected hidden>Select</option>
+                            <option value="Unit1">Unit1</option>
+                            <option value="Unit2">Unit2</option>
+                            <option value="Unit3 ">Unit3</option>
+                          </select>
+                        </span>
+
+                      </td>
                       <td style="width: 20%">Compulsory</td>
                       <td style="width: 10%">6</td>
                       <td style="width: 10%">0.125</td>
                       <td style="width: 15%">$1,800</td>
                     </tr>
                     <tr>
-                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 45%">
+
+                        <span class="+unit" id="+unit3" onclick="changeto_drop(3)" style="color:blue;">+ add a
+                          unit</span>
+
+                        <span class="planner_drop" id="planner_drop3" style="visibility: hidden;">
+                          <span onclick="changeto_add(3)" style="color:red;">X</span>
+
+                          <select name="Unit" id="unit_select3" style="margin-left: 5%;" onchange="cp_change_prices(3)">
+                            <option disabled selected hidden>Select</option>
+                            <option value="Unit1">Unit1</option>
+                            <option value="Unit2">Unit2</option>
+                            <option value="Unit3 ">Unit3</option>
+                          </select>
+                        </span>
+
+                      </td>
                       <td style="width: 20%">Compulsory</td>
                       <td style="width: 10%">6</td>
                       <td style="width: 10%">0.125</td>
                       <td style="width: 15%">$1,800</td>
                     </tr>
                     <tr>
-                      <td style="width: 45%">Introducttion to Data Science</td>
-                      <td style="width: 20%">Compulsory</td>
-                      <td style="width: 10%">6</td>
-                      <td style="width: 10%">0.125</td>
-                      <td style="width: 15%">$1,800</td>
+                      <td style="width: 45%">
+                        <span class="+unit" id="+unit4" onclick="changeto_drop(4)" style="color:blue;">+ add a
+                          unit</span>
+
+                        <span class="planner_drop" id="planner_drop4" style="visibility: hidden;">
+                          <span onclick="changeto_add(4)" style="color:red;">X</span>
+                          <select name="Unit" id="unit_select4" style="margin-left: 5%;" onchange="cp_change_prices(4)">
+                            <option disabled selected hidden>Select</option>
+                            <option value="Unit1">Unit1</option>
+                            <option value="Unit2">Unit2</option>
+                            <option value="Unit3 ">Unit3</option>
+                          </select>
+                        </span>
+
+                      </td>
+                      <td style="width: 20%" id="type">Compulsory</td>
+                      <td style="width: 10%" id="credit">6</td>
+                      <td style="width: 10%" id="eftsl">0.125</td>
+                      <td style="width: 15%" id="fee">$1,800</td>
                     </tr>
                   </table>
                 </td>
@@ -121,28 +188,93 @@
                 <td>
                   <table class="table table-striped planner-table-semester">
                     <tr>
-                      <td style="width: 45%">Introducttion to Data Science</td>
+
+                      <td style="width: 45%">
+
+                        <span class="+unit" id="+unit5" onclick="changeto_drop(5)" style="color:blue;">+ add a
+                          unit</span>
+
+                        <span class="planner_drop" id="planner_drop5" style="visibility: hidden;">
+                          <span onclick="changeto_add(5)" style="color:red;">X</span>
+                          <select name="Unit" id="unit_select5" style="margin-left: 5%;" onchange="cp_change_prices(5)">
+                            <option disabled selected hidden>Select</option>
+                            <option value="Unit1">Unit1</option>
+                            <option value="Unit2">Unit2</option>
+                            <option value="Unit3 ">Unit3</option>
+                          </select>
+                        </span>
+
+                      </td>
+
                       <td style="width: 20%">Compulsory</td>
                       <td style="width: 10%">6</td>
                       <td style="width: 10%">0.125</td>
                       <td style="width: 15%">$1,800</td>
                     </tr>
                     <tr>
-                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 45%">
+
+                        <span class="+unit" id="+unit6" onclick="changeto_drop(6)" style="color:blue;">+ add a
+                          unit</span>
+
+                        <span class="planner_drop" id="planner_drop6" style="visibility: hidden;">
+                          <span onclick="changeto_add(6)" style="color:red;">X</span>
+
+                          <select name="Unit" id="unit_select6" style="margin-left: 5%;" onchange="cp_change_prices(6)">
+                            <option disabled selected hidden>Select</option>
+                            <option value="Unit1">Unit1</option>
+                            <option value="Unit2">Unit2</option>
+                            <option value="Unit3 ">Unit3</option>
+                          </select>
+                        </span>
+
+                      </td>
                       <td style="width: 20%">Compulsory</td>
                       <td style="width: 10%">6</td>
                       <td style="width: 10%">0.125</td>
                       <td style="width: 15%">$1,800</td>
                     </tr>
                     <tr>
-                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 45%">
+
+                        <span class="+unit" id="+unit7" onclick="changeto_drop(7)" style="color:blue;">+ add a
+                          unit</span>
+
+                        <span class="planner_drop" id="planner_drop7" style="visibility: hidden;">
+                          <span onclick="changeto_add(7)" style="color:red;">X</span>
+
+                          <select name="Unit" id="unit_select7" style="margin-left: 5%;" onchange="cp_change_prices(7)">
+                            <option disabled selected hidden>Select</option>
+                            <option value="Unit1">Unit1</option>
+                            <option value="Unit2">Unit2</option>
+                            <option value="Unit3 ">Unit3</option>
+                          </select>
+                        </span>
+
+                      </td>
                       <td style="width: 20%">Compulsory</td>
                       <td style="width: 10%">6</td>
                       <td style="width: 10%">0.125</td>
                       <td style="width: 15%">$1,800</td>
                     </tr>
                     <tr>
-                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 45%">
+
+                        <span class="+unit" id="+unit8" onclick="changeto_drop(8)" style="color:blue;">+ add a
+                          unit</span>
+
+                        <span class="planner_drop" id="planner_drop8" style="visibility: hidden;">
+                          <span onclick="changeto_add(8)" style="color:red;">X</span>
+
+                          <select name="Unit" id="unit_select8" style="margin-left: 5%;" onchange="cp_change_prices(8)">
+                            <option disabled selected hidden>Select</option>
+                            <option value="Unit1">Unit1</option>
+                            <option value="Unit2">Unit2</option>
+                            <option value="Unit3 ">Unit3</option>
+                          </select>
+                        </span>
+
+                      </td>
                       <td style="width: 20%">Compulsory</td>
                       <td style="width: 10%">6</td>
                       <td style="width: 10%">0.125</td>
@@ -243,6 +375,95 @@
             </table>
           </td>
         </tr>
+        <tr class="planner-year-row">
+          <td class="year-column">
+            <h1 class="year-text">
+              Year 3
+            </h1>
+          </td>
+          <td colspan="7">
+            <table class="table table-borderless planner-table-year">
+              <tr>
+                <td class="semester-column">
+                  <div class="semester-text">
+                    <h3>Sem 1</h3>
+                  </div>
+                </td>
+                <td>
+                  <table class="table table-striped planner-table-semester">
+                    <tr>
+                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 20%">Compulsory</td>
+                      <td style="width: 10%">6</td>
+                      <td style="width: 10%">0.125</td>
+                      <td style="width: 15%">$1,800</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 20%">Compulsory</td>
+                      <td style="width: 10%">6</td>
+                      <td style="width: 10%">0.125</td>
+                      <td style="width: 15%">$1,800</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 20%">Compulsory</td>
+                      <td style="width: 10%">6</td>
+                      <td style="width: 10%">0.125</td>
+                      <td style="width: 15%">$1,800</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 20%">Compulsory</td>
+                      <td style="width: 10%">6</td>
+                      <td style="width: 10%">0.125</td>
+                      <td style="width: 15%">$1,800</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="semester-column">
+                  <div class="semester-text">
+                    <h3>Sem 2</h3>
+                  </div>
+                </td>
+                <td>
+                  <table class="table table-striped planner-table-semester">
+                    <tr>
+                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 20%">Compulsory</td>
+                      <td style="width: 10%">6</td>
+                      <td style="width: 10%">0.125</td>
+                      <td style="width: 15%">$1,800</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 20%">Compulsory</td>
+                      <td style="width: 10%">6</td>
+                      <td style="width: 10%">0.125</td>
+                      <td style="width: 15%">$1,800</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 20%">Compulsory</td>
+                      <td style="width: 10%">6</td>
+                      <td style="width: 10%">0.125</td>
+                      <td style="width: 15%">$1,800</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 45%">Introducttion to Data Science</td>
+                      <td style="width: 20%">Compulsory</td>
+                      <td style="width: 10%">6</td>
+                      <td style="width: 10%">0.125</td>
+                      <td style="width: 15%">$1,800</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
         <tr id="balance-row">
           <td colspan="4" style="color: #27348b">Balance</td>
           <td>(98)</td>
@@ -258,16 +479,21 @@
       </tbody>
     </table>
   </div>
-</div>
 
-<div class="questionaire container" style="width: 80%;">
-  <div class="dowload_link" style="text-align: center;">
-    <span>Satisfied with your course planner?</span>
-    <button class="button" style="margin-left: 15%;">Download here</button>
-  </div>
-</div>
+
+  <div class="dowload-section container">
+    <div class="row">
+      <div class="col">
+        <div class="download-image float-right""></div>
+      </div>
+      <div class="col" style="margin-left: 60px;">
+        <h3 class="download-text">Satisfied with your course planner?</h3>
+        <button class="button">Download here</button>
+      </div>
+    </div>
 
   </div>
+
 
   {% endmacro %}
   <!-- DO NOT CHANGE element id, element name, element value -->
