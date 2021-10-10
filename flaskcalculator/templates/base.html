@@ -51,10 +51,12 @@
 <body class=" core-corp core-corp site-handbooks style-version-two landing-page year2021 ">
 
     <div class="headings">
+        <br><br>
         <h1>Fee Calculator</h1>
     </div>
-    <div class="introduction" style="text-align: center;">
-        <p>Answer the questionaire to generate a typical fee. </p>
+    <div class="introduction container" style="text-align: center; width: 70%;">
+        <br>
+        <p>Answer the questionnaire to generate a typical fee for your course of interest. Note: These fees are an estimate and are subject to change. For more information and confirmation of any fees, please contact Student Central: <a href="https://www.uwa.edu.au/students/contact">https://www.uwa.edu.au/students/contact</a>. </p>
     </div>
 
 
@@ -66,19 +68,23 @@
                 {{ dropdown() }}
 
                 {{ fee_result() }}
-
+                
+                <br> 
+                <div class="introduction questionaire container" style="text-align: center; width: 90%;">
+                    <b>Want a more detailed breakdown of your course fees? Simply pick your course of interest below and select your units.</b>
+                </div>
                 {{ course_planner() }}
 
                 <br><br>
-
-                <a href="/faq">
-                    <div class="">
-                        <div class="questionaire container" style="width: 80%;">
-                            <b style="margin-left: 400px;">FAQs</b>
-                        </div>
+                
+                <div class="questionaire container" style="width: 80%;">
+                    <div class="dowload_link" style="text-align: center;">
+                      <span>Have more questions about fees?</span>
+                      <a href="/faq"></a>
+                      <button onclick="window.location.href='/faq'" class="button" style="margin-left: 15%;">FAQs</button>
+                      </a>
                     </div>
-                </a>
-
+                </div>
                 {{ extra_links() }}
 
                 {{ contact_us() }}

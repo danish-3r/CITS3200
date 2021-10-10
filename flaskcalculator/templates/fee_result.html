@@ -1,10 +1,9 @@
-<!-- html code encapsulated into a function using Jinja -->
 {% macro fee_result() %}
 
-<div id="fee-result">
+<div id="fee-result" class="container">
+    <br>
     <div class="d-flex justify-content-center">
-        <h3>Typical fee range for "<span id="resultCourse">______</span>" studying in "<span id="resultYear">______</span>" . </h3>
-
+        <h3>Typical fee range for <b><span id="resultCourse">______</span></b> studying in <b><span id="resultYear">______</span></b> . </h3>
     </div>
 
     <div class="d-flex justify-content-center">
@@ -17,8 +16,8 @@
             </thead>
             <tbody id="result-body">
                 <tr>
-                    <td class="result-item" >-<span id="ANF" >  </span></td>
-                    <td class="result-item" >-<span id="TFR" >  </span></td>
+                    <td class="result-item" ><span id="ANF" >  </span></td>
+                    <td class="result-item" ><span id="TFR" >  </span></td>
                 </tr>
             </tbody>
         </table>
@@ -28,5 +27,3 @@
 
 
 {% endmacro %}
-
-<!-- DO NOT CHANGE element id, element name, element value -->
