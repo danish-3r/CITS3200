@@ -1,5 +1,11 @@
 #course-planner {
-  margin: 60px 100px;
+  padding-top: 40px;
+}
+
+#planner-intro {
+  background-color: #ececec;
+  padding: 20px;
+  margin: 20px 0px;
 }
 
 #planner-header {
@@ -75,7 +81,11 @@
 }
 
 .planner-table-main tbody tr {
-  line-break:10px;
+  line-break: 10px;
+}
+
+.planner-year-row {
+  margin: 20px;
 }
 
 .planner-year-row td {
@@ -107,6 +117,7 @@
   width: 10%;
   text-align: center;
   background: rgba(246, 248, 252, 1);
+  border: 1px solid #27348b; 
 }
 
 .semester-text {
@@ -121,14 +132,19 @@
 }
 
 #total-row {
-  font-size: 16px;
+  font-size: 17px;
   border-top: 2px solid;
   border-bottom: 2px solid;
   border-color: #dee2e6;
   background: rgba(246, 248, 252, 1);
 }
 
-.download_link {
-  text-align: center;
-  margin: auto;
+.download-image {
+  content: url("../img/undraw_ideas_flow_cy7b.svg");
+  width: 50%;
+}
+
+.download-text{
+  margin-top:40px;
+  margin-bottom:10px;
 }
