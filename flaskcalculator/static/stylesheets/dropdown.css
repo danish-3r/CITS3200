@@ -91,48 +91,57 @@ select:-moz-focusring {
   /* text-shadow: 0 0 0 #000; */
 }
 
-
-/* Tooltip Styles [still trying...] */
+/* Tooltip Styles */
 
 .mytooltip{
 position: relative;
-background: rgba(0,0,0,0.3);
-padding: 5px 12px;
+background:  rgba(219, 219, 219, 1);
+padding: 5px 5px;
 border-radius: 100%;
 font-size: 10px;
 cursor: help;
 }
-.mytooltip::before, .mytooltip::after{
+
+/* .mytooltip::before,{ 
 position: absolute;
 left: 50%;
 opacity: 0;
 transition: allease0.3s;
-}
-.mytooltip::before{
-content: "";
+} */
+
+.mytooltip::after{
+  position: absolute;
+  left: 50%;
+  opacity: 0;
+  transition: allease0.3s;
+  }
+
+/*.mytooltip::before{
+ content: ""; 
 border-width: 10px 8px 08px;
 border-style: solid;
 border-color: rgba(0,0,0,0.3) transparent transparent transparent;
 top: -20px;
 margin-left: -8px;
-}
+} */
+
 .mytooltip::after{
 content: attr(data-tooltip);
 background: rgba(0,0,0,0.3);
-top: -20px;
+top: -10px;
 transform: translateY(-100%);
-font-size: 14px;
+font-size: 10px;
 margin-left: -150px;
-width: 300px;
-border-radius: 10px;
+width: 400px;
+border-radius: 8px;
 color: #fff;
-padding: 14px;
+padding: 20px;
 }
 
 /* Hover states */
 
 .mytooltip:hover::before, .mytooltip:hover::after{
-opacity: 1;
+opacity: 100%;
 }
 
 /* ? tips */
@@ -145,18 +154,18 @@ opacity: 1;
   background-color: red;
   padding: 20px;
   display: none;
-}*/
+}
 
 
 .question_txt {
   position: relative;
   display: inline-block;
-}
+} */
 
-/* Tooltip text */
+/* Tooltip text 
 .question_txt .tip_txt {
   visibility: hidden;
-  width: 300px;
+  width: 500px;
   background-color: rgba(0, 0, 0, 0.55);
   color: #fff;
   text-align: center;
@@ -166,12 +175,12 @@ opacity: 1;
   top: -5px;
   left: 105%;
  
-  /* Position the tooltip text - see examples below! */
+  /* Position the tooltip text - see examples below! 
   position: absolute;
   z-index: 1;
-}
+} 
 
-/* Show the tooltip text when you mouse over the tooltip container */
+/* Show the tooltip text when you mouse over the tooltip container 
 .question_txt:hover .tip_txt {
   visibility: visible;
-}
+} */
