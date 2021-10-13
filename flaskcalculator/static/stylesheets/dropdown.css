@@ -92,6 +92,21 @@ select:-moz-focusring {
   /* text-shadow: 0 0 0 #000; */
 }
 
+/* NEWER TOOLTIP */
+[data-tooltip] {
+  position: relative;
+  cursor: default;
+}
+
+[data-tooltip]::after {
+  position: absolute;
+  width: 140px;
+  left: calc(50%-70px);
+  content:attr(data-tooltip);
+}
+
+
+
 /* Tooltip Styles */
 
 .mytooltip{
@@ -103,28 +118,28 @@ font-size: 10px;
 cursor: help;
 }
 
-/* .mytooltip::before,{ 
+.mytooltip::before,{ 
 position: absolute;
 left: 50%;
 opacity: 0;
 transition: allease0.3s;
-} */
+}
 
 .mytooltip::after{
   position: absolute;
-  left: 50%;
+  left: 50%; !important
   opacity: 0;
   transition: allease0.3s;
   }
 
-/*.mytooltip::before{
+.mytooltip::before{
  content: ""; 
 border-width: 10px 8px 08px;
 border-style: solid;
 border-color: rgba(0,0,0,0.3) transparent transparent transparent;
 top: -20px;
 margin-left: -8px;
-} */
+}
 
 .mytooltip::after{
 content: attr(data-tooltip);
@@ -210,23 +225,6 @@ opacity: 100%;
   cursor: pointer;
   z-index: 1;
 }
-
-/* .help-title{
-  width:0;
-  height: 50px;
-  background: linear-gradient(lightgray, darkturqoise);
-  position: absolute;
-  top: 0; left: 25px;
-  border-radius: 0 25px 0 0;
-}
-
-.help-title h2{
-  margin: 0;
-  padding: 0;
-  color: white;
-  display: none;
-  padding: 12px 35px;
-} */
 
 .help-body{
   width: 270px;
