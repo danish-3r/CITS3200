@@ -296,6 +296,7 @@ function get_chosen_units()
 function get_units()
 {
     let all_units = [
+        "Add a unit",
         "Software Engineering with Java",
         "Introduction to Cybersecurity",
         "Relational Database Management Systems",
