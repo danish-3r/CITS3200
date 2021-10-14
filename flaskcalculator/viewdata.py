@@ -1,6 +1,7 @@
 import sqlite3
 
 
+
 def viewCourses():
     con = sqlite3.connect('site.db')
     cur = con.cursor()

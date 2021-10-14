@@ -39,8 +39,6 @@ function dropDownChange()
                 options += '<option value='+course.id+">"+course.course_name+'</option>';
             }
             courses.innerHTML = options
-        }
-        
+        }      
     ))
-
 }
