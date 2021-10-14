@@ -93,95 +93,57 @@ select:-moz-focusring {
 }
 
 /* Tooltip Styles */
-
 .mytooltip{
 position: relative;
-background:  rgba(219, 219, 219, 1);
-padding: 5px 5px;
-border-radius: 100%;
+background:#27348b;
+color: white;
+padding: 10px; 
+border-radius: 50%;
+height: 10px;
 font-size: 10px;
 cursor: help;
 }
 
-/* .mytooltip::before,{ 
+.mytooltip::before,{ 
 position: absolute;
-left: 50%;
+left: 20% !important;
 opacity: 0;
 transition: allease0.3s;
-} */
+}
 
 .mytooltip::after{
-  position: absolute;
-  left: 50%;
-  opacity: 0;
-  transition: allease0.3s;
-  }
+position: absolute;
+left: 20% !important;
+opacity: 0;
+transition: allease0.3s;
+}
 
-/*.mytooltip::before{
- content: ""; 
-border-width: 10px 8px 08px;
+.mytooltip::before{
+content: ""; 
+/* border-width: 8px;  */
 border-style: solid;
 border-color: rgba(0,0,0,0.3) transparent transparent transparent;
 top: -20px;
 margin-left: -8px;
-} */
+}
 
 .mytooltip::after{
 content: attr(data-tooltip);
-background: rgba(0,0,0,0.3);
+background:grey;
 top: -10px;
-transform: translateY(-100%);
+/* transform: translateY(-100%); */
 font-size: 10px;
-margin-left: -150px;
-width: 400px;
-border-radius: 8px;
+/* margin-left: -150px; */
+/* width: 200px; */
+border-radius: 10px;
 color: #fff;
-padding: 20px;
+padding: 10px;
+z-index: 1;
 }
 
 /* Hover states */
+/* /* .mytooltip:hover::before,  */
 
-.mytooltip:hover::before, .mytooltip:hover::after{
+.mytooltip:hover::after{
 opacity: 100%;
-}
-
-/* ? tips */
-/*
-.location_q:hover + .location_tip{
-  display: block;
-
-}
-.location_tip{
-  background-color: red;
-  padding: 20px;
-  display: none;
-}
-
-
-.question_txt {
-  position: relative;
-  display: inline-block;
-} */
-
-/* Tooltip text 
-.question_txt .tip_txt {
-  visibility: hidden;
-  width: 500px;
-  background-color: rgba(0, 0, 0, 0.55);
-  color: #fff;
-  text-align: center;
-  padding: 0px 0;
-  border-radius: 20px;
-  
-  top: -5px;
-  left: 105%;
- 
-  /* Position the tooltip text - see examples below! 
-  position: absolute;
-  z-index: 1;
 } 
-
-/* Show the tooltip text when you mouse over the tooltip container 
-.question_txt:hover .tip_txt {
-  visibility: visible;
-} */
