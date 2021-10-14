@@ -9,6 +9,16 @@
         <div class="row" style="line-height: 3.5">
           <div class="col">
             <label class="question-label">Degree type:</label>
+            <span class="mytooltip" data-tooltip=
+            "You are an Australian domestic student if you are:
+            an Australian citizen;
+            an Australian permanent resident (holders of all categories of permanent residency visas, including humanitarian visas), or
+            a New Zealand citizen.
+
+            You are an international student if you are:
+            a temporary resident (visa status) of Australia,
+            a permanent resident (visa status) of New Zealand, or
+            a resident or citizen of any other country.">?</span>
           </div>
           <div class="col question-dropdown">
             <select name="levels" id="levels" onchange="dropDownChange()">
@@ -50,13 +60,40 @@
   <div id="planner-body">
     <table class="table planner-table-main">
       <thead id="planner-table-header" class="table-light">
-        <tr>
+        <tr style= "text-align: center;">
           <th scope="col" style="width: 10%; vertical-align: middle;">Year</th>
           <th scope="col" style="width: 10%; vertical-align: middle;">Teaching Period</th>
-          <th scope="col" style="width: 40%; vertical-align: middle;">Unit name</th>
-          <th scope="col" style="width: 10%; vertical-align: middle;">Type</th>
-          <th scope="col" style="width: 10%; vertical-align: middle;">Credit</th>
-          <th scope="col" style="width: 10%; vertical-align: middle;">EFTSL</th>
+          <th scope="col" style="width: 38%; vertical-align: middle;">Unit name</th>
+          <th scope="col" style="width: 12%; vertical-align: middle;">
+            Type
+            <span class="mytooltip" data-tooltip=
+            "Core units are units within a major that must be completed by all students undertaking that major. 
+            Option unites are other units within a major that can be chosen from a list of options.
+            Elective units are units beyong your major to provide you with the opportunity to explore a 
+            range of interests and new disciplines. ">?</span>
+          </th>
+
+          <th scope="col" style="width: 10%; vertical-align: middle;">
+            Credit
+            <span class="mytooltip" data-tooltip=
+            "In UWA courses a standard full-time enrolment is 24 credit points (4 units) 
+            per semester, or 48 credit points (8 units) per academic year.
+            International students need to maintain a standard full-time study load per 
+            semester to satisfy student visa requirements. If you are an international student 
+            and need to take leave or reduce your study load, please contact the International 
+            Student Support team for advice.
+            Australian and other domestic students can choose to enrol part-time or full-time. 
+            In studentConnect your student status is determined by the number of credit points 
+            enrolled in over an academic year.">?</span>
+          </th>
+          <th scope="col" style="width: 10%; vertical-align: middle;">
+            EFTSL
+            <span class="mytooltip" data-tooltip=
+            "EFTSL refers to the Equivalent Full-Time Study Load attributed to a unit. 
+            Each unit has a set study load (usually based on the number of credit points 
+            that the unit is worth), one EFTSL (1.000) is equivalent to a full time study 
+            load for one year.">?</span>
+          </th>
           <th scope="col" style="width: 10%; vertical-align: middle;">Fee</th>
         </tr>
       </thead>
