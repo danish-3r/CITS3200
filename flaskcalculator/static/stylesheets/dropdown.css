@@ -120,7 +120,6 @@ transition: allease0.3s;
 
 .mytooltip::before{
 content: ""; 
-/* border-width: 8px;  */
 border-style: solid;
 border-color: rgba(0,0,0,0.3) transparent transparent transparent;
 top: -20px;
@@ -131,10 +130,9 @@ margin-left: -8px;
 content: attr(data-tooltip);
 background:grey;
 top: -10px;
-/* transform: translateY(-100%); */
+transform: translateY(-100%);
 font-size: 10px;
-/* margin-left: -150px; */
-/* width: 200px; */
+min-width: 200px;
 border-radius: 10px;
 color: #fff;
 padding: 10px;
@@ -142,8 +140,9 @@ z-index: 1;
 }
 
 /* Hover states */
-/* /* .mytooltip:hover::before,  */
+/* /* .mytooltip:hover::after,  */
 
 .mytooltip:hover::after{
-opacity: 100%;
-} 
+
+  opacity:100%;
+}
