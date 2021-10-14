@@ -10,15 +10,12 @@
           <div class="col">
             <label class="question-label">Degree type:</label>
             <span class="mytooltip" data-tooltip=
-            "You are an Australian domestic student if you are:
-            an Australian citizen;
-            an Australian permanent resident (holders of all categories of permanent residency visas, including humanitarian visas), or
-            a New Zealand citizen.
-
-            You are an international student if you are:
-            a temporary resident (visa status) of Australia,
-            a permanent resident (visa status) of New Zealand, or
-            a resident or citizen of any other country.">?</span>
+            "UNGERGRADUATE: first studies undertaken at university to introduce students to 
+            the knowledge base within a specific discipline.
+            POSTGRADUATE: available to students who have completed undergraduate studies 
+            (a more highly qualitifed result).
+            POSTGRADUATE RESEARCH: have an intensive research component to extend your understanding 
+            of a subject area">?</span>
           </div>
           <div class="col question-dropdown">
             <select name="levels" id="levels" class="dropdown_1" onchange="update_degree_names()">
@@ -63,31 +60,28 @@
           <th scope="col" style="width: 12%; vertical-align: middle;">
             Type
             <span class="mytooltip" data-tooltip=
-            "Core units are units within a major that must be completed by all students undertaking that major. 
-            Option unites are other units within a major that can be chosen from a list of options.
-            Elective units are units beyong your major to provide you with the opportunity to explore a 
+            "CORE units are units within a major that must be completed by all students undertaking that major. 
+            OPTION unites are other units within a major that can be chosen from a list of options.
+            ELECTIVE units are units beyong your major to provide you with the opportunity to explore a 
             range of interests and new disciplines. ">?</span>
           </th>
 
           <th scope="col" style="width: 10%; vertical-align: middle;">
             Credit
             <span class="mytooltip" data-tooltip=
-            "In UWA courses a standard full-time enrolment is 24 credit points (4 units) 
+            "A standard full-time enrolment is 24 credit points (4 units) 
             per semester, or 48 credit points (8 units) per academic year.
             International students need to maintain a standard full-time study load per 
-            semester to satisfy student visa requirements. If you are an international student 
-            and need to take leave or reduce your study load, please contact the International 
-            Student Support team for advice.
-            Australian and other domestic students can choose to enrol part-time or full-time. 
-            In studentConnect your student status is determined by the number of credit points 
-            enrolled in over an academic year.">?</span>
+            semester to satisfy student visa requirements.
+            Domestic students can choose to enrol part-time or full-time. Your student status 
+            is determined by the number of credit points enrolled in over an academic year.">?</span>
           </th>
           <th scope="col" style="width: 10%; vertical-align: middle;">
             EFTSL
             <span class="mytooltip" data-tooltip=
-            "EFTSL refers to the Equivalent Full-Time Study Load attributed to a unit. 
-            Each unit has a set study load (usually based on the number of credit points 
-            that the unit is worth), one EFTSL (1.000) is equivalent to a full time study 
+            "Equivalent Full-Time Study Load (EFTSL) attributed to a unit. 
+            Each unit has a set study load (based on the number of credit points 
+            worth), one EFTSL (1.000) is equivalent to a full time study 
             load for one year.">?</span>
           </th>
           <th scope="col" style="width: 10%; vertical-align: middle;">Fee</th>
@@ -116,7 +110,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit1" onclick="changeto_drop(1)" style="color:blue;">+ add a unit</span>
+                        <span class="+unit" id="+unit1" onclick="changeto_drop(1)" style="color:blue;">+ Add a unit</span>
 
                         <span class="planner_drop" id="planner_drop1" style="visibility: hidden;">
                           <span onclick="changeto_add(1)" style="color:red;">X</span>
@@ -140,7 +134,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit2" onclick="changeto_drop(2)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit2" onclick="changeto_drop(2)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop2" style="visibility: hidden;">
@@ -165,7 +159,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit3" onclick="changeto_drop(3)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit3" onclick="changeto_drop(3)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop3" style="visibility: hidden;">
@@ -188,7 +182,7 @@
                     </tr>
                     <tr>
                       <td style="width: 45%">
-                        <span class="+unit" id="+unit4" onclick="changeto_drop(4)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit4" onclick="changeto_drop(4)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop4" style="visibility: hidden;">
@@ -224,7 +218,7 @@
 
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit5" onclick="changeto_drop(5)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit5" onclick="changeto_drop(5)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop5" style="visibility: hidden;">
@@ -249,7 +243,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit6" onclick="changeto_drop(6)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit6" onclick="changeto_drop(6)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop6" style="visibility: hidden;">
@@ -274,7 +268,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit7" onclick="changeto_drop(7)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit7" onclick="changeto_drop(7)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop7" style="visibility: hidden;">
@@ -298,7 +292,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit8" onclick="changeto_drop(8)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit8" onclick="changeto_drop(8)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop8" style="visibility: hidden;">
@@ -344,7 +338,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit9" onclick="changeto_drop(9)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit9" onclick="changeto_drop(9)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop9" style="visibility: hidden;">
@@ -368,7 +362,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit10" onclick="changeto_drop(10)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit10" onclick="changeto_drop(10)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop10" style="visibility: hidden;">
@@ -392,7 +386,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit11" onclick="changeto_drop(11)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit11" onclick="changeto_drop(11)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop11" style="visibility: hidden;">
@@ -417,7 +411,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit12" onclick="changeto_drop(12)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit12" onclick="changeto_drop(12)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop12" style="visibility: hidden;">
@@ -452,7 +446,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit13" onclick="changeto_drop(13)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit13" onclick="changeto_drop(13)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop13" style="visibility: hidden;">
@@ -476,7 +470,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit14" onclick="changeto_drop(14)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit14" onclick="changeto_drop(14)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop14" style="visibility: hidden;">
@@ -501,7 +495,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit15" onclick="changeto_drop(15)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit15" onclick="changeto_drop(15)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop15" style="visibility: hidden;">
@@ -526,7 +520,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit16" onclick="changeto_drop(16)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit16" onclick="changeto_drop(16)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop16" style="visibility: hidden;">
@@ -572,7 +566,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit17" onclick="changeto_drop(17)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit17" onclick="changeto_drop(17)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop17" style="visibility: hidden;">
@@ -596,7 +590,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit18" onclick="changeto_drop(18)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit18" onclick="changeto_drop(18)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop18" style="visibility: hidden;">
@@ -620,7 +614,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit19" onclick="changeto_drop(19)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit19" onclick="changeto_drop(19)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop19" style="visibility: hidden;">
@@ -644,7 +638,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit20" onclick="changeto_drop(20)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit20" onclick="changeto_drop(20)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop20" style="visibility: hidden;">
@@ -679,7 +673,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit21" onclick="changeto_drop(21)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit21" onclick="changeto_drop(21)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop21" style="visibility: hidden;">
@@ -703,7 +697,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit22" onclick="changeto_drop(22)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit22" onclick="changeto_drop(22)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop22" style="visibility: hidden;">
@@ -728,7 +722,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit23" onclick="changeto_drop(23)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit23" onclick="changeto_drop(23)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop23" style="visibility: hidden;">
@@ -753,7 +747,7 @@
                     <tr>
                       <td style="width: 45%">
 
-                        <span class="+unit" id="+unit24" onclick="changeto_drop(24)" style="color:blue;">+ add a
+                        <span class="+unit" id="+unit24" onclick="changeto_drop(24)" style="color:blue;">+ Add a
                           unit</span>
 
                         <span class="planner_drop" id="planner_drop24" style="visibility: hidden;">
