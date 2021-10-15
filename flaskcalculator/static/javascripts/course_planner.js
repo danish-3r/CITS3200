@@ -21,9 +21,27 @@ function update_degree_names()
 
     }
     else{
+        if(degree_type == "Postgraduate")
+        {
+        available_majors.splice(0, available_majors.length);
+
+        available_majors = ["Select", "Master of Education - Thesis & Coursework"];
+
+        }
+        else{
+            if(degree_type == "Higher Degree by Research")
+            {
+            available_majors.splice(0, available_majors.length);
+
+            available_majors = ["Select", "Master of Arts - Research"];
+
+            }
+            else{
         available_majors.splice(0, available_majors.length);
 
         available_majors = ["Select", "Other degree types not yet available"];
+        }
+    }
     }
 
     var degree_names = document.getElementsByClassName('major_select');
@@ -68,7 +86,7 @@ function changeto_add(list_number)
     document.getElementById(drop_num).style.visibility = "hidden"; 
 
     document.getElementById(unit_num).style.color = "blue"; 
-    document.getElementById(unit_num).innerHTML = "+ add a unit"; 
+    document.getElementById(unit_num).innerHTML = "+ Add a unit"; 
 
 
     var course_types = document.getElementsByClassName("course_type");
@@ -137,6 +155,34 @@ function major_change()
         ]
 
     }
+    if (major_selector.value == "Master of Education - Thesis & Coursework")
+    {
+        compusory_units = [
+            "Master's Dissertation",
+            "Approaches to Research",
+            "International and Comparative Education",
+            "Quantitative Inquiry",
+            "Qualitative Inquiry",
+            "Measurement and Evaluation",
+            "Childhood and Adolescent Developmental Psychopathology",
+            "Education Studies"
+        ];
+    }
+    if (major_selector.value == "Master of Arts - Research")
+    {
+        compusory_units = [
+            "Art Theory",
+            "Breaking Art",
+            "Contemporary Art and Tradition in China",
+            "(Inter)national History of Art Study Tour",
+            "Prints from Dürer to Toulouse-Lautrec",
+            "Manet and the French Avant-Garde",
+            "Michelangelo",
+            "Art and Games: from Dada to Data",
+            "Visual Culture and Art in America: 1900–2000"
+        ];
+    }
+
 
     var course_types = document.getElementsByClassName("course_type");
 
@@ -296,6 +342,7 @@ function get_chosen_units()
 function get_units()
 {
     let all_units = [
+        "Add a unit",
         "Software Engineering with Java",
         "Introduction to Cybersecurity",
         "Relational Database Management Systems",
