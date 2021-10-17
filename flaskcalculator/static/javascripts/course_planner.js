@@ -3,37 +3,29 @@
 //each list item id has a number after it
 //so when i call the function i give it that number since using 'self' was out of the scope
 
+const UNDERGRADUATE_YEAR = 3;
+const POSTGRADUATE_YEAR = 2;
 
-// Function to hide third year option
-function hide_third_year()
+
+// Remove the abundant year
+function remove_years(required_years)
 {
-    for (let i = 17; i <= 24; i++) 
+    years = document.getElementsByClassName('planner-year-row')
+    for (let i = years.length - 1; i >= required_years; i--) 
     {
-        document.getElementById("+unit" + i).style.visibility= "hidden";
-        document.getElementById("planner_drop" + i).style.visibility= "hidden";
-
+        years[i].remove();
     }
-    document.getElementsByClassName('year-3')[0].style.visibility= "hidden";
 }
 
-function show_third_year()
-{
-    for (let i = 17; i <= 24; i++) 
-    {
-        document.getElementById("+unit" + i).style.visibility= "visible";
-        document.getElementById("unit_select" + i).style.visibility= "visbile";
 
-    }
-    document.getElementsByClassName('year-3')[0].style.visibility= "visible";
-}
-
+// Add new year to course planner
 function add_year(year_number)
 {
 
     // Create new year element
     const year = document.createElement("tr");
-    year.classList.add('planner-year-row', 'year-' + year_number );
-    year.classList.add('year-' + year_number);
+    year.classList.add('planner-year-row');
+    year.setAttribute("id", 'year-' + year_number);
 
     // Add year element to table body
     const table = document.getElementById("table-body");
@@ -59,6 +51,7 @@ function add_year(year_number)
 
 }
 
+// Add new sem to current year
 function add_sems(num_of_sems, year, year_number)
 {
     const span = document.createElement("td");
@@ -95,6 +88,7 @@ function add_sems(num_of_sems, year, year_number)
     }
 }
 
+// Add new units to current semester
 function add_units(num_of_units, sem, year_number){
     const td = document.createElement("td");
     sem.appendChild(td);
@@ -142,6 +136,8 @@ function set_up_unit_row(tr, unit_id)
     const td_course_type = document.createElement("td");
     td_course_type.setAttribute("style", "width: 20%");
     td_course_type.setAttribute("class", "course_type");
+    const default_course_type =  document.createTextNode("-");
+    td_course_type.appendChild(default_course_type);
     tr.append(td_course_type);
 
     // Unit credit part
@@ -196,13 +192,13 @@ function set_planner_drop(td_unit, unit_id)
     add_options(select);
 }
 
+// set up option for unit selection
 function add_options(select)
 {
     var available_units = get_chosen_units();
 
     for(var i = 0; i < available_units.length; i++)
     {
-
         var option = document.createElement("option");
         option.value = available_units[i];
         option.text = available_units[i];
@@ -210,19 +206,33 @@ function add_options(select)
     }
 }
 
+// ----------------------------------
+
 //enters dropdown mode
 function update_degree_names()
 {
+
     degree_type = document.getElementsByClassName('dropdown_1')[0].value;
 
     let available_majors = [];
 
+    years = document.getElementsByClassName('planner-year-row');
+
     if(degree_type == "Undergraduate")
     {
-        show_third_year();
+        if (years.length < UNDERGRADUATE_YEAR)
+        {
+            const length = years.length;
+            for (let year = length + 1; year <= UNDERGRADUATE_YEAR; year++)
+            {
+                add_year(year);
+            }
+        }
 
-        // Add new year
-        add_year();
+        else if (years.length > UNDERGRADUATE_YEAR)
+        {
+            remove_years(UNDERGRADUATE_YEAR);
+        }
 
         available_majors.splice(0, available_majors.length);
 
@@ -231,8 +241,19 @@ function update_degree_names()
     }
     else{
 
-        hide_third_year();
+        if (years.length < POSTGRADUATE_YEAR)
+        {
+            const length = year.length;
+            for (let year = length + 1; year <= POSTGRADUATE_YEAR; year++)
+            {
+                add_year(year);
+            }
+        }
 
+        else if (years.length > POSTGRADUATE_YEAR)
+        {
+            remove_years(POSTGRADUATE_YEAR);
+        }
         if(degree_type == "Postgraduate")
         {
             available_majors.splice(0, available_majors.length);
@@ -284,7 +305,7 @@ function changeto_drop(list_number)
 
     selectable_units(list_number);
 
-    // document.getElementById(unit_num).style.visibility = "hidden"; 
+    document.getElementById(unit_num).style.visibility = "hidden"; 
     document.getElementById(drop_num).style.visibility = "visible"; 
 
 }
@@ -296,26 +317,27 @@ function changeto_add(list_number)
     let unit_num = "+unit".concat(list_number);
     let drop_num = "planner_drop".concat(list_number);
 
-    // document.getElementById(unit_num).style.visibility = "visible"; 
-    document.getElementById(drop_num).style.visibility = "hidden"; 
+    try {
+        // document.getElementById(unit_num).style.visibility = "visible"; 
+        document.getElementById(drop_num).style.visibility = "hidden"; 
 
-    document.getElementById(unit_num).style.color = "blue"; 
-    document.getElementById(unit_num).innerHTML = "+ Add a unit"; 
-
-
-    var course_types = document.getElementsByClassName("course_type");
-    course_types[list_number-1].innerHTML = "-";
-
-    var fees = document.getElementsByClassName("fee");
-    fees[list_number-1].innerHTML = "$".concat("0");
-
-    var credit_points = document.getElementsByClassName("unit_credit")
-    credit_points[list_number-1].innerHTML = "0";
-
-    var unit_eftsl = document.getElementsByClassName("unit_eftsl")
-    unit_eftsl[list_number-1].innerHTML = "0";
+        document.getElementById(unit_num).style.color = "blue"; 
+        document.getElementById(unit_num).innerHTML = "+ Add a unit"; 
 
 
+        var course_types = document.getElementsByClassName("course_type");
+        course_types[list_number-1].innerHTML = "-";
+
+        var fees = document.getElementsByClassName("fee");
+        fees[list_number-1].innerHTML = "$".concat("0");
+
+        var credit_points = document.getElementsByClassName("unit_credit")
+        credit_points[list_number-1].innerHTML = "0";
+
+        var unit_eftsl = document.getElementsByClassName("unit_eftsl")
+        unit_eftsl[list_number-1].innerHTML = "0";
+    }
+    finally{}
 }
 
 
@@ -340,7 +362,8 @@ function get_compulsory_units(area_of_study)
             "Graphics and Animation",
             "Knowledge Representation",
             "Secure Coding",
-            "High Performance Computing"];
+            "High Performance Computing"
+        ];
     }
     if (area_of_study == "Data Science")
     {
@@ -413,15 +436,15 @@ function major_change()
     major_selector = document.getElementById("major_select");
     document.getElementById("major_name").innerHTML = "AREA OF STUDY: ".concat(major_selector.value);
 
-    for(let i = 1; i < 25; i++)
+    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
+ 
+    for(let i = 1; i <= POSTGRADUATE_YEAR * 8; i++)
     {
         changeto_add(i);
     }
 
-
     //this should be changed to read the db and get all compulsory units for the major in a list
     var compulsory_units = get_compulsory_units(major_selector.value);
-
 
     var course_types = document.getElementsByClassName("course_type");
 
@@ -473,8 +496,6 @@ function major_change()
     document.getElementById("total_credits").innerHTML = (credit_total); 
     document.getElementById("total_eftsl").innerHTML = (eftsl_total); 
 
-    
-    
 }
 
 
