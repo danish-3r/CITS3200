@@ -4,44 +4,70 @@
 //so when i call the function i give it that number since using 'self' was out of the scope
 
 
+// Function to hide third year option
+function hide_third_year()
+{
+    for (let i = 17; i <= 24; i++) 
+    {
+        document.getElementById("+unit" + i).style.visibility= "hidden";
+        document.getElementById("planner_drop" + i).style.visibility= "hidden";
+
+    }
+    document.getElementsByClassName('year-3')[0].style.visibility= "hidden";
+}
+
+function show_third_year()
+{
+    for (let i = 17; i <= 24; i++) 
+    {
+        document.getElementById("+unit" + i).style.visibility= "visible";
+        document.getElementById("unit_select" + i).style.visibility= "visbile";
+
+    }
+    document.getElementsByClassName('year-3')[0].style.visibility= "visible";
+}
+
 //enters dropdown mode
-
-
 function update_degree_names()
 {
-    degree_type = document.getElementsByClassName('dropdown_1')[0].value
+    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
 
     let available_majors = [];
 
     if(degree_type == "Undergraduate")
     {
+        show_third_year();
+
         available_majors.splice(0, available_majors.length);
 
         available_majors = ["Select", "Computer Science", "Data Science"];
 
     }
     else{
+
+        hide_third_year();
+
         if(degree_type == "Postgraduate")
         {
-        available_majors.splice(0, available_majors.length);
+            available_majors.splice(0, available_majors.length);
 
-        available_majors = ["Select", "Master of Education - Thesis & Coursework"];
+            available_majors = ["Select", "Master of Education - Thesis & Coursework", "Master of Information Technology - Coursework"];
 
         }
         else{
             if(degree_type == "Higher Degree by Research")
             {
-            available_majors.splice(0, available_majors.length);
+                available_majors.splice(0, available_majors.length);
 
-            available_majors = ["Select", "Master of Arts - Research"];
+                available_majors = ["Select", "Master of Arts - Research"];
 
             }
             else{
-        available_majors.splice(0, available_majors.length);
+                available_majors.splice(0, available_majors.length);
 
-        available_majors = ["Select", "Other degree types not yet available"];
+                available_majors = ["Select", "Other degree types not yet available"];
+            }
         }
-    }
     }
 
     var degree_names = document.getElementsByClassName('major_select');
@@ -61,16 +87,18 @@ function update_degree_names()
 
     }
 }
+
+
 function changeto_drop(list_number)
 {   
-    
+
     let unit_num = "+unit".concat(list_number);
     let drop_num = "planner_drop".concat(list_number);
 
 
     selectable_units(list_number);
 
-    document.getElementById(unit_num).style.visibility = "hidden"; 
+    // document.getElementById(unit_num).style.visibility = "hidden"; 
     document.getElementById(drop_num).style.visibility = "visible"; 
 
 }
@@ -82,7 +110,7 @@ function changeto_add(list_number)
     let unit_num = "+unit".concat(list_number);
     let drop_num = "planner_drop".concat(list_number);
 
-    document.getElementById(unit_num).style.visibility = "visible"; 
+    // document.getElementById(unit_num).style.visibility = "visible"; 
     document.getElementById(drop_num).style.visibility = "hidden"; 
 
     document.getElementById(unit_num).style.color = "blue"; 
@@ -104,27 +132,14 @@ function changeto_add(list_number)
 
 }
 
-//main function that sets up the planner
-function major_change()
+
+// Return list of compulsory units depend on area of study
+function get_compulsory_units(area_of_study)
 {
-    //changes title of planner to the correct major
-    major_selector = document.getElementById("major_select");
-    document.getElementById("major_name").innerHTML = "AREA OF STUDY: ".concat(major_selector.value);
-
-
-
-
-    for(let i = 1; i < 25; i++)
+    var compulsory_units = []
+    if (area_of_study == "Computer Science")
     {
-        changeto_add(i);
-    }
-
-
-    //this should be changed to read the db and get all compulsory units for the major in a list
-    var compusory_units = []
-    if (major_selector.value == "Computer Science")
-    {
-        compusory_units = [
+        compulsory_units = [
             "Software Engineering with Java",
             "Introduction to Cybersecurity",
             "Relational Database Management Systems",
@@ -141,9 +156,9 @@ function major_change()
             "Secure Coding",
             "High Performance Computing"];
     }
-    if (major_selector.value == "Data Science")
+    if (area_of_study == "Data Science")
     {
-        compusory_units = [
+        compulsory_units = [
             "Computational Thinking with Python",
             "Relational Database Management Systems",
             "Ethics for the Digital Age: An Introduction to Moral Philosophy",
@@ -155,9 +170,9 @@ function major_change()
         ]
 
     }
-    if (major_selector.value == "Master of Education - Thesis & Coursework")
+    if (area_of_study == "Master of Education - Thesis & Coursework")
     {
-        compusory_units = [
+        compulsory_units = [
             "Master's Dissertation",
             "Approaches to Research",
             "International and Comparative Education",
@@ -168,9 +183,9 @@ function major_change()
             "Education Studies"
         ];
     }
-    if (major_selector.value == "Master of Arts - Research")
+    if (area_of_study == "Master of Arts - Research")
     {
-        compusory_units = [
+        compulsory_units = [
             "Art Theory",
             "Breaking Art",
             "Contemporary Art and Tradition in China",
@@ -182,6 +197,44 @@ function major_change()
             "Visual Culture and Art in America: 1900–2000"
         ];
     }
+
+    if (area_of_study == "Master of Information Technology - Coursework")
+    {
+        compulsory_units = [
+            "Software Engineering with Java",
+            "Introduction to Cybersecurity",
+            "Computational Thinking with Python",
+            "Relational Database Management Systems",     
+            "Software Requirements and Design",
+            "Open Source Tools and Scripting",
+            "Professional Computing",
+            "Software Testing and Quality Assurance",     
+            "Cloud Computing",
+            "Agile Web Development",
+            "The Internet of Things",
+            "Project Management and Engineering Practice"
+        ];
+    }
+
+    return compulsory_units;
+
+}
+
+//main function that sets up the planner
+function major_change()
+{
+    //changes title of planner to the correct major
+    major_selector = document.getElementById("major_select");
+    document.getElementById("major_name").innerHTML = "AREA OF STUDY: ".concat(major_selector.value);
+
+    for(let i = 1; i < 25; i++)
+    {
+        changeto_add(i);
+    }
+
+
+    //this should be changed to read the db and get all compulsory units for the major in a list
+    var compulsory_units = get_compulsory_units(major_selector.value);
 
 
     var course_types = document.getElementsByClassName("course_type");
@@ -195,10 +248,10 @@ function major_change()
     //since we dont get the start times of the compulsory units, 
     //it may be best to just have them 1st then have the electives next
     //so this loop will go through the compulsory units and enter them into the planner
-    for(let i = 1; i < compusory_units.length+1; i++)
+    for(let i = 1; i < compulsory_units.length+1; i++)
     {
         let unit_num = "+unit".concat(i);
-        document.getElementById(unit_num).innerHTML = compusory_units[i-1]; 
+        document.getElementById(unit_num).innerHTML = compulsory_units[i-1]; 
         document.getElementById(unit_num).style.color = 'black'; 
 
         course_types[i-1].innerHTML = "Compulsory"
@@ -208,8 +261,6 @@ function major_change()
         unit_eftsl[i-1].innerHTML = "0.125"
 
     }
-
-
 
     var price_total = 0;
     for(let i = 0; i < fees.length; i++)
@@ -269,7 +320,17 @@ function cp_change_prices(list_number)
     unit_eftsl[list_number-1].innerHTML = "0.125";
 
     var course_types = document.getElementsByClassName("course_type");
-    course_types[list_number-1].innerHTML = "Elective";
+    
+    var area_of_study = document.getElementById("major_select").value;
+
+    var compulsory_units = get_compulsory_units(area_of_study);
+    if ( compulsory_units.includes(drop_val.value) ){
+        course_types[list_number-1].innerHTML = "Compulsory";
+    }
+    else 
+    {
+        course_types[list_number-1].innerHTML = "Elective";
+    }
 
     var price_total = 0;
     for(let i = 0; i < fees.length; i++)
@@ -359,13 +420,14 @@ function get_units()
         "Secure Coding",
         "High Performance Computing",
         "Computational Thinking with Python",
+        "Ethics for the Digital Age: An Introduction to Moral Philosophy",
         "Statistics for Science",
         "Introduction to Data Science",
         "Analysis of Experiments",
         "Analysis of Observations",
         "Data Warehousing",
         "Statistical Learning",
-        "Introduction to Bayesian Computing and Statistics",
+        "Introduction to Bayesian Computing and Statistics",        
         "Plant and Animal Biology",
         "Dynamic Planet",
         "Science, Society and Data Analysis",
@@ -373,7 +435,69 @@ function get_units()
         "Coastal Processes",
         "Marine Systems",
         "Geographic Information Systems",
-        "Marine Biology"];
+        "Marine Biology",
+        "Global Climate Change and Biodiversity",
+        "Coastal Conservation and Management",
+        "Oceanography",
+        "Environmental Dynamics",
+        "Field Techniques in Marine Science",
+        "Human Biology I: Becoming Human",
+        "Human Biology II: Being Human",
+        "The Musculoskeletal System and Movement",
+        "Applied Anatomy and Athletic Performance",
+        "Physical Fitness and Health",
+        "Mathematics Fundamentals",
+        "Motor Learning and Control",
+        "Biomechanics in Sport and Exercise",
+        "Exercise Physiology",
+        "Foundations of Work Integrated Learning",
+        "Biomechanical Principles",
+        "Sport Physiology",
+        "Professional Practice Part 2",
+        "Financial Accounting",
+        "Introduction to Finance",
+        "Management Accounting",
+        "Corporate Accounting",
+        "Taxation",
+        "Contemporary Managerial Accounting",
+        "Performance Measurement and Evaluation",
+        "Financial Statement Analysis",
+        "Financial Accounting: Theory and Practice",
+        "Auditing",
+        "Strategic Management Accounting",
+        "Introduction to Marketing",
+        "Consumer Behaviour",
+        "Marketing Research",
+        "Advertising and Branding",
+        "Small Business Management",
+        "Professional Selling",
+        "Strategic Marketing",
+        "Entrepreneurship",
+        "New Product Development",
+        "Digital Marketing",
+        "Marketing Analytics",
+        "Experiential Marketing",
+        "Consumers Around the World",
+        "Approaches to Research",
+        "Master's Thesis (full-time)",
+        "Master's Thesis (part-time)",
+        "Contemporary Reforms in Education",
+        "Advance Course in Rasch Measurement Theory",
+        "Integrating Pedagogy and Technology",
+        "Human Resource Development in Education",
+        "Leadership for Learning",
+        "International and Comparative Education",
+        "Approaches to Research",
+        "Quantitative Inquiry",
+        "Qualitative Inquiry",
+        "Assessment and Measurement",
+        "Measurement and Evaluation",
+        "Introduction to Classical and Rasch Measurement Theories", 
+        "Childhood and Adolescent Developmental Psychopathology",   
+        "Globalising Education Policy",
+        "Education Studies",
+        "Education Studies",
+        "Improving Learning and Teaching in the Curriculum"];
 
         return all_units;
 
