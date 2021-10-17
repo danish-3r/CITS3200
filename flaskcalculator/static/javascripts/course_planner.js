@@ -109,7 +109,7 @@ function major_change()
 {
     //changes title of planner to the correct major
     major_selector = document.getElementById("major_select");
-    document.getElementById("major_name").innerHTML = "MAJOR: ".concat(major_selector.value);
+    document.getElementById("major_name").innerHTML = "AREA OF STUDY: ".concat(major_selector.value);
 
 
 
