@@ -5,10 +5,10 @@
   <h3>Create your own course planner</h3>
   <div id="planner-header" class="container">
     <div class="row">
-      <div id="course-selector" class="col">
-        <div class="row" style="line-height: 3.5">
+      <div class = "col" id="course-selector"> 
+        <div class="row" style="line-height: 3">
           <div class="col">
-            <label class="question-label">Degree type:</label>
+            <label class="question-label">Course Type:</label>
             <span class="mytooltip" data-tooltip=
             "UNGERGRADUATE: first studies undertaken at university to introduce students to 
             the knowledge base within a specific discipline.
@@ -26,9 +26,9 @@
             </select>
           </div>
         </div>
-        <div class="row" style="line-height: 1.6">
+        <div class="row" style="line-height: 3">
           <div class="col">
-            <label class="question-label">Degree name:</label>
+            <label class="question-label">Area of Study:</label>
           </div>
           <div class="col question-dropdown">
             <select name="courses" class = "major_select" id="major_select" onchange="major_change()">
@@ -43,9 +43,9 @@
         <ul>
           <li>a. Choose type of degree</li>
           <li>b. Choose degree that you want to study as your major.</li>
-          <li>d. Select the ‘Add a unit’ button to choose your elective units.</li>
-          <li>e. Select the ‘Add a year’ button if you plan to complete your course over a longer period.</li>
-          <li>f. If you wish to change a unit, select the unit and choose a new unit from the dropown menu.</li>
+          <li>c. Select the ‘Add a unit’ button to choose your elective units.</li>
+          <li>d. Select the ‘Add a year’ button if you plan to complete your course over a longer period.</li>
+          <li>e. If you wish to change a unit, select the unit and choose a new unit from the dropown menu.</li>
         </ul>
       </div>
     </div>
@@ -89,7 +89,7 @@
       </thead>
       <tbody>
         <tr id="planner-major">
-          <th colspan="7" scope="row" id="major_name">Major: </th>
+          <th colspan="7" scope="row" id="major_name">Area of Study: </th>
         </tr>
         <tr class="planner-year-row">
           <td class="year-column">
@@ -547,7 +547,7 @@
             </table>
           </td>
         </tr>
-        <tr class="planner-year-row">
+        <tr class="planner-year-row year-3">
           <td class="year-column">
             <h1 class="year-text">
               Year 3

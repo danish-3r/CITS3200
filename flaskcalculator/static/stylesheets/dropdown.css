@@ -51,7 +51,6 @@ background: rgba(246, 248, 252, 1);
   background-color: rgba(219, 219, 219, 1);
   border-color: rgb(219, 219, 219, 1);
   color: #27348b;
-  /* display: inline-block; */
   margin: 2px 2px;
   width: 100%;
   overflow: auto;
@@ -89,7 +88,6 @@ select.option {
 
 select:-moz-focusring {
   color: transparent;
-  /* text-shadow: 0 0 0 #000; */
 }
 
 /* Tooltip Styles */
