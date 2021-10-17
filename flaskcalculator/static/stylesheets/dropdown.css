@@ -95,53 +95,45 @@ select:-moz-focusring {
 position: relative;
 background:#27348b;
 color: white;
-padding: 10px; 
-border-radius: 50%;
-height: 10px;
-font-size: 10px;
+padding: 5px 10px;
+border-radius: 100%;
+font-size: 14px;
 cursor: help;
 }
 
-.mytooltip::before{ 
+.mytooltip::before, .mytooltip::after{
 position: absolute;
-left: 20% !important;
-opacity: 0;
-transition: allease0.3s;
-}
-
-.mytooltip::after{
-position: absolute;
-left: 20% !important;
+left: 50% !important;
 opacity: 0;
 transition: allease0.3s;
 }
 
 .mytooltip::before{
 content: ""; 
+border-width: 10px 8px 08px;
 border-style: solid;
 border-color: rgba(0,0,0,0.3) transparent transparent transparent;
-/* top: -20px; */
-top: 10px;
-
-/* margin-left: -8px; */
+top: -10px;
+margin-left: -8px;
 }
 
 .mytooltip::after{
 content: attr(data-tooltip);
-background:grey;
+background: rgba(0,0,0,0.3);
 top: -10px;
 transform: translateY(-100%);
-font-size: 10px;
-min-width: 200px;
+font-size: 14px;
+font-weight: normal !important;
+line-height: normal !important;
+margin-left: -150px;
+width: 400px; 
 border-radius: 10px;
 color: #fff;
-padding: 10px;
+padding: 14px;
 z-index: 1;
+text-transform: none !important; 
 }
 
-/* Hover states */
-/* /* .mytooltip:hover::after,  */
-
-.mytooltip:hover::before{
+.mytooltip:hover::before, .mytooltip:hover::after{
   opacity:100%;
-}
+} 
