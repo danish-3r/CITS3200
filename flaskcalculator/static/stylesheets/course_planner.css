@@ -107,10 +107,10 @@
 }
 
 .year-text {
-  width: 100%;
+  width: 80%;
   color: white;
   writing-mode: vertical-rl;
-  margin-top: 100%;
+  margin-top: 150%;
 }
 
 .planner-table-year .semester-column {

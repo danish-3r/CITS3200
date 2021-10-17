@@ -93,56 +93,54 @@ select:-moz-focusring {
 }
 
 /* Tooltip Styles */
-.mytooltip{
-position: relative;
-background:#27348b;
-color: white;
-padding: 10px; 
-border-radius: 50%;
-height: 10px;
-font-size: 10px;
-cursor: help;
+.mytooltip {
+  position: relative;
+  background: #4151b9;
+  color: white;
+  padding: 3px 7px;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: help;
 }
 
-.mytooltip::before{ 
-position: absolute;
-left: 20% !important;
-opacity: 0;
-transition: allease0.3s;
+.mytooltip::before {
+  position: absolute;
+  left: 20% !important;
+  opacity: 0;
+  transition: allease0.3s;
 }
 
-.mytooltip::after{
-position: absolute;
-left: 20% !important;
-opacity: 0;
-transition: allease0.3s;
+.mytooltip::after {
+  position: absolute;
+  left: 20% !important;
+  opacity: 0;
+  transition: allease0.3s;
 }
 
-.mytooltip::before{
-content: ""; 
-border-style: solid;
-border-color: rgba(0,0,0,0.3) transparent transparent transparent;
-top: -20px;
-margin-left: -8px;
+.mytooltip::before {
+  content: "";
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.3) transparent transparent transparent;
+  top: -20px;
+  margin-left: -8px;
 }
 
-.mytooltip::after{
-content: attr(data-tooltip);
-background:grey;
-top: -10px;
-transform: translateY(-100%);
-font-size: 10px;
-min-width: 200px;
-border-radius: 10px;
-color: #fff;
-padding: 10px;
-z-index: 1;
+.mytooltip::after {
+  content: attr(data-tooltip);
+  background: grey;
+  top: -10px;
+  transform: translateY(-100%);
+  font-size: 10px;
+  min-width: 200px;
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px;
+  z-index: 1;
 }
 
 /* Hover states */
 /* /* .mytooltip:hover::after,  */
 
-.mytooltip:hover::after{
-
-  opacity:100%;
+.mytooltip:hover::after {
+  opacity: 100%;
 }
