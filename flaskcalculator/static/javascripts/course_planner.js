@@ -27,6 +27,189 @@ function show_third_year()
     document.getElementsByClassName('year-3')[0].style.visibility= "visible";
 }
 
+function add_year(year_number)
+{
+
+    // Create new year element
+    const year = document.createElement("tr");
+    year.classList.add('planner-year-row', 'year-' + year_number );
+    year.classList.add('year-' + year_number);
+
+    // Add year element to table body
+    const table = document.getElementById("table-body");
+    const total_row = document.getElementById("total-row");
+    table.insertBefore(year, total_row);
+
+    // Add new blue year column
+    const year_column =  document.createElement("td");
+    year_column.classList.add('year-column');
+    year.appendChild(year_column);
+
+    // Add year text to the blue column
+    const year_text = document.createElement("h1");
+    year_text.classList.add('year-text');
+    const div_content = document.createTextNode("Year " + year_number);
+    year_text.appendChild(div_content); 
+
+    year_column.appendChild(year_text);
+
+
+    // Add semesters to current year
+    add_sems(2, year, year_number)
+
+}
+
+function add_sems(num_of_sems, year, year_number)
+{
+    const span = document.createElement("td");
+    span.setAttribute("colspan", 7);
+    year.appendChild(span);
+
+    const table = document.createElement("table");
+    table.classList.add('table', 'table-borderless', 'planner-table-year');
+    span.appendChild(table);
+
+    const tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+
+    for (let i = 1; i <= num_of_sems; i++)
+    {
+        const sem = document.createElement("tr");
+        tbody.append(sem);
+
+        const sem_col = document.createElement("td");
+        sem_col.classList.add('semester-column')
+        sem.append(sem_col);
+
+        const sem_div = document.createElement("div");
+        sem_div.classList.add('semester-text');
+        sem_col.append(sem_div);
+        
+        const sem_text =  document.createElement("h3");
+        const text = document.createTextNode("Sem " + i);
+        sem_text.appendChild(text);
+        sem_div.append(sem_text);
+        
+        // Add units
+        add_units(4, sem, year_number);
+    }
+}
+
+function add_units(num_of_units, sem, year_number){
+    const td = document.createElement("td");
+    sem.appendChild(td);
+
+    const table = document.createElement("table");
+    table.classList.add('table', 'table-striped', 'planner-table-semester');
+    td.appendChild(table);
+
+    const tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+
+    // The first unit id used for adding unit
+    var first_unitid = (year_number - 1) * 8 + 1;
+    var last_unitid = first_unitid + num_of_units - 1;
+
+    for (let unit_id = first_unitid; unit_id <= last_unitid; unit_id++)
+    {
+        const tr = document.createElement("tr");
+        tbody.append(tr);
+        set_up_unit_row(tr, unit_id);
+    }
+}
+
+// Set up the initial value for a single row in course planner
+function set_up_unit_row(tr, unit_id)
+{
+    // Unit part
+    const td_unit = document.createElement("td");
+    td_unit.setAttribute("style", "width: 45%");
+    tr.appendChild(td_unit);
+
+    const span = document.createElement("span");
+    span.setAttribute("class", "+unit");
+    span.setAttribute("id", "+unit" + unit_id);
+    span.setAttribute("onclick", "changeto_drop" + "(" + unit_id + ")");
+    span.setAttribute("style", "color:blue");
+
+    const span_text =  document.createTextNode("+ Add a unit");
+    span.appendChild(span_text);
+    td_unit.appendChild(span);
+
+    set_planner_drop(td_unit, unit_id)
+
+    // Course type part
+    const td_course_type = document.createElement("td");
+    td_course_type.setAttribute("style", "width: 20%");
+    td_course_type.setAttribute("class", "course_type");
+    tr.append(td_course_type);
+
+    // Unit credit part
+    const td_unit_credit = document.createElement("td");
+    td_unit_credit.setAttribute("style", "width: 10%");
+    td_unit_credit.setAttribute("class", "unit_credit");
+    const default_credit =  document.createTextNode("0");
+    td_unit_credit.appendChild(default_credit);
+    tr.append(td_unit_credit);
+
+    // Unit eftsl part
+    const td_unit_eftsl = document.createElement("td");
+    td_unit_eftsl.setAttribute("style", "width: 10%");
+    td_unit_eftsl.setAttribute("class", "unit_eftsl");
+    const default_eftsl =  document.createTextNode("0");
+    td_unit_eftsl.appendChild(default_eftsl);
+    tr.append(td_unit_eftsl);
+
+    // Fee part
+    const td_fee = document.createElement("td");
+    td_fee.setAttribute("style", "width: 15%");
+    td_fee.setAttribute("class", "fee");
+    const default_fee =  document.createTextNode("$0");
+    td_fee.appendChild(default_fee);
+    tr.append(td_fee);
+}
+
+function set_planner_drop(td_unit, unit_id)
+{
+    const span_planner = document.createElement("span");
+    span_planner.setAttribute("class", "planner_drop");
+    span_planner.setAttribute("id", "planner_drop" + unit_id);
+    span_planner.setAttribute("style", "visibility:hidden");
+    td_unit.appendChild(span_planner);
+
+    const span_change = document.createElement("span");
+    span_change.setAttribute("onclick", "changeto_add" + "(" + unit_id + ")");
+    span_change.setAttribute("style", "color:red");
+    
+    // Add X symbol
+    const span_text =  document.createTextNode("X");
+    span_change.appendChild(span_text);
+    span_planner.appendChild(span_change);
+
+    // Set up options
+    const select = document.createElement("select");
+    select.setAttribute("name", "Unit");
+    select.setAttribute("class", "unit_select");
+    select.setAttribute("id", "unit_select" + unit_id);
+    select.setAttribute("onchange", "cp_change_prices" + "(" + unit_id + ")");
+    span_planner.appendChild(select);
+    add_options(select);
+}
+
+function add_options(select)
+{
+    var available_units = get_chosen_units();
+
+    for(var i = 0; i < available_units.length; i++)
+    {
+
+        var option = document.createElement("option");
+        option.value = available_units[i];
+        option.text = available_units[i];
+        select.appendChild(option);
+    }
+}
+
 //enters dropdown mode
 function update_degree_names()
 {
@@ -37,6 +220,9 @@ function update_degree_names()
     if(degree_type == "Undergraduate")
     {
         show_third_year();
+
+        // Add new year
+        add_year();
 
         available_majors.splice(0, available_majors.length);
 
