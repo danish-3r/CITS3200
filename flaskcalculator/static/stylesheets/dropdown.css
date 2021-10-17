@@ -51,7 +51,6 @@ background: rgba(246, 248, 252, 1);
   background-color: rgba(219, 219, 219, 1);
   border-color: rgb(219, 219, 219, 1);
   color: #27348b;
-  /* display: inline-block; */
   margin: 2px 2px;
   width: 100%;
   overflow: auto;
@@ -89,7 +88,6 @@ select.option {
 
 select:-moz-focusring {
   color: transparent;
-  /* text-shadow: 0 0 0 #000; */
 }
 
 /* Tooltip Styles */
@@ -122,8 +120,10 @@ transition: allease0.3s;
 content: ""; 
 border-style: solid;
 border-color: rgba(0,0,0,0.3) transparent transparent transparent;
-top: -20px;
-margin-left: -8px;
+/* top: -20px; */
+top: 10px;
+
+/* margin-left: -8px; */
 }
 
 .mytooltip::after{
@@ -142,7 +142,6 @@ z-index: 1;
 /* Hover states */
 /* /* .mytooltip:hover::after,  */
 
-.mytooltip:hover::after{
-
+.mytooltip:hover::before{
   opacity:100%;
 }
