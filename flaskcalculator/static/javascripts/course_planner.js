@@ -562,6 +562,19 @@ function cp_change_prices(list_number)
     document.getElementById("total_credits").innerHTML = (credit_total); 
     document.getElementById("total_eftsl").innerHTML = (eftsl_total); 
 
+    check_eftsl()
+}
+function check_eftsl()
+{
+    if(parseFloat(document.getElementById("total_eftsl").innerHTML) != 3) 
+    {
+        document.getElementById("error_message").style.display = "block";
+    }
+    else
+    {
+        document.getElementById("error_message").style.display = "none";
+
+    }
 }
 
 function selectable_units(list_number)
