@@ -6,6 +6,7 @@
 {% from 'footer.html' import footer %}
 {% from 'faq.html' import faq %}
 
+
 <!-- import the html code from html files -->
 
 <!DOCTYPE html>
@@ -74,7 +75,8 @@
 
                 {{ fee_result() }}
 
-                {{ course_planner() }}
+                <!-- {{ course_planner() }} -->
+               
 
                 <div class="faq-in-base" style="background-color: #ececec; padding: 20px; margin: 60px 0px;">
                     <div class="faq-link" style="text-align: center;">
@@ -109,7 +111,7 @@
 
 <script src="{{ url_for('static', filename='javascripts/dropdown.js') }}"></script>
 <script src="{{ url_for('static', filename='javascripts/fee_results.js') }}"></script>
-
+<script src="{{ url_for('static', filename='javascripts/unitsGivenCourseID.js') }}"></script>
 
 
 </html>

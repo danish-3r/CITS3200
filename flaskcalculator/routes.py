@@ -27,10 +27,28 @@ def faqs():
 
 @app.route('/feeresults', methods=["POST"])
 def feeresults():
-    req = request.get_json() #the request data(location, level) sent from user using dropdown.js
+    req = request.get_json() #the request data (location, level) sent from user using dropdown.js
     courseid = int(req["courseid"])
     course = Course.query.get(courseid)
     
     res = make_response( {"course_name":course.course_name, "course_year":course.year, "duration":course.duration, "course_fee":course.course_fee} )
     
     return res
+
+@app.route('/unitsGivenCourseID', methods=["POST"])
+def unitsGivenCourseID(): #The course MUST have children units or else will have error
+    req = request.get_json() #the request data (courseID) sent from user using unitsGivenCourseID.js
+    print(req)
+    courseid = int(req["courseid"])
+
+    course = Course.query.get(courseid) #get the Course in the database given the courseID
+    childrenUnitsID = [ c.unit_id for c in course.childrenUnits ] #get childrenUnitsID and add them all to list
+
+    childrenUnits = []
+    for unitid in childrenUnitsID: #Go through the list of childrenUnits ID and append them
+        unit = Unit.query.get(unitid).as_dict()
+        childrenUnits.append(unit)
+    
+    res = make_response( {"childrenUnits": childrenUnits} )
+    print(res)
+    return res #returns a list of unit dictionary objects

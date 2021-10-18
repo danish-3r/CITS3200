@@ -16,6 +16,11 @@ class Unit(db.Model):
     unitjoincourses = db.relationship("UnitsJoinCourses")
     unitjoinmajors = db.relationship("UnitsJoinMajors")
 
+    def as_dict(self):
+        dict = {"id":self.id, "unit_code":self.unit_code, "unit_name":self.unit_name, 
+           "credit_points":self.credit_points, "eftsl":self.eftsl, "availability":self.availability, "unit_fee":self.unit_fee} 
+        return dict
+
 
 class Major(db.Model):
     id = db.Column(db.Integer, primary_key=True)
