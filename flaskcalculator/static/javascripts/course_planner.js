@@ -5,21 +5,25 @@
 
 const UNDERGRADUATE_YEAR = 3;
 const POSTGRADUATE_YEAR = 2;
-
+const UNDERGRADUATE_UNIT = 24;
+const POSTGRADUATE_UNIT = 16
+const DEFAULT_NUM_OF_UNITS_PER_SEM = 4;
+const DEFAULT_NUM_OF_SEMS_PER_YEAR = 2;
 
 // Remove the abundant year
-function remove_years(required_years)
+function remove_years()
 {
-    years = document.getElementsByClassName('planner-year-row')
-    for (let i = years.length - 1; i >= required_years; i--) 
+    var years = document.getElementsByClassName('planner-year-row');
+    var lengths = years.length;
+    for (let i = 1; i <= lengths; i++) 
     {
-        years[i].remove();
+        document.getElementById("year-" + i).remove();
     }
 }
 
 
 // Add new year to course planner
-function add_year(year_number)
+function add_year(year_number, num_of_units_per_sem)
 {
 
     // Create new year element
@@ -47,12 +51,12 @@ function add_year(year_number)
 
 
     // Add semesters to current year
-    add_sems(2, year, year_number)
+    add_sems(DEFAULT_NUM_OF_SEMS_PER_YEAR, year, year_number, num_of_units_per_sem)
 
 }
 
 // Add new sem to current year
-function add_sems(num_of_sems, year, year_number)
+function add_sems(num_of_sems, year, year_number, num_of_units_per_sem)
 {
     const span = document.createElement("td");
     span.setAttribute("colspan", 7);
@@ -84,12 +88,12 @@ function add_sems(num_of_sems, year, year_number)
         sem_div.append(sem_text);
         
         // Add units
-        add_units(4, sem, year_number);
+        add_units(num_of_units_per_sem, sem, year_number, i);
     }
 }
 
 // Add new units to current semester
-function add_units(num_of_units, sem, year_number){
+function add_units(num_of_units_per_sem, sem, year_number, sem_number){
     const td = document.createElement("td");
     sem.appendChild(td);
 
@@ -101,8 +105,8 @@ function add_units(num_of_units, sem, year_number){
     table.appendChild(tbody);
 
     // The first unit id used for adding unit
-    var first_unitid = (year_number - 1) * 8 + 1;
-    var last_unitid = first_unitid + num_of_units - 1;
+    var first_unitid = (year_number - 1) * (num_of_units_per_sem * DEFAULT_NUM_OF_SEMS_PER_YEAR) + (sem_number-1) * num_of_units_per_sem + 1;
+    var last_unitid = first_unitid + num_of_units_per_sem - 1;
 
     for (let unit_id = first_unitid; unit_id <= last_unitid; unit_id++)
     {
@@ -427,7 +431,6 @@ function get_compulsory_units(area_of_study)
     return compulsory_units;
 
 }
-
 //main function that sets up the planner
 function major_change()
 {
@@ -436,11 +439,6 @@ function major_change()
     document.getElementById("major_name").innerHTML = "AREA OF STUDY: ".concat(major_selector.value);
 
     degree_type = document.getElementsByClassName('dropdown_1')[0].value;
- 
-    for(let i = 1; i <= POSTGRADUATE_YEAR * 8; i++)
-    {
-        changeto_add(i);
-    }
 
     //this should be changed to read the db and get all compulsory units for the major in a list
     var compulsory_units = get_compulsory_units(major_selector.value);
@@ -498,6 +496,70 @@ function major_change()
 
 
 }
+
+function choosing_num_of_units()
+{
+    // Clear up the previous major
+    major_selector = document.getElementById("major_select");
+    major_selector.value = "Select";
+    
+    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
+    study_type = document.getElementById("study-type");
+    if (study_type.value == "Part time") {
+        document.getElementById("num-of-units").style.visibility = "visible";
+    }
+
+    // FULL TIME CASE
+    else if (study_type.value = "Full time") {
+        document.getElementById("num-of-units").style.visibility = "hidden";
+
+        if(degree_type == "Undergraduate")
+        {
+            remove_years();
+            for (let year = 1; year <= UNDERGRADUATE_YEAR; year++)
+            {
+                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
+            }
+        }
+        else{
+            remove_years();
+            for (let year = 1; year <= POSTGRADUATE_YEAR; year++)
+            {
+                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
+            }
+        }
+    } 
+}
+
+function set_up_part_time()
+{
+    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
+    num_of_units_per_sem = parseInt(document.getElementById("num-of-units").value);
+    
+    if(degree_type == "Undergraduate")
+    {
+        remove_years();
+
+        sems = Math.ceil(UNDERGRADUATE_UNIT / num_of_units_per_sem);
+        years = Math.ceil(sems / 2);
+
+        for (let year = 1; year <= years; year++)
+        {
+            add_year(year, num_of_units_per_sem);
+        }
+    }
+    else{
+        remove_years();
+
+        sems = Math.ceil(POSTGRADUATE_UNIT / num_of_units_per_sem);
+        years = Math.ceil(sems / 2);
+        for (let year = 1; year <= years; year++)
+        {
+            add_year(year, num_of_units_per_sem);
+        }
+    }
+}
+
 
 
 //called when an elective unit has been selected
