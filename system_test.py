@@ -484,7 +484,7 @@ class SystemTest(unittest.TestCase):
         num_of_units = None
         try:
             num_of_units = Select(self.driver.find_element_by_id('num-of-units'))
-            num_of_units.select_by_visible_text('3')
+            num_of_units.select_by_visible_text('3 units persemester')
             time.sleep(2)
             self.driver.implicitly_wait(5)
         except:
