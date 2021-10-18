@@ -298,7 +298,6 @@ function update_degree_names()
 
 function changeto_drop(list_number)
 {   
-
     let unit_num = "+unit".concat(list_number);
     let drop_num = "planner_drop".concat(list_number);
 
@@ -313,12 +312,11 @@ function changeto_drop(list_number)
 //exits dropdown mode
 function changeto_add(list_number)
 {
-
     let unit_num = "+unit".concat(list_number);
     let drop_num = "planner_drop".concat(list_number);
 
     try {
-        // document.getElementById(unit_num).style.visibility = "visible"; 
+        document.getElementById(unit_num).style.visibility = "visible"; 
         document.getElementById(drop_num).style.visibility = "hidden"; 
 
         document.getElementById(unit_num).style.color = "blue"; 
