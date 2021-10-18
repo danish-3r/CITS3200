@@ -3,40 +3,236 @@
 //each list item id has a number after it
 //so when i call the function i give it that number since using 'self' was out of the scope
 
+const UNDERGRADUATE_YEAR = 3;
+const POSTGRADUATE_YEAR = 2;
 
-// Function to hide third year option
-function hide_third_year()
+
+// Remove the abundant year
+function remove_years(required_years)
 {
-    for (let i = 17; i <= 24; i++) 
+    years = document.getElementsByClassName('planner-year-row')
+    for (let i = years.length - 1; i >= required_years; i--) 
     {
-        document.getElementById("+unit" + i).style.visibility= "hidden";
-        document.getElementById("planner_drop" + i).style.visibility= "hidden";
-
+        years[i].remove();
     }
-    document.getElementsByClassName('year-3')[0].style.visibility= "hidden";
 }
 
-function show_third_year()
-{
-    for (let i = 17; i <= 24; i++) 
-    {
-        document.getElementById("+unit" + i).style.visibility= "visible";
-        document.getElementById("unit_select" + i).style.visibility= "visbile";
 
-    }
-    document.getElementsByClassName('year-3')[0].style.visibility= "visible";
+// Add new year to course planner
+function add_year(year_number)
+{
+
+    // Create new year element
+    const year = document.createElement("tr");
+    year.classList.add('planner-year-row');
+    year.setAttribute("id", 'year-' + year_number);
+
+    // Add year element to table body
+    const table = document.getElementById("table-body");
+    const total_row = document.getElementById("total-row");
+    table.insertBefore(year, total_row);
+
+    // Add new blue year column
+    const year_column =  document.createElement("td");
+    year_column.classList.add('year-column');
+    year.appendChild(year_column);
+
+    // Add year text to the blue column
+    const year_text = document.createElement("h1");
+    year_text.classList.add('year-text');
+    const div_content = document.createTextNode("Year " + year_number);
+    year_text.appendChild(div_content); 
+
+    year_column.appendChild(year_text);
+
+
+    // Add semesters to current year
+    add_sems(2, year, year_number)
+
 }
+
+// Add new sem to current year
+function add_sems(num_of_sems, year, year_number)
+{
+    const span = document.createElement("td");
+    span.setAttribute("colspan", 7);
+    year.appendChild(span);
+
+    const table = document.createElement("table");
+    table.classList.add('table', 'table-borderless', 'planner-table-year');
+    span.appendChild(table);
+
+    const tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+
+    for (let i = 1; i <= num_of_sems; i++)
+    {
+        const sem = document.createElement("tr");
+        tbody.append(sem);
+
+        const sem_col = document.createElement("td");
+        sem_col.classList.add('semester-column')
+        sem.append(sem_col);
+
+        const sem_div = document.createElement("div");
+        sem_div.classList.add('semester-text');
+        sem_col.append(sem_div);
+        
+        const sem_text =  document.createElement("h3");
+        const text = document.createTextNode("Sem " + i);
+        sem_text.appendChild(text);
+        sem_div.append(sem_text);
+        
+        // Add units
+        add_units(4, sem, year_number);
+    }
+}
+
+// Add new units to current semester
+function add_units(num_of_units, sem, year_number){
+    const td = document.createElement("td");
+    sem.appendChild(td);
+
+    const table = document.createElement("table");
+    table.classList.add('table', 'table-striped', 'planner-table-semester');
+    td.appendChild(table);
+
+    const tbody = document.createElement("tbody");
+    table.appendChild(tbody);
+
+    // The first unit id used for adding unit
+    var first_unitid = (year_number - 1) * 8 + 1;
+    var last_unitid = first_unitid + num_of_units - 1;
+
+    for (let unit_id = first_unitid; unit_id <= last_unitid; unit_id++)
+    {
+        const tr = document.createElement("tr");
+        tbody.append(tr);
+        set_up_unit_row(tr, unit_id);
+    }
+}
+
+// Set up the initial value for a single row in course planner
+function set_up_unit_row(tr, unit_id)
+{
+    // Unit part
+    const td_unit = document.createElement("td");
+    td_unit.setAttribute("style", "width: 45%");
+    tr.appendChild(td_unit);
+
+    const span = document.createElement("span");
+    span.setAttribute("class", "+unit");
+    span.setAttribute("id", "+unit" + unit_id);
+    span.setAttribute("onclick", "changeto_drop" + "(" + unit_id + ")");
+    span.setAttribute("style", "color:blue");
+
+    const span_text =  document.createTextNode("+ Add a unit");
+    span.appendChild(span_text);
+    td_unit.appendChild(span);
+
+    set_planner_drop(td_unit, unit_id)
+
+    // Course type part
+    const td_course_type = document.createElement("td");
+    td_course_type.setAttribute("style", "width: 20%");
+    td_course_type.setAttribute("class", "course_type");
+    const default_course_type =  document.createTextNode("-");
+    td_course_type.appendChild(default_course_type);
+    tr.append(td_course_type);
+
+    // Unit credit part
+    const td_unit_credit = document.createElement("td");
+    td_unit_credit.setAttribute("style", "width: 10%");
+    td_unit_credit.setAttribute("class", "unit_credit");
+    const default_credit =  document.createTextNode("0");
+    td_unit_credit.appendChild(default_credit);
+    tr.append(td_unit_credit);
+
+    // Unit eftsl part
+    const td_unit_eftsl = document.createElement("td");
+    td_unit_eftsl.setAttribute("style", "width: 10%");
+    td_unit_eftsl.setAttribute("class", "unit_eftsl");
+    const default_eftsl =  document.createTextNode("0");
+    td_unit_eftsl.appendChild(default_eftsl);
+    tr.append(td_unit_eftsl);
+
+    // Fee part
+    const td_fee = document.createElement("td");
+    td_fee.setAttribute("style", "width: 15%");
+    td_fee.setAttribute("class", "fee");
+    const default_fee =  document.createTextNode("$0");
+    td_fee.appendChild(default_fee);
+    tr.append(td_fee);
+}
+
+function set_planner_drop(td_unit, unit_id)
+{
+    const span_planner = document.createElement("span");
+    span_planner.setAttribute("class", "planner_drop");
+    span_planner.setAttribute("id", "planner_drop" + unit_id);
+    span_planner.setAttribute("style", "visibility:hidden");
+    td_unit.appendChild(span_planner);
+
+    const span_change = document.createElement("span");
+    span_change.setAttribute("onclick", "changeto_add" + "(" + unit_id + ")");
+    span_change.setAttribute("style", "color:red");
+    
+    // Add X symbol
+    const span_text =  document.createTextNode("X");
+    span_change.appendChild(span_text);
+    span_planner.appendChild(span_change);
+
+    // Set up options
+    const select = document.createElement("select");
+    select.setAttribute("name", "Unit");
+    select.setAttribute("class", "unit_select");
+    select.setAttribute("id", "unit_select" + unit_id);
+    select.setAttribute("onchange", "cp_change_prices" + "(" + unit_id + ")");
+    span_planner.appendChild(select);
+    add_options(select);
+}
+
+// set up option for unit selection
+function add_options(select)
+{
+    var available_units = get_chosen_units();
+
+    for(var i = 0; i < available_units.length; i++)
+    {
+        var option = document.createElement("option");
+        option.value = available_units[i];
+        option.text = available_units[i];
+        select.appendChild(option);
+    }
+}
+
+// ----------------------------------
 
 //enters dropdown mode
 function update_degree_names()
 {
+
     degree_type = document.getElementsByClassName('dropdown_1')[0].value;
 
     let available_majors = [];
 
+    years = document.getElementsByClassName('planner-year-row');
+
     if(degree_type == "Undergraduate")
     {
-        show_third_year();
+        if (years.length < UNDERGRADUATE_YEAR)
+        {
+            const length = years.length;
+            for (let year = length + 1; year <= UNDERGRADUATE_YEAR; year++)
+            {
+                add_year(year);
+            }
+        }
+
+        else if (years.length > UNDERGRADUATE_YEAR)
+        {
+            remove_years(UNDERGRADUATE_YEAR);
+        }
 
         available_majors.splice(0, available_majors.length);
 
@@ -45,8 +241,19 @@ function update_degree_names()
     }
     else{
 
-        hide_third_year();
+        if (years.length < POSTGRADUATE_YEAR)
+        {
+            const length = year.length;
+            for (let year = length + 1; year <= POSTGRADUATE_YEAR; year++)
+            {
+                add_year(year);
+            }
+        }
 
+        else if (years.length > POSTGRADUATE_YEAR)
+        {
+            remove_years(POSTGRADUATE_YEAR);
+        }
         if(degree_type == "Postgraduate")
         {
             available_majors.splice(0, available_majors.length);
@@ -98,7 +305,7 @@ function changeto_drop(list_number)
 
     selectable_units(list_number);
 
-    // document.getElementById(unit_num).style.visibility = "hidden"; 
+    document.getElementById(unit_num).style.visibility = "hidden"; 
     document.getElementById(drop_num).style.visibility = "visible"; 
 
 }
@@ -110,26 +317,27 @@ function changeto_add(list_number)
     let unit_num = "+unit".concat(list_number);
     let drop_num = "planner_drop".concat(list_number);
 
-    // document.getElementById(unit_num).style.visibility = "visible"; 
-    document.getElementById(drop_num).style.visibility = "hidden"; 
+    try {
+        // document.getElementById(unit_num).style.visibility = "visible"; 
+        document.getElementById(drop_num).style.visibility = "hidden"; 
 
-    document.getElementById(unit_num).style.color = "blue"; 
-    document.getElementById(unit_num).innerHTML = "+ Add a unit"; 
-
-
-    var course_types = document.getElementsByClassName("course_type");
-    course_types[list_number-1].innerHTML = "-";
-
-    var fees = document.getElementsByClassName("fee");
-    fees[list_number-1].innerHTML = "$".concat("0");
-
-    var credit_points = document.getElementsByClassName("unit_credit")
-    credit_points[list_number-1].innerHTML = "0";
-
-    var unit_eftsl = document.getElementsByClassName("unit_eftsl")
-    unit_eftsl[list_number-1].innerHTML = "0";
+        document.getElementById(unit_num).style.color = "blue"; 
+        document.getElementById(unit_num).innerHTML = "+ Add a unit"; 
 
 
+        var course_types = document.getElementsByClassName("course_type");
+        course_types[list_number-1].innerHTML = "-";
+
+        var fees = document.getElementsByClassName("fee");
+        fees[list_number-1].innerHTML = "$".concat("0");
+
+        var credit_points = document.getElementsByClassName("unit_credit")
+        credit_points[list_number-1].innerHTML = "0";
+
+        var unit_eftsl = document.getElementsByClassName("unit_eftsl")
+        unit_eftsl[list_number-1].innerHTML = "0";
+    }
+    finally{}
 }
 
 
@@ -154,7 +362,8 @@ function get_compulsory_units(area_of_study)
             "Graphics and Animation",
             "Knowledge Representation",
             "Secure Coding",
-            "High Performance Computing"];
+            "High Performance Computing"
+        ];
     }
     if (area_of_study == "Data Science")
     {
@@ -227,15 +436,15 @@ function major_change()
     major_selector = document.getElementById("major_select");
     document.getElementById("major_name").innerHTML = "AREA OF STUDY: ".concat(major_selector.value);
 
-    for(let i = 1; i < 25; i++)
+    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
+ 
+    for(let i = 1; i <= POSTGRADUATE_YEAR * 8; i++)
     {
         changeto_add(i);
     }
 
-
     //this should be changed to read the db and get all compulsory units for the major in a list
     var compulsory_units = get_compulsory_units(major_selector.value);
-
 
     var course_types = document.getElementsByClassName("course_type");
 
@@ -287,8 +496,6 @@ function major_change()
     document.getElementById("total_credits").innerHTML = (credit_total); 
     document.getElementById("total_eftsl").innerHTML = (eftsl_total); 
 
-    
-    
 }
 
 
