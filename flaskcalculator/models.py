@@ -16,7 +16,18 @@ class Unit(db.Model):
     unitjoincourses = db.relationship("UnitsJoinCourses")
     unitjoinmajors = db.relationship("UnitsJoinMajors")
 
+class Unit_Final(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    unit_code = db.Column(db.String(20), nullable=False, unique=True)
+    unit_name = db.Column(db.String(30), nullable=False)
+    credit_points = db.Column(db.Integer, nullable=False)
+    eftsl = db.Column(db.Float, nullable=False)
+    availability = db.Column(db.String(10), nullable=False)
+    unit_fee = db.Column(db.Integer, nullable=False)
 
+    unitjoincourses = db.relationship("UnitsJoinCourses")
+    unitjoinmajors = db.relationship("UnitsJoinMajors")
+    
 class Major(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     major_code = db.Column(db.String(20), nullable=False, unique=True)
