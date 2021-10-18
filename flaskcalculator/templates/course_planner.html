@@ -8,13 +8,6 @@
         <div class="row" style="line-height: 3">
           <div class="col">
             <label class="question-label">Course Type:</label>
-            <span class="mytooltip" data-tooltip=
-            "UNGERGRADUATE: first studies undertaken at university to introduce students to 
-            the knowledge base within a specific discipline.
-            POSTGRADUATE: available to students who have completed undergraduate studies 
-            (a more highly qualitifed result).
-            POSTGRADUATE RESEARCH: have an intensive research component to extend your understanding 
-            of a subject area">?</span>
           </div>
           <div class="col question-dropdown">
             <select name="levels" id="levels" class="dropdown_1" onchange="update_degree_names()">
@@ -29,15 +22,16 @@
         <div class="row" style="line-height: 3">
           <div class="col">
             <label class="question-label">Study type:</label>
-            <span class="mytooltip" data-tooltip=
-            "PART TIME: Choose less units to do per semester. FULL TIME: Complete by default 4 units per semester">
-            ?</span>
+            <!-- <span class="mytooltip" data-tooltip=
+            "FULL TIME: Complete by default 4 units per semester; 
+            PART TIME: Choose less units to do per semester.">
+            ?</span> -->
           </div>
           <div class="col question-dropdown">
             <select name="study-type" id="study-type" class="dropdown_1" onchange="choosing_num_of_units()">
               <option disabled selected hidden>Select</option>
-              <option value="Part time">Part time </option>
-              <option value="Full time">Full time</option>
+              <option value="Full time">Full time </option>
+              <option value="Part time">Part time</option>
             </select>
           </div>
 
@@ -45,10 +39,10 @@
 
         <div class="row" style="line-height: 3">
           <div class="col">
-            <label class="question-label">Units per semester:</label>
-            <span class="mytooltip" data-tooltip=
+            <label class="question-label">Units per semester: (Part Time Only)</label>
+            <!-- <span class="mytooltip" data-tooltip=
             "PART TIME ONLY: Choose number of unit to complete per semester">
-            ?</span>
+            ?</span> -->
           </div>
           <div class="col question-dropdown">
             <select name="num-of-units" id="num-of-units" class="dropdown_1" style="visibility: hidden" onchange="set_up_part_time()">
