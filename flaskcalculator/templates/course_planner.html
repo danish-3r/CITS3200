@@ -43,23 +43,25 @@
 
         </div>
 
+        <div id="part_time_div" style="display: none;">
         <div class="row" style="line-height: 3">
           <div class="col">
-            <label class="question-label">Units per semester:</label>
-            <span class="mytooltip" data-tooltip=
-            "PART TIME ONLY: Choose number of unit to complete per semester">
-            ?</span>
+            <label class="question-label">Semester size:  
+            </label>
+            <span class="mytooltip" data-tooltip="PART TIME ONLY: Choose number of unit to complete per semester">?</span>
+
           </div>
           <div class="col question-dropdown">
-            <select name="num-of-units" id="num-of-units" class="dropdown_1" style="visibility: hidden" onchange="set_up_part_time()">
+            <select name="num-of-units" id="num-of-units" class="dropdown_1"  onchange="set_up_part_time()">
               <option disabled selected hidden>Select</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+              <option value="2">2 units per semester</option>
+              <option value="3">3 units per semester</option>
 
             </select>
           </div>
 
         </div>
+      </div>
 
         <div class="row" style="line-height: 3">
           <div class="col">

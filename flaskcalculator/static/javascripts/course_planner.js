@@ -222,7 +222,7 @@ function update_degree_names()
     major_selector.value = "Select";
     study_type = document.getElementById("study-type");
     study_type.value = "Select";
-    document.getElementById("num-of-units").style.visibility="hidden";
+    document.getElementById("part_time_div").style.display="none";
     document.getElementById("error_message").style.visibility = "hidden";
     document.getElementById("total_price").innerHTML = "$" + 0; 
     document.getElementById("total_credits").innerHTML = 0; 
@@ -294,12 +294,12 @@ function choosing_num_of_units()
     degree_type = document.getElementsByClassName('dropdown_1')[0].value;
     study_type = document.getElementById("study-type");
     if (study_type.value == "Part time") {
-        document.getElementById("num-of-units").style.visibility = "visible";
+        document.getElementById("part_time_div").style.display = "block";
     }
 
     // FULL TIME CASE
     else if (study_type.value = "Full time") {
-        document.getElementById("num-of-units").style.visibility = "hidden";
+        document.getElementById("part_time_div").style.display = "none";
 
         if(degree_type == "Undergraduate")
         {
