@@ -389,6 +389,69 @@ function major_change()
 }
 
 
+
+
+
+function choosing_num_of_units()
+{
+    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
+    study_type = document.getElementById("study-type");
+    if (study_type.value == "Part time") {
+        document.getElementById("num-of-units").style.visibility = "visible";
+    }
+
+    // FULL TIME CASE
+    else if (study_type.value = "Full time") {
+        if(degree_type == "Undergraduate")
+        {
+            remove_years();
+            for (let year = 1; year <= UNDERGRADUATE_YEAR; year++)
+            {
+                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
+            }
+        }
+        else{
+            remove_years();
+            for (let year = 1; year <= POSTGRADUATE_YEAR; year++)
+            {
+                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
+            }
+        }
+    } 
+}
+
+function set_up_part_time()
+{
+    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
+    num_of_units_per_sem = parseInt(document.getElementById("num-of-units").value);
+    
+    if(degree_type == "Undergraduate")
+    {
+        remove_years();
+
+        sems = Math.ceil(UNDERGRADUATE_UNIT / num_of_units_per_sem);
+        years = Math.ceil(sems / 2);
+
+        for (let year = 1; year <= years; year++)
+        {
+            add_year(year, num_of_units_per_sem);
+        }
+    }
+    else{
+        remove_years();
+
+        sems = Math.ceil(POSTGRADUATE_UNIT / num_of_units_per_sem);
+        years = Math.ceil(sems / 2);
+        for (let year = 1; year <= years; year++)
+        {
+            add_year(year, num_of_units_per_sem);
+        }
+    }
+}
+
+
+// -------------------------------------------
+
 //called when an elective unit has been selected
 function cp_change_prices(list_number)
 {
@@ -453,39 +516,6 @@ function cp_change_prices(list_number)
     document.getElementById("total_eftsl").innerHTML = (eftsl_total); 
 
 }
-
-
-function choosing_num_of_units()
-{
-    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
-    study_type = document.getElementById("study-type");
-    if (study_type.value == "Part time") {
-        document.getElementById("study-period").style.visibility = "visible";
-    }
-
-    // FULL TIME CASE
-    if (study_type.value = "Full time") {
-        if(degree_type == "Undergraduate")
-        {
-            remove_years();
-            for (let year = 1; year <= UNDERGRADUATE_YEAR; year++)
-            {
-                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
-            }
-        }
-        else{
-            remove_years();
-            for (let year = 1; year <= POSTGRADUATE_YEAR; year++)
-            {
-                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
-            }
-        }
-    } 
-}
-    
-
-// -------------------------------------------
-
 
 function selectable_units(list_number)
 {
