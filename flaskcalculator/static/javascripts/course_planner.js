@@ -327,11 +327,6 @@ function major_change()
     document.getElementById("major_name").innerHTML = "AREA OF STUDY: ".concat(major_selector.value);
 
     degree_type = document.getElementsByClassName('dropdown_1')[0].value;
- 
-    // for(let i = 1; i <= POSTGRADUATE_YEAR * 8; i++)
-    // {
-        
-    // }
 
     //this should be changed to read the db and get all compulsory units for the major in a list
     var compulsory_units = get_compulsory_units(major_selector.value);
@@ -390,12 +385,12 @@ function major_change()
 
 }
 
-
-
-
-
 function choosing_num_of_units()
 {
+    // Clear up the previous major
+    major_selector = document.getElementById("major_select");
+    major_selector.value = "Select";
+    
     degree_type = document.getElementsByClassName('dropdown_1')[0].value;
     study_type = document.getElementById("study-type");
     if (study_type.value == "Part time") {
@@ -404,6 +399,8 @@ function choosing_num_of_units()
 
     // FULL TIME CASE
     else if (study_type.value = "Full time") {
+        document.getElementById("num-of-units").style.visibility = "hidden";
+
         if(degree_type == "Undergraduate")
         {
             remove_years();
