@@ -13,7 +13,6 @@
 }
 
 /* QUESTIONAIRE CSS */
-
 .questionaire .question-label {
   text-align: left;
   font-size: 20px;
@@ -56,6 +55,11 @@
   width: 100%;
   overflow: auto;
 }
+
+.course_type, .unit_credit, .unit_eftsl, .fee {
+  text-align: center !important;
+}
+
 
 #planner-instruction h4 {
   margin: 5px 0px;
