@@ -67,8 +67,8 @@
 }
 
 #planner-instruction li {
-  font-size: 0.8;
-  font-weight: 550;
+  font-size: 14px;
+  font-weight: 400;
   color: #27348b;
   margin: 0px;
   resize: none;
