@@ -5,6 +5,8 @@ function dropDownChange()
     var type = document.getElementById("types") //get value stored in option tag
     var level = document.getElementById("levels")
     var year = document.getElementById("years")
+
+
     
     if(type.value == "Select" || level.value == "Select" || year.value == "Select")
     {
@@ -41,4 +43,19 @@ function dropDownChange()
             courses.innerHTML = options
         }      
     ))
+
+    if(level.value == "Postgraduate" && type.value == "Domestic")
+    {
+        ffs = document.getElementsByClassName("full_fee_students")
+        ffs[0].style.display = "block";
+        ffs[1].style.display = "block";
+
+    }
+    else
+    {
+        ffs = document.getElementsByClassName("full_fee_students")
+        ffs[0].style.display = "none";
+        ffs[1].style.display = "none";
+    }
+    
 }
