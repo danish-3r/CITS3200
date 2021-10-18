@@ -1,7 +1,7 @@
 {% macro course_planner() %}
 
 <div id="course-planner">
-  <h3>Create your own course planner</h3>
+  <h3>Create your own course plann</h3>
   <div id="planner-header" class="container">
     <div class="row">
       <div class = "col" id="course-selector"> 
@@ -29,6 +29,9 @@
         <div class="row" style="line-height: 3">
           <div class="col">
             <label class="question-label">Study type:</label>
+            <span class="mytooltip" data-tooltip=
+            "PART TIME: Choose less units to do per semester. FULL TIME: Complete by default 4 units per semester">
+            ?</span>
           </div>
           <div class="col question-dropdown">
             <select name="study-type" id="study-type" class="dropdown_1" onchange="choosing_num_of_units()">
@@ -43,6 +46,9 @@
         <div class="row" style="line-height: 3">
           <div class="col">
             <label class="question-label">Units per semester:</label>
+            <span class="mytooltip" data-tooltip=
+            "PART TIME ONLY: Choose number of unit to complete per semester">
+            ?</span>
           </div>
           <div class="col question-dropdown">
             <select name="num-of-units" id="num-of-units" class="dropdown_1" style="visibility: hidden" onchange="set_up_part_time()">
@@ -131,7 +137,7 @@
     </table>
   </div>
 
-  <div id="error_message" style="text-align: center; color:red; display: none;">
+  <div id="error_message" style="text-align: center; color:red; display: none; visibility:hidden">
     Please select <span id='units_remamining'></span> more unit(s) for a valid course
   </div>
   <br>

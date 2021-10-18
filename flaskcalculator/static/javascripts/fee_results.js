@@ -23,9 +23,10 @@ function updateFeeResults()
             document.getElementById("resultCourse").textContent=data.course_name;
             document.getElementById("resultYear").textContent=data.course_year;
             
-            var avgAnnualFee = data.course_fee / data.duration
-            var FFPavgAnnualFee = data.COLNew / data.duration
-            avgAnnualFee = parseInt(avgAnnualFee)
+            var avgAnnualFee = data.course_fee / data.duration;
+            var FFPavgAnnualFee = data.COLNew / data.duration;
+            avgAnnualFee = parseInt(avgAnnualFee);
+            FFPavgAnnualFee = parseInt(FFPavgAnnualFee);
             
             document.getElementById("ANF").textContent=avgAnnualFee;
             document.getElementById("TFR").textContent=data.course_fee;

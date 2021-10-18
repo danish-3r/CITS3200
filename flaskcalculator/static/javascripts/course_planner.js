@@ -215,6 +215,13 @@ function add_options(select)
 //enters dropdown mode
 function update_degree_names()
 {
+    // Clear up the previous plan
+    major_selector = document.getElementById("major_select");
+    major_selector.value = "Select";
+    study_type = document.getElementById("study-type");
+    study_type.value = "Select";
+    document.getElementById("num-of-units").style.visibility="hidden";
+    document.getElementById("error_message").style.visibility = "hidden";
 
     degree_type = document.getElementsByClassName('dropdown_1')[0].value;
 
@@ -299,138 +306,73 @@ function update_degree_names()
     }
 }
 
-
-function changeto_drop(list_number)
-{   
-
-    let unit_num = "+unit".concat(list_number);
-    let drop_num = "planner_drop".concat(list_number);
-
-
-    selectable_units(list_number);
-
-    document.getElementById(unit_num).style.visibility = "hidden"; 
-    document.getElementById(drop_num).style.visibility = "visible"; 
-
-}
-
-//exits dropdown mode
-function changeto_add(list_number)
+function choosing_num_of_units()
 {
-    let unit_num = "+unit".concat(list_number);
-    let drop_num = "planner_drop".concat(list_number);
-
-    try {
-        document.getElementById(unit_num).style.visibility = "visible"; 
-        document.getElementById(drop_num).style.visibility = "hidden"; 
-
-        document.getElementById(unit_num).style.color = "blue"; 
-        document.getElementById(unit_num).innerHTML = "+ Add a unit"; 
-
-
-        var course_types = document.getElementsByClassName("course_type");
-        course_types[list_number-1].innerHTML = "-";
-
-        var fees = document.getElementsByClassName("fee");
-        fees[list_number-1].innerHTML = "$".concat("0");
-
-        var credit_points = document.getElementsByClassName("unit_credit")
-        credit_points[list_number-1].innerHTML = "0";
-
-        var unit_eftsl = document.getElementsByClassName("unit_eftsl")
-        unit_eftsl[list_number-1].innerHTML = "0";
+    // Clear up the previous major
+    major_selector = document.getElementById("major_select");
+    major_selector.value = "Select";
+    
+    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
+    study_type = document.getElementById("study-type");
+    if (study_type.value == "Part time") {
+        document.getElementById("num-of-units").style.visibility = "visible";
     }
-    finally{}
+
+    // FULL TIME CASE
+    else if (study_type.value = "Full time") {
+        document.getElementById("num-of-units").style.visibility = "hidden";
+
+        if(degree_type == "Undergraduate")
+        {
+            remove_years();
+            for (let year = 1; year <= UNDERGRADUATE_YEAR; year++)
+            {
+                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
+            }
+        }
+        else{
+            remove_years();
+            for (let year = 1; year <= POSTGRADUATE_YEAR; year++)
+            {
+                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
+            }
+        }
+    } 
 }
 
-
-// Return list of compulsory units depend on area of study
-function get_compulsory_units(area_of_study)
+function set_up_part_time()
 {
-    var compulsory_units = []
-    if (area_of_study == "Computer Science")
-    {
-        compulsory_units = [
-            "Software Engineering with Java",
-            "Introduction to Cybersecurity",
-            "Relational Database Management Systems",
-            "Mathematics Foundations: Methods",
-            "Systems Programming",
-            "Data Structures and Algorithms",
-            "Discrete Structures",
-            "Algorithms, Agents and Artificial Intelligence",
-            "Computer Networks",
-            "Professional Computing",
-            "Agile Web Development",
-            "Graphics and Animation",
-            "Knowledge Representation",
-            "Secure Coding",
-            "High Performance Computing"
-        ];
-    }
-    if (area_of_study == "Data Science")
-    {
-        compulsory_units = [
-            "Computational Thinking with Python",
-            "Relational Database Management Systems",
-            "Ethics for the Digital Age: An Introduction to Moral Philosophy",
-            "Statistics for Science",
-            "Introduction to Data Science",
-            "Statistical Learning",
-            "Introduction to Bayesian Computing and Statistics",
+    // Clear up the previous major
+    major_selector = document.getElementById("major_select");
+    major_selector.value = "Select";
 
-        ]
-
-    }
-    if (area_of_study == "Master of Education - Thesis & Coursework")
+    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
+    num_of_units_per_sem = parseInt(document.getElementById("num-of-units").value);
+    
+    if(degree_type == "Undergraduate")
     {
-        compulsory_units = [
-            "Master's Dissertation",
-            "Approaches to Research",
-            "International and Comparative Education",
-            "Quantitative Inquiry",
-            "Qualitative Inquiry",
-            "Measurement and Evaluation",
-            "Childhood and Adolescent Developmental Psychopathology",
-            "Education Studies"
-        ];
-    }
-    if (area_of_study == "Master of Arts - Research")
-    {
-        compulsory_units = [
-            "Art Theory",
-            "Breaking Art",
-            "Contemporary Art and Tradition in China",
-            "(Inter)national History of Art Study Tour",
-            "Prints from Dürer to Toulouse-Lautrec",
-            "Manet and the French Avant-Garde",
-            "Michelangelo",
-            "Art and Games: from Dada to Data",
-            "Visual Culture and Art in America: 1900–2000"
-        ];
-    }
+        remove_years();
 
-    if (area_of_study == "Master of Information Technology - Coursework")
-    {
-        compulsory_units = [
-            "Software Engineering with Java",
-            "Introduction to Cybersecurity",
-            "Computational Thinking with Python",
-            "Relational Database Management Systems",     
-            "Software Requirements and Design",
-            "Open Source Tools and Scripting",
-            "Professional Computing",
-            "Software Testing and Quality Assurance",     
-            "Cloud Computing",
-            "Agile Web Development",
-            "The Internet of Things",
-            "Project Management and Engineering Practice"
-        ];
+        sems = Math.ceil(UNDERGRADUATE_UNIT / num_of_units_per_sem);
+        years = Math.ceil(sems / 2);
+
+        for (let year = 1; year <= years; year++)
+        {
+            add_year(year, num_of_units_per_sem);
+        }
     }
+    else{
+        remove_years();
 
-    return compulsory_units;
-
+        sems = Math.ceil(POSTGRADUATE_UNIT / num_of_units_per_sem);
+        years = Math.ceil(sems / 2);
+        for (let year = 1; year <= years; year++)
+        {
+            add_year(year, num_of_units_per_sem);
+        }
+    }
 }
+
 //main function that sets up the planner
 function major_change()
 {
@@ -494,73 +436,56 @@ function major_change()
     document.getElementById("total_eftsl").innerHTML = (eftsl_total); 
     check_eftsl()
 
+    document.getElementById("error_message").style.visibility = "visible";
+}
+
+// ----------------------------
+
+function changeto_drop(list_number)
+{   
+
+    let unit_num = "+unit".concat(list_number);
+    let drop_num = "planner_drop".concat(list_number);
+
+
+    selectable_units(list_number);
+
+    document.getElementById(unit_num).style.visibility = "hidden"; 
+    document.getElementById(drop_num).style.visibility = "visible"; 
 
 }
 
-function choosing_num_of_units()
+//exits dropdown mode
+function changeto_add(list_number)
 {
-    // Clear up the previous major
-    major_selector = document.getElementById("major_select");
-    major_selector.value = "Select";
-    
-    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
-    study_type = document.getElementById("study-type");
-    if (study_type.value == "Part time") {
-        document.getElementById("num-of-units").style.visibility = "visible";
+    let unit_num = "+unit".concat(list_number);
+    let drop_num = "planner_drop".concat(list_number);
+
+    try {
+        document.getElementById(unit_num).style.visibility = "visible"; 
+        document.getElementById(drop_num).style.visibility = "hidden"; 
+
+        document.getElementById(unit_num).style.color = "blue"; 
+        document.getElementById(unit_num).innerHTML = "+ Add a unit"; 
+
+
+        var course_types = document.getElementsByClassName("course_type");
+        course_types[list_number-1].innerHTML = "-";
+
+        var fees = document.getElementsByClassName("fee");
+        fees[list_number-1].innerHTML = "$".concat("0");
+
+        var credit_points = document.getElementsByClassName("unit_credit")
+        credit_points[list_number-1].innerHTML = "0";
+
+        var unit_eftsl = document.getElementsByClassName("unit_eftsl")
+        unit_eftsl[list_number-1].innerHTML = "0";
     }
-
-    // FULL TIME CASE
-    else if (study_type.value = "Full time") {
-        document.getElementById("num-of-units").style.visibility = "hidden";
-
-        if(degree_type == "Undergraduate")
-        {
-            remove_years();
-            for (let year = 1; year <= UNDERGRADUATE_YEAR; year++)
-            {
-                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
-            }
-        }
-        else{
-            remove_years();
-            for (let year = 1; year <= POSTGRADUATE_YEAR; year++)
-            {
-                add_year(year, DEFAULT_NUM_OF_UNITS_PER_SEM);
-            }
-        }
-    } 
-}
-
-function set_up_part_time()
-{
-    degree_type = document.getElementsByClassName('dropdown_1')[0].value;
-    num_of_units_per_sem = parseInt(document.getElementById("num-of-units").value);
-    
-    if(degree_type == "Undergraduate")
-    {
-        remove_years();
-
-        sems = Math.ceil(UNDERGRADUATE_UNIT / num_of_units_per_sem);
-        years = Math.ceil(sems / 2);
-
-        for (let year = 1; year <= years; year++)
-        {
-            add_year(year, num_of_units_per_sem);
-        }
-    }
-    else{
-        remove_years();
-
-        sems = Math.ceil(POSTGRADUATE_UNIT / num_of_units_per_sem);
-        years = Math.ceil(sems / 2);
-        for (let year = 1; year <= years; year++)
-        {
-            add_year(year, num_of_units_per_sem);
-        }
-    }
+    finally{}
 }
 
 
+// ---------------------------
 
 //called when an elective unit has been selected
 function cp_change_prices(list_number)
@@ -654,7 +579,6 @@ function check_eftsl()
     else
     {
         document.getElementById("error_message").style.display = "none";
-
     }
 }
 
@@ -801,5 +725,93 @@ function get_units()
         "Improving Learning and Teaching in the Curriculum"];
 
         return all_units;
+
+}
+
+// Return list of compulsory units depend on area of study
+function get_compulsory_units(area_of_study)
+{
+    var compulsory_units = []
+    if (area_of_study == "Computer Science")
+    {
+        compulsory_units = [
+            "Software Engineering with Java",
+            "Introduction to Cybersecurity",
+            "Relational Database Management Systems",
+            "Mathematics Foundations: Methods",
+            "Systems Programming",
+            "Data Structures and Algorithms",
+            "Discrete Structures",
+            "Algorithms, Agents and Artificial Intelligence",
+            "Computer Networks",
+            "Professional Computing",
+            "Agile Web Development",
+            "Graphics and Animation",
+            "Knowledge Representation",
+            "Secure Coding",
+            "High Performance Computing"
+        ];
+    }
+    if (area_of_study == "Data Science")
+    {
+        compulsory_units = [
+            "Computational Thinking with Python",
+            "Relational Database Management Systems",
+            "Ethics for the Digital Age: An Introduction to Moral Philosophy",
+            "Statistics for Science",
+            "Introduction to Data Science",
+            "Statistical Learning",
+            "Introduction to Bayesian Computing and Statistics",
+
+        ]
+
+    }
+    if (area_of_study == "Master of Education - Thesis & Coursework")
+    {
+        compulsory_units = [
+            "Master's Dissertation",
+            "Approaches to Research",
+            "International and Comparative Education",
+            "Quantitative Inquiry",
+            "Qualitative Inquiry",
+            "Measurement and Evaluation",
+            "Childhood and Adolescent Developmental Psychopathology",
+            "Education Studies"
+        ];
+    }
+    if (area_of_study == "Master of Arts - Research")
+    {
+        compulsory_units = [
+            "Art Theory",
+            "Breaking Art",
+            "Contemporary Art and Tradition in China",
+            "(Inter)national History of Art Study Tour",
+            "Prints from Dürer to Toulouse-Lautrec",
+            "Manet and the French Avant-Garde",
+            "Michelangelo",
+            "Art and Games: from Dada to Data",
+            "Visual Culture and Art in America: 1900–2000"
+        ];
+    }
+
+    if (area_of_study == "Master of Information Technology - Coursework")
+    {
+        compulsory_units = [
+            "Software Engineering with Java",
+            "Introduction to Cybersecurity",
+            "Computational Thinking with Python",
+            "Relational Database Management Systems",     
+            "Software Requirements and Design",
+            "Open Source Tools and Scripting",
+            "Professional Computing",
+            "Software Testing and Quality Assurance",     
+            "Cloud Computing",
+            "Agile Web Development",
+            "The Internet of Things",
+            "Project Management and Engineering Practice"
+        ];
+    }
+
+    return compulsory_units;
 
 }
