@@ -21,7 +21,18 @@ class Unit(db.Model):
            "credit_points":self.credit_points, "eftsl":self.eftsl, "availability":self.availability, "unit_fee":self.unit_fee} 
         return dict
 
+class Unit_Final(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    unit_code = db.Column(db.String(20), nullable=False, unique=True)
+    unit_name = db.Column(db.String(30), nullable=False)
+    credit_points = db.Column(db.Integer, nullable=False)
+    eftsl = db.Column(db.Float, nullable=False)
+    availability = db.Column(db.String(10), nullable=False)
+    unit_fee = db.Column(db.Integer, nullable=False)
 
+    unitjoincourses = db.relationship("UnitsJoinCourses")
+    unitjoinmajors = db.relationship("UnitsJoinMajors")
+    
 class Major(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     major_code = db.Column(db.String(20), nullable=False, unique=True)
@@ -39,6 +50,7 @@ class Course(db.Model):
     duration = db.Column(db.Float, nullable=False)
     credit_points = db.Column(db.Integer, nullable=False)
     course_fee = db.Column(db.Integer, nullable=False)
+    COLNew = db.Column(db.Float, nullable=False)
 
     childrenUnits = db.relationship("UnitsJoinCourses")
     childrenMajors = db.relationship("Major", secondary=MajorsJoinCourses)
