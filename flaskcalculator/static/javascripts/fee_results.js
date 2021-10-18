@@ -24,10 +24,13 @@ function updateFeeResults()
             document.getElementById("resultYear").textContent=data.course_year;
             
             var avgAnnualFee = data.course_fee / data.duration
+            var FFPavgAnnualFee = data.COLNew / data.duration
             avgAnnualFee = parseInt(avgAnnualFee)
             
             document.getElementById("ANF").textContent=avgAnnualFee;
             document.getElementById("TFR").textContent=data.course_fee;
+            document.getElementById("FFP_ANF").textContent=FFPavgAnnualFee;
+            document.getElementById("FFP_TFR").textContent=data.COLNew;
         }
         
     ))
@@ -42,4 +45,6 @@ function blankFeeResults()
     document.getElementById("resultYear").textContent="______";
     document.getElementById("ANF").textContent="";
     document.getElementById("TFR").textContent="";
+    document.getElementById("FFP_ANF").textContent="";
+    document.getElementById("FFP_TFR").textContent="";
 }

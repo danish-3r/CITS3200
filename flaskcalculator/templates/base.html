@@ -6,12 +6,17 @@
 {% from 'footer.html' import footer %}
 {% from 'faq.html' import faq %}
 
+
 <!-- import the html code from html files -->
 
 <!DOCTYPE html>
 <html>
 
 <head>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='stylesheets/base.css') }}">
@@ -68,12 +73,15 @@
         <div class="contentwrapper">
             <div class="content">
                 <!-- ########## START MAIN CONTENT ########## -->
+                
+                <button onclick="unitsGivenCourseID(9)">HY<button>
 
                 {{ dropdown() }}
 
                 {{ fee_result() }}
 
                 {{ course_planner() }}
+               
 
                 <div class="faq-in-base">
                     <div class="faq-link">
@@ -84,6 +92,16 @@
                     </div>
                 </div>
 
+                <br><br>
+
+                <div class="faq-in-base">
+                    <div class="faq-link">
+                        <span>Are you eligible for scholarships ?</span>
+                        <span>Find out here</span>
+                        <button onclick="window.open('https://www.uwa.edu.au/study/fees-and-scholarships')" type="button" class="btn btn-outline-secondary">Available Scholarships</button>
+                        </a>
+                    </div>
+                </div>
                 {{ extra_links() }}
 
                 {{ contact_us() }}
@@ -102,7 +120,7 @@
 
 <script src="{{ url_for('static', filename='javascripts/dropdown.js') }}"></script>
 <script src="{{ url_for('static', filename='javascripts/fee_results.js') }}"></script>
-
+<script src="{{ url_for('static', filename='javascripts/unitsGivenCourseID.js') }}"></script>
 
 
 </html>

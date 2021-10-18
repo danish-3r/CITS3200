@@ -495,6 +495,8 @@ function major_change()
     document.getElementById("total_price").innerHTML = "$".concat(price_total); 
     document.getElementById("total_credits").innerHTML = (credit_total); 
     document.getElementById("total_eftsl").innerHTML = (eftsl_total); 
+    check_eftsl()
+
 
 }
 
@@ -562,6 +564,37 @@ function cp_change_prices(list_number)
     document.getElementById("total_credits").innerHTML = (credit_total); 
     document.getElementById("total_eftsl").innerHTML = (eftsl_total); 
 
+    check_eftsl()
+}
+
+
+function check_eftsl()
+{
+    if(document.getElementsByClassName('dropdown_1')[0].value == "Undergraduate")
+    {
+        required_efstl = 3;
+    }
+    else
+    {
+        required_efstl = 2;
+
+    }
+
+    let efstl_diff = required_efstl - parseFloat(document.getElementById("total_eftsl").innerHTML)
+    let units_needed = efstl_diff/0.125
+
+    document.getElementById("units_remamining").innerHTML = units_needed;
+    
+
+    if(efstl_diff != 0) 
+    {
+        document.getElementById("error_message").style.display = "block";
+    }
+    else
+    {
+        document.getElementById("error_message").style.display = "none";
+
+    }
 }
 
 function selectable_units(list_number)

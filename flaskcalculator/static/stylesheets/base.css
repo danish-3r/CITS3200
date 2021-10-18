@@ -171,6 +171,7 @@ margin-left: -8px;
 
 .faq-link{
   text-align: center;
+  font-size: 20px;
 }
 
 .btn-outline-secondary{
@@ -180,4 +181,5 @@ margin-left: -8px;
   text-decoration: none;
   padding: 5px 60px;
   margin-left: 10%;
+  font-size: 20px;
 }
