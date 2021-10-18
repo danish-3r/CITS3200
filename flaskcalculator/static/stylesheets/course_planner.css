@@ -13,7 +13,6 @@
 }
 
 /* QUESTIONAIRE CSS */
-
 .questionaire .question-label {
   text-align: left;
   font-size: 20px;
@@ -21,10 +20,6 @@
   float: left;
   margin: 8px 20px;
 }
-
-
-
-
 
 #course-selector {
   padding: 20px;
@@ -61,25 +56,27 @@
   overflow: auto;
 }
 
+.course_type, .unit_credit, .unit_eftsl, .fee {
+  text-align: center !important;
+}
+
+
 #planner-instruction h4 {
   margin: 5px 0px;
+  resize: none;
 }
 
 #planner-instruction li {
-  font-size: 0.8vw;
-  font-weight: 550;
+  font-size: 14px;
+  font-weight: 400;
   color: #27348b;
   margin: 0px;
+  resize: none;
 }
 
 #planner-table-header {
   font-size: 16px;
   background-color: #dee2e6;
-}
-
-#planner-requirement {
-  font-size: 16px;
-  color: #27348b;
 }
 
 #planner-major {
@@ -89,6 +86,10 @@
 
 .table.table.planner-table-year {
   margin: 0px;
+}
+
+.planner-table-main {
+  width: 100%;
 }
 
 .planner-table-main tbody tr {
@@ -118,10 +119,10 @@
 }
 
 .year-text {
-  width: 100%;
+  width: 90%;
   color: white;
   writing-mode: vertical-rl;
-  margin-top: 100%;
+  margin-top: 150%;
 }
 
 .planner-table-year .semester-column {
@@ -131,15 +132,8 @@
   border: 1px solid #27348b; 
 }
 
-.semester-text {
-}
-
 .table.table-striped.planner-table-semester {
   margin: 0px;
-}
-
-#balance-row {
-  font-size: 16px;
 }
 
 #total-row {
