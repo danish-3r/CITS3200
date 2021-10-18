@@ -70,6 +70,11 @@ class SystemTest(unittest.TestCase):
         time.sleep(1)
         self.driver.implicitly_wait(5)
 
+        result = self.driver.find_element_by_id('resultCourse')
+        self.driver.execute_script("arguments[0].scrollIntoView();", result)
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+        
         # Check the annual fee and typical fee range
         ANF = self.driver.find_element_by_id('ANF')
         TFR = self.driver.find_element_by_id('TFR')
@@ -108,11 +113,19 @@ class SystemTest(unittest.TestCase):
         time.sleep(1)
         self.driver.implicitly_wait(5)
 
+        result = self.driver.find_element_by_id('resultCourse')
+        self.driver.execute_script("arguments[0].scrollIntoView();", result)
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
         # Check the annual fee and typical fee range
         ANF = self.driver.find_element_by_id('ANF')
         TFR = self.driver.find_element_by_id('TFR')
+        FFP = self.driver.find_element_by_id('FFP_TFR')
         self.assertTrue(ANF.get_attribute('innerHTML'))
         self.assertTrue(TFR.get_attribute('innerHTML'))
+        
+        self.assertTrue(FFP.get_attribute('innerHTML'))
 
         time.sleep(1)
         self.driver.implicitly_wait(5)
@@ -144,6 +157,11 @@ class SystemTest(unittest.TestCase):
         courses = Select(self.driver.find_element_by_id('courses'))
         courses.select_by_index(1)
         time.sleep(1)
+        self.driver.implicitly_wait(5)
+
+        result = self.driver.find_element_by_id('resultCourse')
+        self.driver.execute_script("arguments[0].scrollIntoView();", result)
+        time.sleep(2)
         self.driver.implicitly_wait(5)
 
         # Check the annual fee and typical fee range
@@ -184,6 +202,11 @@ class SystemTest(unittest.TestCase):
         time.sleep(1)
         self.driver.implicitly_wait(5)
 
+        result = self.driver.find_element_by_id('resultCourse')
+        self.driver.execute_script("arguments[0].scrollIntoView();", result)
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
         # Check the annual fee and typical fee range
         ANF = self.driver.find_element_by_id('ANF')
         TFR = self.driver.find_element_by_id('TFR')
@@ -192,10 +215,65 @@ class SystemTest(unittest.TestCase):
         
         time.sleep(1)
         self.driver.implicitly_wait(5)
-    
 
-    # # TEST COURSE PLANNER - ONE MAJOR
+    # TEST FAQ
     def test2(self):
+
+        # Click on FAQ page
+
+        faq = self.driver.find_element_by_xpath("//div[@class='faq-link']/button")
+        self.driver.execute_script("arguments[0].scrollIntoView();", faq)
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
+        self.driver.execute_script("arguments[0].click();", faq)
+
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
+        # Check if sucessfully access to FAQ page
+        header = self.driver.find_element_by_xpath("//div[@class='headings']/h1")
+        self.assertEqual(header.get_attribute('innerHTML'), 'Frequently asked questions')
+
+        faq_question_btn = self.driver.find_elements_by_tag_name('button')[0]
+        
+        # Try to click a FAQ question
+        try:
+            faq_question_btn.click()
+            time.sleep(2)
+            self.driver.implicitly_wait(5)
+        except WebDriverException:
+            print ("FAQ question is not clickable")
+
+        # Try clicking again
+        try:
+            faq_question_btn.click()
+            time.sleep(2)
+            self.driver.implicitly_wait(5)
+        except WebDriverException:
+            print ("FAQ question is not clickable")
+
+        # Return to home page
+        self.driver.execute_script("arguments[0].scrollIntoView();", faq_question_btn)
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
+        return_btn = self.driver.find_elements_by_xpath("//a//button")[0]
+        return_btn.click()
+        time.sleep(1)
+        self.driver.implicitly_wait(5)
+
+        # Check if return to home page
+        header = self.driver.find_element_by_xpath("//div[@class='headings']/h1")
+
+        time.sleep(1)
+        self.driver.implicitly_wait(5)
+
+        self.assertEqual(header.get_attribute('innerHTML'), 'Fee Calculator')
+   
+
+    # TEST COURSE PLANNER - ONE MAJOR
+    def test3(self):
 
         UNDERGRADUATE_UNITS = 24
 
@@ -301,7 +379,7 @@ class SystemTest(unittest.TestCase):
 
 
     # TEST COURSE PLANNER - TWO MAJOR
-    def test3(self):
+    def test4(self):
         UNDERGRADUATE_YEAR = 3
         POSTGRADUATE_YEAR = 2
 
@@ -382,8 +460,9 @@ class SystemTest(unittest.TestCase):
 
 
     # TEST COURSE PLANNER - PART-TIME STUDENT
-    def test4(self):
-         # CHOOSE COURSE OPTION
+    def test5(self):
+
+        # CHOOSE COURSE OPTION
         course_planner = self.driver.find_element_by_id('course-planner')
         self.driver.execute_script("arguments[0].scrollIntoView();", course_planner)
         time.sleep(2)
@@ -431,60 +510,6 @@ class SystemTest(unittest.TestCase):
 
         self.assertIsNotNone(year_4)
     
-    # TEST FAQ
-    def test5(self):
-
-        # Click on FAQ page
-
-        faq = self.driver.find_element_by_xpath("//div[@class='faq-link']/button")
-        self.driver.execute_script("arguments[0].scrollIntoView();", faq)
-        time.sleep(2)
-        self.driver.implicitly_wait(5)
-
-        self.driver.execute_script("arguments[0].click();", faq)
-
-        time.sleep(2)
-        self.driver.implicitly_wait(5)
-
-        # Check if sucessfully access to FAQ page
-        header = self.driver.find_element_by_xpath("//div[@class='headings']/h1")
-        self.assertEqual(header.get_attribute('innerHTML'), 'Frequently asked questions')
-
-        faq_question_btn = self.driver.find_elements_by_tag_name('button')[0]
-        
-        # Try to click a FAQ question
-        try:
-            faq_question_btn.click()
-            time.sleep(2)
-            self.driver.implicitly_wait(5)
-        except WebDriverException:
-            print ("FAQ question is not clickable")
-
-        # Try clicking again
-        try:
-            faq_question_btn.click()
-            time.sleep(2)
-            self.driver.implicitly_wait(5)
-        except WebDriverException:
-            print ("FAQ question is not clickable")
-
-        # Return to home page
-        self.driver.execute_script("arguments[0].scrollIntoView();", faq_question_btn)
-        time.sleep(2)
-        self.driver.implicitly_wait(5)
-
-        return_btn = self.driver.find_elements_by_xpath("//a//button")[0]
-        return_btn.click()
-        time.sleep(1)
-        self.driver.implicitly_wait(5)
-
-        # Check if return to home page
-        header = self.driver.find_element_by_xpath("//div[@class='headings']/h1")
-
-        time.sleep(1)
-        self.driver.implicitly_wait(5)
-
-        self.assertEqual(header.get_attribute('innerHTML'), 'Fee Calculator')
 
         
 if __name__=='__main__':
