@@ -298,6 +298,7 @@ function update_degree_names()
 
 function changeto_drop(list_number)
 {   
+
     let unit_num = "+unit".concat(list_number);
     let drop_num = "planner_drop".concat(list_number);
 
@@ -518,13 +519,13 @@ function cp_change_prices(list_number)
 
     
     var fees = document.getElementsByClassName("fee");
-    fees[list_number-1].innerHTML = "$".concat("1000");
+    fees[list_number].innerHTML = "$".concat("1000");
 
     var credit_points = document.getElementsByClassName("unit_credit")
-    credit_points[list_number-1].innerHTML = "6";
+    credit_points[list_number].innerHTML = "6";
 
     var unit_eftsl = document.getElementsByClassName("unit_eftsl")
-    unit_eftsl[list_number-1].innerHTML = "0.125";
+    unit_eftsl[list_number].innerHTML = "0.125";
 
     var course_types = document.getElementsByClassName("course_type");
     
@@ -532,11 +533,11 @@ function cp_change_prices(list_number)
 
     var compulsory_units = get_compulsory_units(area_of_study);
     if ( compulsory_units.includes(drop_val.value) ){
-        course_types[list_number-1].innerHTML = "Compulsory";
+        course_types[list_number].innerHTML = "Compulsory";
     }
     else 
     {
-        course_types[list_number-1].innerHTML = "Elective";
+        course_types[list_number].innerHTML = "Elective";
     }
 
     var price_total = 0;
