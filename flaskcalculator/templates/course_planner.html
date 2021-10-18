@@ -9,13 +9,6 @@
         <div class="row" style="line-height: 3">
           <div class="col">
             <label class="question-label">Course Type:</label>
-            <span class="mytooltip" data-tooltip=
-            "UNGERGRADUATE: first studies undertaken at university to introduce students to 
-            the knowledge base within a specific discipline.
-            POSTGRADUATE: available to students who have completed undergraduate studies 
-            (a more highly qualitifed result).
-            POSTGRADUATE RESEARCH: have an intensive research component to extend your understanding 
-            of a subject area">?</span>
           </div>
           <div class="col question-dropdown">
             <select name="levels" id="levels" class="dropdown_1" onchange="update_degree_names()">
@@ -56,8 +49,8 @@
         <tr style= "text-align: center;">
           <th scope="col" style="width: 10%; vertical-align: middle;">Year</th>
           <th scope="col" style="width: 10%; vertical-align: middle;">Teaching Period</th>
-          <th scope="col" style="width: 38%; vertical-align: middle;">Unit name</th>
-          <th scope="col" style="width: 12%; vertical-align: middle;">
+          <th scope="col" style="width: 41%; vertical-align: middle;">Unit name</th>
+          <th class= "course_type" scope="col" style="width: 9%; vertical-align: middle;">
             Type
             <span class="mytooltip" data-tooltip=
             "CORE units are units within a major that must be completed by all students undertaking that major. 
@@ -66,7 +59,7 @@
             range of interests and new disciplines. ">?</span>
           </th>
 
-          <th scope="col" style="width: 10%; vertical-align: middle;">
+          <th class="unit_credit" scope="col" style="width: 10%; vertical-align: middle;">
             Credit
             <span class="mytooltip" data-tooltip=
             "A standard full-time enrolment is 24 credit points (4 units) 
@@ -76,7 +69,7 @@
             Domestic students can choose to enrol part-time or full-time. Your student status 
             is determined by the number of credit points enrolled in over an academic year.">?</span>
           </th>
-          <th scope="col" style="width: 10%; vertical-align: middle;">
+          <th class= "unit_eftsl" scope="col" style="width: 10%; vertical-align: middle;">
             EFTSL
             <span class="mytooltip" data-tooltip=
             "Equivalent Full-Time Study Load (EFTSL) attributed to a unit. 
@@ -84,7 +77,7 @@
             worth), one EFTSL (1.000) is equivalent to a full time study 
             load for one year.">?</span>
           </th>
-          <th scope="col" style="width: 10%; vertical-align: middle;">Fee</th>
+          <th class= "fee" scope="col" style="width: 10%; vertical-align: middle;">Fee</th>
         </tr>
       </thead>
       <tbody id="table-body">
