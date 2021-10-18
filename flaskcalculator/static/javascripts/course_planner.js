@@ -495,6 +495,8 @@ function major_change()
     document.getElementById("total_price").innerHTML = "$".concat(price_total); 
     document.getElementById("total_credits").innerHTML = (credit_total); 
     document.getElementById("total_eftsl").innerHTML = (eftsl_total); 
+    check_eftsl()
+
 
 }
 
