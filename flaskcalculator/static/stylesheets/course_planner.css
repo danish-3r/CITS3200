@@ -63,13 +63,15 @@
 
 #planner-instruction h4 {
   margin: 5px 0px;
+  resize: none;
 }
 
 #planner-instruction li {
-  font-size: 0.8vw;
+  font-size: 0.8;
   font-weight: 550;
   color: #27348b;
   margin: 0px;
+  resize: none;
 }
 
 #planner-table-header {
