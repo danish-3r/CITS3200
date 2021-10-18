@@ -25,27 +25,16 @@ Prerequisites: Install python3 on the machine
 + On windows, follow the link  
     [https://www.sqlitetutorial.net/download-install-sqlite/]([https://www.sqlitetutorial.net/download-install-sqlite/)
 
-### Setup the database on your machine
-
-+ Initialize database  
-    ```flask db init```
-+ Migrate the database for the first run  
-    ```flask db migrate```
-+ Upgrade the databse for the first run  
-    ```flask db upgrade```
 
 ## Running flask app on local host
 
 ```flask run```
 
 This should start the app running on localhost at port 5000, i.e.  
-[http://localhost:5000/index](http://localhost:5000/index)
+[http://localhost:5000](http://localhost:5000)
 
 ## Run tests
 
-### Unit test
-
-python3 -m unittest unit_test.py
 
 ### System test
 
@@ -58,3 +47,6 @@ To run system tests, first you need to boot up the flask app on one tab
 ```flask run```  
 Then you can run the system test on another tab by  
 ```python3 system_test.py```  
+
+## Deployment server
+The current version can be found at: http://cits3200.pythonanywhere.com/

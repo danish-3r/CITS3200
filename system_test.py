@@ -38,6 +38,7 @@ class SystemTest(unittest.TestCase):
             self.driver.close()
 
 
+
     # TEST FEE CALCULATOR
     def test1(self):
     
@@ -193,14 +194,10 @@ class SystemTest(unittest.TestCase):
         self.driver.implicitly_wait(5)
     
 
-    # TEST COURSE PLANNER - ONE MAJOR
+    # # TEST COURSE PLANNER - ONE MAJOR
     def test2(self):
 
-        DEFAULT_CREDIT = 6
-        DEFAULT_EFTSL = 0.125
-        DEFAULT_FEE = 1000
-        DEFAULT_COMP_COURSES = 15
-
+        UNDERGRADUATE_UNITS = 24
 
         # CHOOSE COURSE OPTION
         course_planner = self.driver.find_element_by_id('course-planner')
@@ -211,6 +208,12 @@ class SystemTest(unittest.TestCase):
         # Choose type of degree
         levels = Select(self.driver.find_elements_by_name('levels')[1])
         levels.select_by_visible_text('Undergraduate')
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
+        # Choose full-time course
+        study_type = Select(self.driver.find_element_by_id('study-type'))
+        study_type.select_by_visible_text('Full time')
         time.sleep(2)
         self.driver.implicitly_wait(5)
 
@@ -228,21 +231,25 @@ class SystemTest(unittest.TestCase):
         time.sleep(2)
         self.driver.implicitly_wait(5)
 
-        # Check the default result
-        self.assertEqual(total_credit.text, str(DEFAULT_CREDIT * DEFAULT_COMP_COURSES))
-        self.assertEqual(total_eftsl.text, str(DEFAULT_EFTSL * DEFAULT_COMP_COURSES))
-        self.assertEqual(total_fee.text, '$' + str(DEFAULT_FEE * DEFAULT_COMP_COURSES))
+        # Check the default result not 0
+        self.assertNotEqual(total_credit.text, str(0))
+        self.assertNotEqual(total_eftsl.text, str(0))
+        self.assertNotEqual(total_fee.text, '$' + str(0))
 
+        # Check default error message is appear
+        error_message = self.driver.find_element_by_id('error_message')
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+        self.assertNotEqual(error_message.text, "")
 
-        # time.sleep(2)
-        # self.driver.implicitly_wait(5)
-
-        # ADD NEW UNIT IN 23RD POSITION
-        unit23 = (self.driver.find_element_by_id('+unit23'))
-        self.driver.execute_script("arguments[0].scrollIntoView();", unit23)
+        year3 = (self.driver.find_element_by_id('year-3'))
+        self.driver.execute_script("arguments[0].scrollIntoView();", year3)
         time.sleep(2)
         self.driver.implicitly_wait(5)
 
+
+        # ADD NEW UNIT IN 23RD POSITION
+        unit23 = (self.driver.find_element_by_id('+unit23'))
         # Click the select bar
         self.driver.execute_script("arguments[0].click();", unit23)
         time.sleep(1)
@@ -268,24 +275,29 @@ class SystemTest(unittest.TestCase):
         time.sleep(1)
         self.driver.implicitly_wait(5)
 
-
         # Check if two units are different
         self.assertNotEqual(unit23, unit24)
 
-        total_credit = self.driver.find_element_by_id('total_credits')
-        total_eftsl = self.driver.find_element_by_id('total_eftsl')
-        total_fee = self.driver.find_element_by_id('total_price')
-        
-        num_of_courses = DEFAULT_COMP_COURSES + 2
+        # Try to fill in the rest of options
+        for i in range(15, UNDERGRADUATE_UNITS + 1):
+            unit = (self.driver.find_element_by_id('+unit' + str(i)))
 
-        self.driver.execute_script("arguments[0].scrollIntoView();", total_fee)
+            # Click the select bar
+            self.driver.execute_script("arguments[0].click();", unit)
+            time.sleep(1)
+            self.driver.implicitly_wait(5)
+
+            # Choose unit
+            unit_select = Select(self.driver.find_element_by_id('unit_select' + str(i)))
+            unit_select.select_by_index(1)
+            time.sleep(1)
+            self.driver.implicitly_wait(5)
+
+        # Check that there is no error message
+        error_message = self.driver.find_element_by_id('error_message')
         time.sleep(2)
         self.driver.implicitly_wait(5)
-
-        # Check the update result
-        self.assertEqual(total_credit.text, str(DEFAULT_CREDIT * num_of_courses))
-        self.assertEqual(total_eftsl.text, str(DEFAULT_EFTSL * num_of_courses))
-        self.assertEqual(total_fee.text, '$' + str(DEFAULT_FEE * num_of_courses))
+        self.assertEqual(error_message.text, "")
 
 
     # TEST COURSE PLANNER - TWO MAJOR
@@ -305,12 +317,17 @@ class SystemTest(unittest.TestCase):
         time.sleep(2)
         self.driver.implicitly_wait(5)
 
+        # Choose full-time course
+        study_type = Select(self.driver.find_element_by_id('study-type'))
+        study_type.select_by_visible_text('Full time')
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
         # Choose degree you want to study
         major = Select(self.driver.find_elements_by_id('major_select')[0])
         major.select_by_visible_text('Computer Science')
         time.sleep(2)
         self.driver.implicitly_wait(5)
-
 
         # Check there exists 3 year
         year_3 = None
@@ -337,6 +354,12 @@ class SystemTest(unittest.TestCase):
         time.sleep(2)
         self.driver.implicitly_wait(5)
 
+        # Choose full-time course
+        study_type = Select(self.driver.find_element_by_id('study-type'))
+        study_type.select_by_visible_text('Full time')
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
         # Choose degree you want to study
         major = Select(self.driver.find_elements_by_id('major_select')[0])
         major.select_by_visible_text('Master of Education - Thesis & Coursework')
@@ -358,8 +381,58 @@ class SystemTest(unittest.TestCase):
         self.assertIsNotNone(year_2)
 
 
-    # TEST FAQ
+    # TEST COURSE PLANNER - PART-TIME STUDENT
     def test4(self):
+         # CHOOSE COURSE OPTION
+        course_planner = self.driver.find_element_by_id('course-planner')
+        self.driver.execute_script("arguments[0].scrollIntoView();", course_planner)
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+        
+        # Choose type of degree
+        levels = Select(self.driver.find_elements_by_name('levels')[1])
+        levels.select_by_visible_text('Undergraduate')
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
+        # Choose part-time course
+        study_type = Select(self.driver.find_element_by_id('study-type'))
+        study_type.select_by_visible_text('Part time')
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
+        # Choose number of units per semester
+        num_of_units = None
+        try:
+            num_of_units = Select(self.driver.find_element_by_id('num-of-units'))
+            num_of_units.select_by_visible_text('3')
+            time.sleep(2)
+            self.driver.implicitly_wait(5)
+        except:
+            print("No options for choosing number of units")
+        self.assertIsNotNone(num_of_units)
+        
+
+        # Choose degree you want to study
+        major = Select(self.driver.find_elements_by_id('major_select')[0])
+        major.select_by_visible_text('Computer Science')
+        time.sleep(2)
+        self.driver.implicitly_wait(5)
+
+        # Check there exists 4 years for part time
+        year_4 = None
+        try:
+            year_4 = self.driver.find_element_by_id('year-4')
+            self.driver.execute_script("arguments[0].scrollIntoView();", year_4)
+            time.sleep(2)
+            self.driver.implicitly_wait(5)      
+        except:
+            print ("No year 4")
+
+        self.assertIsNotNone(year_4)
+    
+    # TEST FAQ
+    def test5(self):
 
         # Click on FAQ page
 
