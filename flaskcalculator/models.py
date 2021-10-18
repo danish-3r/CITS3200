@@ -30,8 +30,7 @@ class Unit_Final(db.Model):
     availability = db.Column(db.String(10), nullable=False)
     unit_fee = db.Column(db.Integer, nullable=False)
 
-    unitjoincourses = db.relationship("UnitsJoinCourses")
-    unitjoinmajors = db.relationship("UnitsJoinMajors")
+
     
 class Major(db.Model):
     id = db.Column(db.Integer, primary_key=True)
