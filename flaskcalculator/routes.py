@@ -31,6 +31,6 @@ def feeresults():
     courseid = int(req["courseid"])
     course = Course.query.get(courseid)
     
-    res = make_response( {"course_name":course.course_name, "course_year":course.year, "duration":course.duration, "course_fee":course.course_fee} )
+    res = make_response( {"course_name":course.course_name, "course_year":course.year, "duration":course.duration, "course_fee":course.course_fee, "COLNew":course.COLNew} )
     
     return res

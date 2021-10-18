@@ -34,6 +34,7 @@ class Course(db.Model):
     duration = db.Column(db.Float, nullable=False)
     credit_points = db.Column(db.Integer, nullable=False)
     course_fee = db.Column(db.Integer, nullable=False)
+    COLNew = db.Column(db.Float, nullable=False)
 
     childrenUnits = db.relationship("UnitsJoinCourses")
     childrenMajors = db.relationship("Major", secondary=MajorsJoinCourses)
