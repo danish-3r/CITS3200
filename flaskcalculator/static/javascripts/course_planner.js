@@ -121,7 +121,7 @@ function set_up_unit_row(tr, unit_id)
 {
     // Unit part
     const td_unit = document.createElement("td");
-    td_unit.setAttribute("style", "width: 45%");
+    td_unit.setAttribute("style", "width: 40%");
     tr.appendChild(td_unit);
 
     const span = document.createElement("span");
@@ -138,7 +138,7 @@ function set_up_unit_row(tr, unit_id)
 
     // Course type part
     const td_course_type = document.createElement("td");
-    td_course_type.setAttribute("style", "width: 20%");
+    td_course_type.setAttribute("style", "width: 15%");
     td_course_type.setAttribute("class", "course_type");
     const default_course_type =  document.createTextNode("-");
     td_course_type.appendChild(default_course_type);
@@ -162,7 +162,7 @@ function set_up_unit_row(tr, unit_id)
 
     // Fee part
     const td_fee = document.createElement("td");
-    td_fee.setAttribute("style", "width: 15%");
+    td_fee.setAttribute("style", "width: 12%");
     td_fee.setAttribute("class", "fee");
     const default_fee =  document.createTextNode("$0");
     td_fee.appendChild(default_fee);
@@ -216,13 +216,20 @@ function add_options(select)
 function update_degree_names()
 {
     // Clear up the previous plan
+    remove_years();
+
     major_selector = document.getElementById("major_select");
     major_selector.value = "Select";
     study_type = document.getElementById("study-type");
     study_type.value = "Select";
     document.getElementById("num-of-units").style.visibility="hidden";
     document.getElementById("error_message").style.visibility = "hidden";
+    document.getElementById("total_price").innerHTML = "$" + 0; 
+    document.getElementById("total_credits").innerHTML = 0; 
+    document.getElementById("total_eftsl").innerHTML = 0;
 
+
+    // Start new plan
     degree_type = document.getElementsByClassName('dropdown_1')[0].value;
 
     let available_majors = [];
@@ -231,40 +238,12 @@ function update_degree_names()
 
     if(degree_type == "Undergraduate")
     {
-        if (years.length < UNDERGRADUATE_YEAR)
-        {
-            const length = years.length;
-            for (let year = length + 1; year <= UNDERGRADUATE_YEAR; year++)
-            {
-                add_year(year);
-            }
-        }
-
-        else if (years.length > UNDERGRADUATE_YEAR)
-        {
-            remove_years(UNDERGRADUATE_YEAR);
-        }
-
         available_majors.splice(0, available_majors.length);
 
         available_majors = ["Select", "Computer Science", "Data Science"];
-
     }
     else{
 
-        if (years.length < POSTGRADUATE_YEAR)
-        {
-            const length = year.length;
-            for (let year = length + 1; year <= POSTGRADUATE_YEAR; year++)
-            {
-                add_year(year);
-            }
-        }
-
-        else if (years.length > POSTGRADUATE_YEAR)
-        {
-            remove_years(POSTGRADUATE_YEAR);
-        }
         if(degree_type == "Postgraduate")
         {
             available_majors.splice(0, available_majors.length);
