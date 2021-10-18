@@ -22,10 +22,6 @@
   margin: 8px 20px;
 }
 
-
-
-
-
 #course-selector {
   padding: 20px;
   border: 50px;
@@ -79,11 +75,6 @@
   background-color: #dee2e6;
 }
 
-#planner-requirement {
-  font-size: 16px;
-  color: #27348b;
-}
-
 #planner-major {
   font-size: 18px;
   color: #27348b;
@@ -91,6 +82,10 @@
 
 .table.table.planner-table-year {
   margin: 0px;
+}
+
+.planner-table-main {
+  width: 100%;
 }
 
 .planner-table-main tbody tr {
@@ -120,10 +115,10 @@
 }
 
 .year-text {
-  width: 100%;
+  width: 90%;
   color: white;
   writing-mode: vertical-rl;
-  margin-top: 100%;
+  margin-top: 150%;
 }
 
 .planner-table-year .semester-column {
@@ -133,15 +128,8 @@
   border: 1px solid #27348b; 
 }
 
-.semester-text {
-}
-
 .table.table-striped.planner-table-semester {
   margin: 0px;
-}
-
-#balance-row {
-  font-size: 16px;
 }
 
 #total-row {
