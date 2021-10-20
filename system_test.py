@@ -259,7 +259,7 @@ class SystemTest(unittest.TestCase):
         self.driver.implicitly_wait(5)
 
         return_btn = self.driver.find_elements_by_xpath("//a//button")[0]
-        return_btn.click()
+        self.driver.execute_script("arguments[0].click();", return_btn)
         time.sleep(1)
         self.driver.implicitly_wait(5)
 
@@ -484,7 +484,7 @@ class SystemTest(unittest.TestCase):
         num_of_units = None
         try:
             num_of_units = Select(self.driver.find_element_by_id('num-of-units'))
-            num_of_units.select_by_visible_text('3 units persemester')
+            num_of_units.select_by_visible_text('3 units per semester')
             time.sleep(2)
             self.driver.implicitly_wait(5)
         except:
